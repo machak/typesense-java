@@ -4,10 +4,10 @@ import org.typesense.model.CollectionAlias;
 
 public class Alias {
 
-    public final ApiCall apiCall;
+    public final Call apiCall;
     public final String name;
 
-    public Alias(ApiCall apiCall, String name) {
+    public Alias(final Call apiCall, String name) {
         this.apiCall = apiCall;
         this.name = name;
     }

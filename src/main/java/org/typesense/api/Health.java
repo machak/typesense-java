@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 public class Health {
 
-    private final ApiCall apiCall;
+    private final Call apiCall;
     public static final String RESOURCEPATH = "/health";
 
-    public Health(ApiCall apiCall) {
+    public Health(final Call apiCall) {
         this.apiCall = apiCall;
     }
 

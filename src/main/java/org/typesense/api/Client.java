@@ -18,7 +18,7 @@ public interface Client {
 
     Configuration getConfiguration();
 
-    ApiCall getApiCall();
+    Call getApiCall();
 
     Collections getCollections();
 

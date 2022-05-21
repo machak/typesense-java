@@ -9,7 +9,7 @@ public class Collection {
 
     private final Configuration configuration;
 
-    private final ApiCall apiCall;
+    private final Call apiCall;
 
     private final String name;
 
@@ -24,7 +24,7 @@ public class Collection {
 
     private final String endpoint;
 
-    Collection(String name, ApiCall apiCall, Configuration configuration) {
+    Collection(String name, final Call apiCall, Configuration configuration) {
         this.name = name;
         this.apiCall = apiCall;
         this.configuration = configuration;

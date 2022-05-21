@@ -6,10 +6,10 @@ import org.typesense.model.CollectionAliasesResponse;
 
 public class Aliases {
 
-    private final ApiCall apiCall;
+    private final Call apiCall;
     public final static String RESOURCE_PATH = "/aliases";
 
-    public Aliases(ApiCall apiCall) {
+    public Aliases(final Call apiCall) {
         this.apiCall = apiCall;
     }
 

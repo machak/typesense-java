@@ -9,9 +9,9 @@ public class Overrides {
     public static final String RESOURCEPATH = "/overrides";
 
     private final String collectionName;
-    private final ApiCall apiCall;
+    private final Call apiCall;
 
-    public Overrides(String collectionName, ApiCall apiCall) {
+    public Overrides(String collectionName, final Call apiCall) {
         this.collectionName = collectionName;
         this.apiCall = apiCall;
     }

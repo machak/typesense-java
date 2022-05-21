@@ -5,10 +5,10 @@ import org.typesense.model.CollectionSchema;
 
 public class Collections {
 
-    private final ApiCall apiCall;
+    private final Call apiCall;
     public final static String RESOURCE_PATH = "/collections";
 
-    public Collections(ApiCall apiCall) {
+    public Collections(final Call apiCall) {
         this.apiCall = apiCall;
     }
 

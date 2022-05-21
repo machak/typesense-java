@@ -4,10 +4,10 @@ import java.util.Map;
 
 public class Debug {
 
-    private final ApiCall apiCall;
+    private final Call apiCall;
     public static final String RESOURCEPATH = "/debug";
 
-    public Debug(ApiCall apiCall) {
+    public Debug(final Call apiCall) {
         this.apiCall = apiCall;
     }
 

@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Document {
-    private final ApiCall apiCall;
+    private final Call apiCall;
     private final String endpoint;
 
-    Document(String collectionName, String documentId, ApiCall apiCall) {
+    Document(String collectionName, String documentId, final Call apiCall) {
         this.apiCall = apiCall;
 
         this.endpoint = Collections.RESOURCE_PATH + '/' + collectionName + Documents.RESOURCE_PATH + '/' + documentId;

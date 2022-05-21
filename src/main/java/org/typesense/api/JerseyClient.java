@@ -6,7 +6,7 @@ import java.util.Map;
 public class JerseyClient implements Client {
     private final Configuration configuration;
 
-    private final ApiCall apiCall;
+    private final Call apiCall;
 
     private final Collections collections;
     private final Map<String, Collection> individualCollections;
@@ -99,7 +99,7 @@ public class JerseyClient implements Client {
     }
 
     @Override
-    public ApiCall getApiCall() {
+    public Call getApiCall() {
         return apiCall;
     }
 

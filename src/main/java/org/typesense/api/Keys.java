@@ -17,9 +17,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Keys {
 
     public static final String RESOURCEPATH = "/keys";
-    private final ApiCall apiCall;
+    private final Call apiCall;
 
-    public Keys(ApiCall apiCall) {
+    public Keys(final Call apiCall) {
         this.apiCall = apiCall;
     }
 
