@@ -21,24 +21,24 @@ public class HealthAndOperationsTest extends TestCase {
     }
 
     public void testRetrieve() throws Exception {
-        System.out.println(this.client.health.retrieve());
+        System.out.println(this.client.getHealth().retrieve());
     }
 
     public void testPerformSnapshot() throws Exception {
         HashMap<String, String> query = new HashMap<>();
         query.put("snapshot_path", "/tmp/typesense-data-snapshot");
-        System.out.println(client.operations.perform("snapshot", query));
+        System.out.println(client.getOperations().perform("snapshot", query));
     }
 
     public void testPerformVote() throws Exception {
-        System.out.println(client.operations.perform("vote"));
+        System.out.println(client.getOperations().perform("vote"));
     }
 
     public void testMetrics() throws Exception {
-        System.out.println(client.metrics.retrieve());
+        System.out.println(client.getMetrics().retrieve());
     }
 
     public void testDebug() throws Exception {
-        System.out.println(client.debug.retrieve());
+        System.out.println(client.getDebug().retrieve());
     }
 }

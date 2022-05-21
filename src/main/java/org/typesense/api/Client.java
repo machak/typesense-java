@@ -1,88 +1,44 @@
 package org.typesense.api;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class Client {
-    private final Configuration configuration;
+public interface Client {
 
-    private final ApiCall apiCall;
+    Collection collections(String name);
 
-    private final Collections collections;
-    private final Map<String, Collection> individualCollections;
+    Collections collections();
 
-    private final Aliases aliases;
-    private final Map<String, Alias> individualAliases;
+    Aliases aliases();
 
-    private final Keys keys;
-    private final Map<Long, Key> individualKeys;
+    Alias aliases(String name);
 
-    public final Health health;
-    public final Operations operations;
-    public final Metrics metrics;
-    public final Debug debug;
-    public final MultiSearch multiSearch;
+    Keys keys();
 
-    public Client(Configuration configuration) {
-        this.configuration = configuration;
-        this.apiCall = new ApiCall(configuration);
-        collections = new Collections(apiCall);
-        this.individualCollections = new HashMap<>();
-        this.aliases = new Aliases(this.apiCall);
-        this.individualAliases = new HashMap<>();
-        this.keys = new Keys(this.apiCall);
-        this.individualKeys = new HashMap<>();
-        this.health = new Health(this.apiCall);
-        this.operations = new Operations(this.apiCall);
-        this.metrics = new Metrics(this.apiCall);
-        this.debug = new Debug(this.apiCall);
-        this.multiSearch = new MultiSearch(this.apiCall);
-    }
+    Key keys(Long id);
 
-    public Collection collections(String name) {
-        Collection retVal;
+    Configuration getConfiguration();
 
-        if (!this.individualCollections.containsKey(name)) {
-            individualCollections.put(name, new Collection(name, this.apiCall, this.configuration));
-        }
+    ApiCall getApiCall();
 
-        retVal = individualCollections.get(name);
+    Collections getCollections();
 
-        return retVal;
-    }
+    Map<String, Collection> getIndividualCollections();
 
-    public Collections collections() {
-        return this.collections;
-    }
+    Aliases getAliases();
 
-    public Aliases aliases() {
-        return this.aliases;
-    }
+    Map<String, Alias> getIndividualAliases();
 
-    public Alias aliases(String name) {
-        Alias retVal;
+    Keys getKeys();
 
-        if (!this.individualAliases.containsKey(name)) {
-            this.individualAliases.put(name, new Alias(this.apiCall, name));
-        }
+    Map<Long, Key> getIndividualKeys();
 
-        retVal = this.individualAliases.get(name);
+    Health getHealth();
 
-        return retVal;
-    }
+    Operations getOperations();
 
-    public Keys keys() {
-        return this.keys;
-    }
+    Metrics getMetrics();
 
-    public Key keys(Long id) {
-        Key retVal;
+    Debug getDebug();
 
-        if (!this.individualKeys.containsKey(id)) {
-            this.individualKeys.put(id, new Key(id, this.apiCall));
-        }
-
-        retVal = this.individualKeys.get(id);
-        return retVal;
-    }
+    MultiSearch getMultiSearch();
 }

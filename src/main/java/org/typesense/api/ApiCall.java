@@ -43,7 +43,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 
-public class ApiCall {
+public class ApiCall implements Call{
 
     private final Configuration configuration;
 
@@ -76,7 +76,8 @@ public class ApiCall {
         this.client.property(ClientProperties.READ_TIMEOUT, configuration.connectionTimeout.getSeconds() * 1000);
     }
 
-    boolean isDueForHealthCheck(Node node) {
+    @Override
+    public boolean isDueForHealthCheck(Node node) {
         return Duration.between(node.lastAccessTimestamp, LocalDateTime.now()).getSeconds() > configuration.healthCheckInterval.getSeconds();
     }
 
@@ -105,7 +106,8 @@ public class ApiCall {
         return configuration.nodes.get(nodeIndex);
     }
 
-    void setNodeHealthStatus(Node node, boolean status) {
+    @Override
+    public void setNodeHealthStatus(Node node, boolean status) {
         node.isHealthy = status;
         node.lastAccessTimestamp = LocalDateTime.now();
     }
@@ -136,7 +138,8 @@ public class ApiCall {
         }
     }
 
-    <T, Q> T get(String endpoint, Q queryParameters, Class<T> resourceClass) throws Exception {
+    @Override
+    public <T, Q> T get(String endpoint, Q queryParameters, Class<T> resourceClass) throws Exception {
 
         /*
          * Lambda function which implements the RequestHandler interface
@@ -152,7 +155,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, resourceClass);
     }
 
-    <T> T get(String endpoint, Class<T> resourceClass) throws Exception {
+    @Override
+    public <T> T get(String endpoint, Class<T> resourceClass) throws Exception {
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON)
                                                            .header(API_KEY_HEADER, apiKey)
@@ -161,7 +165,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, resourceClass);
     }
 
-    <T> T get(String endpoint) throws Exception {
+    @Override
+    public <T> T get(String endpoint) throws Exception {
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON_TYPE)
                                                            .header(API_KEY_HEADER, apiKey)
@@ -170,7 +175,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, null);
     }
 
-    <T, R> T put(String endpoint, R body, Class<T> resourceClass) throws Exception {
+    @Override
+    public <T, R> T put(String endpoint, R body, Class<T> resourceClass) throws Exception {
 
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON)
@@ -180,7 +186,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, resourceClass);
     }
 
-    <T, R> T patch(String endpoint, R body, Class<T> resourceClass) throws Exception {
+    @Override
+    public <T, R> T patch(String endpoint, R body, Class<T> resourceClass) throws Exception {
 
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON)
@@ -192,7 +199,8 @@ public class ApiCall {
     }
 
 
-    <T, R> T post(String endpoint, R body, Class<T> resourceClass) throws Exception {
+    @Override
+    public <T, R> T post(String endpoint, R body, Class<T> resourceClass) throws Exception {
 
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON)
@@ -202,7 +210,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, resourceClass);
     }
 
-    <T> T post(String endpoint, T body) throws Exception {
+    @Override
+    public <T> T post(String endpoint, T body) throws Exception {
 
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON)
@@ -213,7 +222,8 @@ public class ApiCall {
     }
 
 
-    <T, R, Q> T post(String endpoint, R body, Q queryParameters, Class<T> resourceClass) throws Exception {
+    @Override
+    public  <T, R, Q> T post(String endpoint, R body, Q queryParameters, Class<T> resourceClass) throws Exception {
 
         RequestHandler r = (String REST_URI) -> populateQueryParameters2(this.client.target(REST_URI), queryParameters)
                 .request(MediaType.APPLICATION_JSON)
@@ -223,7 +233,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, resourceClass);
     }
 
-    <T> T post(String endpoint, HashMap<String, String> queryParameters) throws Exception {
+    @Override
+    public  <T> T post(String endpoint, HashMap<String, String> queryParameters) throws Exception {
 
         RequestHandler r = (String REST_URI) -> populateQueryParameters(this.client.target(REST_URI), queryParameters)
                 .request(MediaType.APPLICATION_JSON)
@@ -233,7 +244,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, null);
     }
 
-    <T> T post(String endpoint, HashMap<String, List<HashMap<String, String>>> body, HashMap<String, String> queryParameters, Class<T> resourceClass) throws Exception {
+    @Override
+    public <T> T post(String endpoint, HashMap<String, List<HashMap<String, String>>> body, HashMap<String, String> queryParameters, Class<T> resourceClass) throws Exception {
 
         RequestHandler r = (String REST_URI) -> populateQueryParameters(this.client.target(REST_URI), queryParameters)
                 .request(MediaType.APPLICATION_JSON)
@@ -243,7 +255,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, resourceClass);
     }
 
-    <T> T post(String endpoint) throws Exception {
+    @Override
+    public <T> T post(String endpoint) throws Exception {
 
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON)
@@ -253,7 +266,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, null);
     }
 
-    <T, Q> T delete(String endpoint, Q queryParameters) throws Exception {
+    @Override
+    public <T, Q> T delete(String endpoint, Q queryParameters) throws Exception {
         RequestHandler r = (String REST_URI) -> populateQueryParameters2(this.client.target(REST_URI), queryParameters)
                 .request(MediaType.APPLICATION_JSON)
                 .header(API_KEY_HEADER, apiKey)
@@ -263,7 +277,8 @@ public class ApiCall {
     }
 
 
-    <T> T delete(String endpoint, Class<T> resourceClass) throws Exception {
+    @Override
+    public <T> T delete(String endpoint, Class<T> resourceClass) throws Exception {
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON)
                                                            .header(API_KEY_HEADER, apiKey)
@@ -272,7 +287,8 @@ public class ApiCall {
         return makeRequest(endpoint, r, resourceClass);
     }
 
-    <T> T delete(String endpoint) throws Exception {
+    @Override
+    public <T> T delete(String endpoint) throws Exception {
         RequestHandler r = (String REST_URI) -> this.client.target(REST_URI)
                                                            .request(MediaType.APPLICATION_JSON)
                                                            .header(API_KEY_HEADER, apiKey)
@@ -290,7 +306,8 @@ public class ApiCall {
      * @return http response
      */
 
-    <T> T makeRequest(String endpoint, RequestHandler requestHandler, Class<T> resourceClass) throws Exception {
+    @Override
+    public <T> T makeRequest(String endpoint, RequestHandler requestHandler, Class<T> resourceClass) throws Exception {
         int num_tries = 0;
         Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
         Response response;
@@ -391,7 +408,8 @@ public class ApiCall {
      * @return HashMap containing the response
      */
 
-    <T> T handleResponse(Response response, Class<T> resourceClass) {
+    @Override
+    public <T> T handleResponse(Response response, Class<T> resourceClass) {
         if (resourceClass == null) {
             ObjectMapper mapper = new ObjectMapper();
             String json = response.readEntity(String.class);

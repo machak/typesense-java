@@ -2,13 +2,13 @@ package org.typesense.api;
 
 import org.typesense.model.SearchOverride;
 
-public class Override {
+public class TypesenseOverride {
 
     private final String collectionName;
     private final String overrideId;
     private final ApiCall apiCall;
 
-    public Override(String collectionName, String overrideId, ApiCall apiCall) {
+    public TypesenseOverride(String collectionName, String overrideId, ApiCall apiCall) {
         this.collectionName = collectionName;
         this.overrideId = overrideId;
         this.apiCall = apiCall;

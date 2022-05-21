@@ -70,7 +70,7 @@ public class MultiSearchTest extends TestCase {
         HashMap<String, String> common_params = new HashMap<>();
         common_params.put("query_by", "title");
 
-        System.out.println(this.client.multiSearch.perform(map, common_params));
+        System.out.println(this.client.getMultiSearch().perform(map, common_params));
     }
 
 }

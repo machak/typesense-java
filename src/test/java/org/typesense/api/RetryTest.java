@@ -19,13 +19,13 @@ public class RetryTest extends TestCase {
         Configuration configuration = new Configuration(nodes, Duration.ofSeconds(1), "xyz");
         configuration.numRetries = 2;
         configuration.retryInterval = Duration.ofSeconds(2);
-        this.client = new Client(configuration);
+        this.client = new JerseyClient(configuration);
     }
 
     public void testRetry() throws Exception {
         long start = System.currentTimeMillis();
         try {
-            client.health.retrieve();
+            client.getHealth().retrieve();
         } catch (Exception e) {
             long timeTaken = System.currentTimeMillis() - start;
             assertTrue(e.getCause() instanceof UnknownHostException);

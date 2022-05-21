@@ -29,7 +29,7 @@ public class Helper {
 
         Configuration configuration = new Configuration(nodes, Duration.ofSeconds(3), "xyz");
 
-        this.client = new Client(configuration);
+        this.client = new JerseyClient(configuration);
     }
 
     public void createTestCollection() throws Exception {

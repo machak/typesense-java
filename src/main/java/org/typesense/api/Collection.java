@@ -20,7 +20,7 @@ public class Collection {
     private final HashMap<String, Synonym> individualSynonyms;
 
     private final Overrides overrides;
-    private final HashMap<String, Override> individualOverrides;
+    private final HashMap<String, TypesenseOverride> individualOverrides;
 
     private final String endpoint;
 
@@ -34,7 +34,7 @@ public class Collection {
         this.synonyms = new Synonyms(this.name, this.apiCall);
         this.individualSynonyms = new HashMap<String, Synonym>();
         this.overrides = new Overrides(this.name, this.apiCall);
-        this.individualOverrides = new HashMap<String, Override>();
+        this.individualOverrides = new HashMap<String, TypesenseOverride>();
     }
 
     public CollectionResponse retrieve() throws Exception {
@@ -83,11 +83,11 @@ public class Collection {
         return this.overrides;
     }
 
-    public Override overrides(String overrideId) {
-        Override retVal;
+    public TypesenseOverride overrides(String overrideId) {
+        TypesenseOverride retVal;
 
         if (!this.individualOverrides.containsKey(overrideId)) {
-            this.individualOverrides.put(overrideId, new Override(this.name, overrideId, this.apiCall));
+            this.individualOverrides.put(overrideId, new TypesenseOverride(this.name, overrideId, this.apiCall));
         }
 
         retVal = this.individualOverrides.get(overrideId);
