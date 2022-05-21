@@ -16,17 +16,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class ApiKeySchema   {
-  
-  @Schema(description = "")
+
+  @Schema()
   private String description = null;
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<String> actions = new ArrayList<String>();
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<String> collections = new ArrayList<String>();
-  
-  @Schema(description = "")
+
+  @Schema()
   private Long expiresAt = null;
  /**
    * Get description
@@ -115,7 +115,7 @@ public class ApiKeySchema   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiKeySchema {\n");
-    
+
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");

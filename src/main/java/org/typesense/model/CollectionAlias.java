@@ -14,16 +14,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class CollectionAlias   {
-  
+
   @Schema(required = true, description = "Name of the collection alias")
  /**
-   * Name of the collection alias  
+   * Name of the collection alias
   **/
-  private String name = null;
-  
+  private final String name = null;
+
   @Schema(required = true, description = "Name of the collection the alias mapped to")
  /**
-   * Name of the collection the alias mapped to  
+   * Name of the collection the alias mapped to
   **/
   private String collectionName = null;
  /**
@@ -59,7 +59,7 @@ public class CollectionAlias   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionAlias {\n");
-    
+
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
     sb.append("}");

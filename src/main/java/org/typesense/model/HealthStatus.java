@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class HealthStatus   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private Boolean ok = null;
  /**
    * Get ok
@@ -40,7 +40,7 @@ public class HealthStatus   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HealthStatus {\n");
-    
+
     sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
     sb.append("}");
     return sb.toString();

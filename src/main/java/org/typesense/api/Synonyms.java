@@ -7,8 +7,8 @@ import org.typesense.model.SearchSynonymsResponse;
 
 public class Synonyms {
 
-    private String collectionName;
-    private ApiCall apiCall;
+    private final String collectionName;
+    private final ApiCall apiCall;
     public final static String RESOURCEPATH = "/synonyms";
 
     public Synonyms(String collectionName, ApiCall apiCall) {

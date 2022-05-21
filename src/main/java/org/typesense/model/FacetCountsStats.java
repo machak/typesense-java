@@ -14,20 +14,20 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class FacetCountsStats   {
-  
-  @Schema(description = "")
+
+  @Schema()
   private Integer max = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private Integer min = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private Integer sum = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private Integer totalValues = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private Float avg = null;
  /**
    * Get max
@@ -124,7 +124,7 @@ public class FacetCountsStats   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FacetCountsStats {\n");
-    
+
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    sum: ").append(toIndentedString(sum)).append("\n");

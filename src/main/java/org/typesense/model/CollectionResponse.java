@@ -17,18 +17,18 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class CollectionResponse extends CollectionSchema  {
-  
+
   @Schema(required = true, description = "Number of documents in the collection")
  /**
-   * Number of documents in the collection  
+   * Number of documents in the collection
   **/
-  private Long numDocuments = null;
-  
+  private final Long numDocuments = null;
+
   @Schema(required = true, description = "Timestamp of when the collection was created")
  /**
-   * Timestamp of when the collection was created  
+   * Timestamp of when the collection was created
   **/
-  private Long createdAt = null;
+  private final Long createdAt = null;
  /**
    * Number of documents in the collection
    * @return numDocuments

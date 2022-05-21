@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Operations {
 
-    private ApiCall apiCall;
+    private final ApiCall apiCall;
     public static final String RESOUCEPATH = "/operations";
 
     public Operations(ApiCall apiCall) {

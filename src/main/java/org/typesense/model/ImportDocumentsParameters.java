@@ -14,11 +14,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class ImportDocumentsParameters   {
-  
-  @Schema(description = "")
+
+  @Schema()
   private String action = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private Integer batchSize = null;
   public enum DirtyValuesEnum {
     COERCE_OR_REJECT("coerce_or_reject"),
@@ -26,7 +26,7 @@ public class ImportDocumentsParameters   {
     DROP("drop"),
     REJECT("reject");
 
-    private String value;
+    private final String value;
 
     DirtyValuesEnum(String value) {
       this.value = value;
@@ -49,8 +49,8 @@ public class ImportDocumentsParameters   {
       }
       return null;
     }
-  }  
-  @Schema(description = "")
+  }
+  @Schema()
   private DirtyValuesEnum dirtyValues = null;
  /**
    * Get action
@@ -114,7 +114,7 @@ public class ImportDocumentsParameters   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImportDocumentsParameters {\n");
-    
+
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    batchSize: ").append(toIndentedString(batchSize)).append("\n");
     sb.append("    dirtyValues: ").append(toIndentedString(dirtyValues)).append("\n");

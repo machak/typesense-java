@@ -11,7 +11,7 @@ import jakarta.ws.rs.ext.Provider;
 @Provider
 @Priority(Integer.MIN_VALUE)
 public class ObjectMapperResolver implements ContextResolver<ObjectMapper> {
-    private ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
     public ObjectMapperResolver() {
         mapper = new ObjectMapper();

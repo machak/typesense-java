@@ -14,14 +14,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchResultRequestParams   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private String collectionName = null;
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private String q = null;
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private Integer perPage = null;
  /**
    * Get collectionName
@@ -82,7 +82,7 @@ public class SearchResultRequestParams   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResultRequestParams {\n");
-    
+
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    perPage: ").append(toIndentedString(perPage)).append("\n");

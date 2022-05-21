@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class InlineResponse2001   {
-  
-  @Schema(description = "")
+
+  @Schema()
   private String version = null;
  /**
    * Get version
@@ -40,7 +40,7 @@ public class InlineResponse2001   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2001 {\n");
-    
+
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

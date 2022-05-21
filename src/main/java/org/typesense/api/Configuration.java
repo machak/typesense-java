@@ -7,14 +7,14 @@ import java.util.List;
 
 public class Configuration {
 
-    public List<Node> nodes;
+    public final List<Node> nodes;
     public Node nearestNode;
-    public Duration connectionTimeout;
-    public Duration healthCheckInterval;
+    public final Duration connectionTimeout;
+    public final Duration healthCheckInterval;
     public int numRetries;
     public Duration retryInterval;
-    public String apiKey;
-    public boolean sendApiKeyAsQueryParam;
+    public final String apiKey;
+    public final boolean sendApiKeyAsQueryParam;
 
     /**
      *

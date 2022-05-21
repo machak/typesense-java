@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchOverride extends SearchOverrideSchema  {
-  
-  @Schema(required = true, description = "")
-  private String id = null;
+
+  @Schema(required = true)
+  private final String id = null;
  /**
    * Get id
    * @return id

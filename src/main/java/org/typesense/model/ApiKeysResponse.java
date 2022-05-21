@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class ApiKeysResponse   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<ApiKey> keys = new ArrayList<ApiKey>();
  /**
    * Get keys
@@ -48,7 +48,7 @@ public class ApiKeysResponse   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiKeysResponse {\n");
-    
+
     sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
     sb.append("}");
     return sb.toString();

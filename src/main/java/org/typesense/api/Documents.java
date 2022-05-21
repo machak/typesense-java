@@ -8,9 +8,9 @@ import java.util.HashMap;
 
 public class Documents {
 
-    private String collectionName;
-    private ApiCall apiCall;
-    private  Configuration configuration;
+    private final String collectionName;
+    private final ApiCall apiCall;
+    private final Configuration configuration;
 
     public static final String RESOURCE_PATH = "/documents";
 

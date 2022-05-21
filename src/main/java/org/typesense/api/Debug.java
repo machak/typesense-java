@@ -1,19 +1,17 @@
 package org.typesense.api;
 
-import org.typesense.api.exceptions.TypesenseError;
-
-import java.util.HashMap;
+import java.util.Map;
 
 public class Debug {
 
-    private ApiCall apiCall;
+    private final ApiCall apiCall;
     public static final String RESOURCEPATH = "/debug";
 
     public Debug(ApiCall apiCall) {
         this.apiCall = apiCall;
     }
 
-    public HashMap<String, String> retrieve() throws Exception {
+    public Map<String, String> retrieve() throws Exception {
         return this.apiCall.get(RESOURCEPATH);
     }
 }

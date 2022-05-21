@@ -7,7 +7,7 @@ import org.typesense.model.CollectionAliasesResponse;
 
 public class Aliases {
 
-    private ApiCall apiCall;
+    private final ApiCall apiCall;
     public final static String RESOURCE_PATH = "/aliases";
 
     public Aliases(ApiCall apiCall){
@@ -16,7 +16,7 @@ public class Aliases {
 
 
     public CollectionAlias upsert(String name, CollectionAliasSchema collectionAliasSchema) throws Exception {
-        return this.apiCall.put(RESOURCE_PATH + "/" + name, collectionAliasSchema, CollectionAlias.class);
+        return this.apiCall.put(RESOURCE_PATH + '/' + name, collectionAliasSchema, CollectionAlias.class);
     }
 
     public CollectionAliasesResponse retrieve() throws Exception {

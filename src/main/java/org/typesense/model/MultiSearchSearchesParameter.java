@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class MultiSearchSearchesParameter   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<MultiSearchCollectionParameters> searches = new ArrayList<MultiSearchCollectionParameters>();
  /**
    * Get searches
@@ -48,7 +48,7 @@ public class MultiSearchSearchesParameter   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MultiSearchSearchesParameter {\n");
-    
+
     sb.append("    searches: ").append(toIndentedString(searches)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -19,25 +19,25 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchResultHit   {
-  
+
   @Schema(description = "Contains highlighted portions of the search fields")
  /**
-   * Contains highlighted portions of the search fields  
+   * Contains highlighted portions of the search fields
   **/
   private List<SearchHighlight> highlights = null;
-  
+
   @Schema(description = "Can be any key-value pair")
  /**
-   * Can be any key-value pair  
+   * Can be any key-value pair
   **/
   private Map<String, Object> document = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private Long textMatch = null;
-  
+
   @Schema(description = "Can be any key-value pair")
  /**
-   * Can be any key-value pair  
+   * Can be any key-value pair
   **/
   private Map<String, Integer> geoDistanceMeters = null;
  /**
@@ -132,7 +132,7 @@ public class SearchResultHit   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResultHit {\n");
-    
+
     sb.append("    highlights: ").append(toIndentedString(highlights)).append("\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("    textMatch: ").append(toIndentedString(textMatch)).append("\n");

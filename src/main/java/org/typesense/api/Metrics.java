@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Metrics {
 
-    private ApiCall apiCall;
+    private final ApiCall apiCall;
     public static final String RESOURCEPATH = "/metrics.json";
 
     public Metrics(ApiCall apiCall) {

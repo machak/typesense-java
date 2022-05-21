@@ -5,8 +5,8 @@ import org.typesense.model.CollectionAlias;
 
 public class Alias {
 
-    public ApiCall apiCall;
-    public String name;
+    public final ApiCall apiCall;
+    public final String name;
 
     public Alias(ApiCall apiCall, String name) {
         this.apiCall = apiCall;

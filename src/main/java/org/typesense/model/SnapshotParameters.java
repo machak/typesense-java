@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SnapshotParameters   {
-  
-  @Schema(description = "")
+
+  @Schema()
   private String snapshotPath = null;
  /**
    * Get snapshotPath
@@ -40,7 +40,7 @@ public class SnapshotParameters   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SnapshotParameters {\n");
-    
+
     sb.append("    snapshotPath: ").append(toIndentedString(snapshotPath)).append("\n");
     sb.append("}");
     return sb.toString();

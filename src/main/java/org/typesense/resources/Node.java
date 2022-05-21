@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 
 public class Node {
 
-    public String protocol;
-    public String host;
+    public final String protocol;
+    public final String host;
     public String path;
-    public String port;
+    public final String port;
     public String baseUrl;
 
     public boolean isHealthy;

@@ -5,9 +5,9 @@ import org.typesense.model.SearchSynonym;
 
 public class Synonym {
 
-    private String collectionName;
-    private String synonymId;
-    private ApiCall apiCall;
+    private final String collectionName;
+    private final String synonymId;
+    private final ApiCall apiCall;
 
     public Synonym(String collectionName, String synonymId, ApiCall apiCall) {
         this.collectionName = collectionName;

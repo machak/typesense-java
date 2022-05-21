@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SuccessStatus   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private Boolean success = null;
  /**
    * Get success
@@ -40,7 +40,7 @@ public class SuccessStatus   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SuccessStatus {\n");
-    
+
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();

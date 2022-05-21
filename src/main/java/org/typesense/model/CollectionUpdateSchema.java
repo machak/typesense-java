@@ -2,6 +2,8 @@ package org.typesense.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
+
 import org.typesense.model.Field;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -17,10 +19,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class CollectionUpdateSchema   {
-  
-  @Schema(example = "[{\"name\":\"company_name\",\"type\":\"string\",\"facet\":false},{\"name\":\"num_employees\",\"type\":\"int32\",\"facet\":false},{\"name\":\"country\",\"type\":\"string\",\"facet\":true}]", required = true, description = "A list of fields for querying, filtering and faceting")
+
+    private static final Pattern NEW_LINE = Pattern.compile("\n", Pattern.LITERAL);
+    @Schema(example = "[{\"name\":\"company_name\",\"type\":\"string\",\"facet\":false},{\"name\":\"num_employees\",\"type\":\"int32\",\"facet\":false},{\"name\":\"country\",\"type\":\"string\",\"facet\":true}]", required = true, description = "A list of fields for querying, filtering and faceting")
  /**
-   * A list of fields for querying, filtering and faceting  
+   * A list of fields for querying, filtering and faceting
   **/
   private List<Field> fields = new ArrayList<Field>();
  /**
@@ -51,7 +54,7 @@ public class CollectionUpdateSchema   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionUpdateSchema {\n");
-    
+
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -61,10 +64,10 @@ public class CollectionUpdateSchema   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private static String toIndentedString(java.lang.Object o) {
+  private static String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
-    return o.toString().replace("\n", "\n    ");
+    return NEW_LINE.matcher(o.toString()).replaceAll("\n    ");
   }
 }

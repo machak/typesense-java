@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchSynonym extends SearchSynonymSchema  {
-  
-  @Schema(required = true, description = "")
-  private String id = null;
+
+  @Schema(required = true)
+  private final String id = null;
  /**
    * Get id
    * @return id

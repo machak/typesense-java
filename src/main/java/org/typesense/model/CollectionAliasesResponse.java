@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class CollectionAliasesResponse   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<CollectionAlias> aliases = new ArrayList<CollectionAlias>();
  /**
    * Get aliases
@@ -48,7 +48,7 @@ public class CollectionAliasesResponse   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionAliasesResponse {\n");
-    
+
     sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
     sb.append("}");
     return sb.toString();

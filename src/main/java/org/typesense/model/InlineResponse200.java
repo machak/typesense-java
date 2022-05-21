@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class InlineResponse200   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private Integer numDeleted = null;
  /**
    * Get numDeleted
@@ -40,7 +40,7 @@ public class InlineResponse200   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200 {\n");
-    
+
     sb.append("    numDeleted: ").append(toIndentedString(numDeleted)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchSynonymsResponse   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<SearchSynonym> synonyms = new ArrayList<SearchSynonym>();
  /**
    * Get synonyms
@@ -48,7 +48,7 @@ public class SearchSynonymsResponse   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchSynonymsResponse {\n");
-    
+
     sb.append("    synonyms: ").append(toIndentedString(synonyms)).append("\n");
     sb.append("}");
     return sb.toString();

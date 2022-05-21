@@ -14,14 +14,14 @@ public class Collection {
 
     private final String name;
 
-    private Documents documents;
-    private HashMap<String, Document> individualDocuments;
+    private final Documents documents;
+    private final HashMap<String, Document> individualDocuments;
 
-    private Synonyms synonyms;
-    private HashMap<String, Synonym> individualSynonyms;
+    private final Synonyms synonyms;
+    private final HashMap<String, Synonym> individualSynonyms;
 
-    private Overrides overrides;
-    private HashMap<String, Override> individualOverrides;
+    private final Overrides overrides;
+    private final HashMap<String, Override> individualOverrides;
 
     private final String endpoint;
 

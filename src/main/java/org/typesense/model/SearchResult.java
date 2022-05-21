@@ -20,50 +20,50 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchResult   {
-  
-  @Schema(description = "")
+
+  @Schema()
   private List<FacetCounts> facetCounts = null;
-  
+
   @Schema(description = "The number of documents found")
  /**
-   * The number of documents found  
+   * The number of documents found
   **/
   private Integer found = null;
-  
+
   @Schema(description = "The number of milliseconds the search took")
  /**
-   * The number of milliseconds the search took  
+   * The number of milliseconds the search took
   **/
   private Integer searchTimeMs = null;
-  
+
   @Schema(description = "The total number of pages")
  /**
-   * The total number of pages  
+   * The total number of pages
   **/
   private Integer outOf = null;
-  
+
   @Schema(description = "Whether the search was cut off")
  /**
-   * Whether the search was cut off  
+   * Whether the search was cut off
   **/
   private Boolean searchCutoff = null;
-  
+
   @Schema(description = "The search result page number")
  /**
-   * The search result page number  
+   * The search result page number
   **/
   private Integer page = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private List<SearchGroupedHit> groupedHits = null;
-  
+
   @Schema(description = "The documents that matched the search query")
  /**
-   * The documents that matched the search query  
+   * The documents that matched the search query
   **/
   private List<SearchResultHit> hits = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private SearchResultRequestParams requestParams = null;
  /**
    * Get facetCounts
@@ -247,7 +247,7 @@ public class SearchResult   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResult {\n");
-    
+
     sb.append("    facetCounts: ").append(toIndentedString(facetCounts)).append("\n");
     sb.append("    found: ").append(toIndentedString(found)).append("\n");
     sb.append("    searchTimeMs: ").append(toIndentedString(searchTimeMs)).append("\n");

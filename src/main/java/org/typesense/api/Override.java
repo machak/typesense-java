@@ -5,9 +5,9 @@ import org.typesense.model.SearchOverride;
 
 public class Override {
 
-    private String collectionName;
-    private String overrideId;
-    private ApiCall apiCall;
+    private final String collectionName;
+    private final String overrideId;
+    private final ApiCall apiCall;
 
     public Override(String collectionName, String overrideId, ApiCall apiCall) {
         this.collectionName = collectionName;

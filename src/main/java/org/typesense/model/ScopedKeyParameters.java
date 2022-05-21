@@ -15,11 +15,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class ScopedKeyParameters   {
-  
-  @Schema(description = "")
+
+  @Schema()
   private String filterBy = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private BigDecimal expiresAt = null;
  /**
    * Get filterBy
@@ -62,7 +62,7 @@ public class ScopedKeyParameters   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScopedKeyParameters {\n");
-    
+
     sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");

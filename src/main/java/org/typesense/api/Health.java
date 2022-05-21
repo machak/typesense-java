@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Health {
 
-    private ApiCall apiCall;
+    private final ApiCall apiCall;
     public static final String RESOURCEPATH = "/health";
 
     public Health(ApiCall apiCall) {

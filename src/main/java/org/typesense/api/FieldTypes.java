@@ -13,4 +13,7 @@ public final class FieldTypes {
     public static final String FLOAT_ARRAY = "float[]";
     public static final String BOOL_ARRAY = "bool[]";
     public static final String AUTO = "auto";
+
+    private FieldTypes() {
+    }
 }

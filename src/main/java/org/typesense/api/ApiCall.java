@@ -34,28 +34,24 @@ import java.util.*;
 public class ApiCall {
 
     private final Configuration configuration;
-    private final List<Node> nodes;
 
     private static int nodeIndex = 0;
 
     private static final String API_KEY_HEADER = "X-TYPESENSE-API-KEY";
-    private static final Logger logger = LoggerFactory.getLogger(ApiCall.class);
+    private static final Logger log = LoggerFactory.getLogger(ApiCall.class);
     private final Client client;
     private final String apiKey;
     private final Duration retryInterval;
 
     public ApiCall(Configuration configuration) {
         this.configuration = configuration;
-        this.nodes = configuration.nodes;
+        List<Node> nodes = configuration.nodes;
         this.apiKey = configuration.apiKey;
         this.retryInterval = configuration.retryInterval;
 
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.connectorProvider(new ApacheConnectorProvider());
 
-        if (logger.isTraceEnabled()) {
-            clientConfig = clientConfig.register(new LoggingInterceptor());
-        }
 
         JacksonJsonProvider jacksonJsonProvider = new JacksonJaxbJsonProvider();
         ObjectMapper objectMapper = jacksonJsonProvider.locateMapper(
@@ -129,7 +125,7 @@ public class ApiCall {
 
     <T, Q> T get(String endpoint, Q queryParameters, Class<T> resourceClass) throws Exception {
 
-        /**
+        /*
          * Lambda function which implements the RequestHandler interface
          * which is passed as a parameter to makeRequest function
          * and returns T as the response entity.
@@ -321,8 +317,8 @@ public class ApiCall {
 
                 this.setNodeHealthStatus(node, false);
                 lastException = e;
-                logger.trace("Request to " + node.host + " failed because: " + e.getMessage());
-                logger.trace("Sleeping for " + this.retryInterval.getSeconds() + "s and then retrying request");
+                logger.trace("Request to {} failed because: {}", node.host, e.getMessage());
+                logger.trace("Sleeping for {}s and then retrying request", this.retryInterval.getSeconds());
                 try {
                     Thread.sleep(this.retryInterval.getSeconds() * 1000);
                 } catch (InterruptedException interruptedException) {
@@ -362,7 +358,7 @@ public class ApiCall {
                     for (int i = 0; i < ((ArrayList<?>) entry.getValue()).size(); i++) {
                         value.append(((ArrayList<?>) entry.getValue()).get(i));
                         if (i != ((ArrayList<?>) entry.getValue()).size() - 1)
-                            value.append(",");
+                            value.append(',');
                     }
                     client = client.queryParam(entry.getKey(), value);
                 } else {
@@ -386,7 +382,7 @@ public class ApiCall {
             ObjectMapper mapper = new ObjectMapper();
             String json = response.readEntity(String.class);
             try {
-                HashMap<String, Object> map = mapper.readValue(json, HashMap.class);
+                Map<String, Object> map = mapper.readValue(json, HashMap.class);
                 return (T) map;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -397,6 +393,7 @@ public class ApiCall {
             String json = response.readEntity(String.class);
             try {
                 if (resourceClass == String.class) {
+                    //noinspection unchecked
                     return (T) json;
                 }
                 return mapper.readValue(json, resourceClass);

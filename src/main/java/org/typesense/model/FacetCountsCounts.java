@@ -14,14 +14,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class FacetCountsCounts   {
-  
-  @Schema(description = "")
+
+  @Schema()
   private Integer count = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private String highlighted = null;
-  
-  @Schema(description = "")
+
+  @Schema()
   private String value = null;
  /**
    * Get count
@@ -82,7 +82,7 @@ public class FacetCountsCounts   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FacetCountsCounts {\n");
-    
+
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    highlighted: ").append(toIndentedString(highlighted)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

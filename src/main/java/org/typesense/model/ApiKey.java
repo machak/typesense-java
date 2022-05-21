@@ -16,15 +16,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class ApiKey extends ApiKeySchema  {
-  
-  @Schema(required = true, description = "")
-  private Long id = null;
-  
-  @Schema(required = true, description = "")
-  private String value = null;
-  
-  @Schema(required = true, description = "")
-  private String valuePrefix = null;
+
+  @Schema(required = true)
+  private final Long id = null;
+
+  @Schema(required = true)
+  private final String value = null;
+
+  @Schema(required = true)
+  private final String valuePrefix = null;
  /**
    * Get id
    * @return id

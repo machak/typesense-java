@@ -7,10 +7,10 @@ import org.typesense.model.SearchOverridesResponse;
 
 public class Overrides {
 
-    public static String RESOURCEPATH = "/overrides";
+    public static final String RESOURCEPATH = "/overrides";
 
-    private String collectionName;
-    private ApiCall apiCall;
+    private final String collectionName;
+    private final ApiCall apiCall;
 
     public Overrides(String collectionName, ApiCall apiCall) {
         this.collectionName = collectionName;

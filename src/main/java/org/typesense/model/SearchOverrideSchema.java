@@ -19,31 +19,31 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchOverrideSchema   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private SearchOverrideRule rule = null;
-  
+
   @Schema(description = "List of document `id`s that should be included in the search results with their corresponding `position`s.")
  /**
-   * List of document `id`s that should be included in the search results with their corresponding `position`s.  
+   * List of document `id`s that should be included in the search results with their corresponding `position`s.
   **/
   private List<SearchOverrideInclude> includes = null;
-  
+
   @Schema(description = "List of document `id`s that should be excluded from the search results.")
  /**
-   * List of document `id`s that should be excluded from the search results.  
+   * List of document `id`s that should be excluded from the search results.
   **/
   private List<SearchOverrideExclude> excludes = null;
-  
+
   @Schema(description = "A filter by clause that is applied to any search query that matches the override rule. ")
  /**
-   * A filter by clause that is applied to any search query that matches the override rule.   
+   * A filter by clause that is applied to any search query that matches the override rule.
   **/
   private String filterBy = null;
-  
+
   @Schema(description = "Indicates whether search query tokens that exist in the override's rule should be removed from the search query. ")
  /**
-   * Indicates whether search query tokens that exist in the override's rule should be removed from the search query.   
+   * Indicates whether search query tokens that exist in the override's rule should be removed from the search query.
   **/
   private Boolean removeMatchedTokens = null;
  /**
@@ -111,7 +111,7 @@ public class SearchOverrideSchema   {
   }
 
  /**
-   * A filter by clause that is applied to any search query that matches the override rule. 
+   * A filter by clause that is applied to any search query that matches the override rule.
    * @return filterBy
   **/
   @JsonProperty("filter_by")
@@ -129,7 +129,7 @@ public class SearchOverrideSchema   {
   }
 
  /**
-   * Indicates whether search query tokens that exist in the override&#x27;s rule should be removed from the search query. 
+   * Indicates whether search query tokens that exist in the override&#x27;s rule should be removed from the search query.
    * @return removeMatchedTokens
   **/
   @JsonProperty("remove_matched_tokens")
@@ -151,7 +151,7 @@ public class SearchOverrideSchema   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchOverrideSchema {\n");
-    
+
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    includes: ").append(toIndentedString(includes)).append("\n");
     sb.append("    excludes: ").append(toIndentedString(excludes)).append("\n");

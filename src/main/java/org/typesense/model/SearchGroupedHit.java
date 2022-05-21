@@ -17,13 +17,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchGroupedHit   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<String> groupKey = new ArrayList<String>();
-  
+
   @Schema(required = true, description = "The documents that matched the search query")
  /**
-   * The documents that matched the search query  
+   * The documents that matched the search query
   **/
   private List<SearchResultHit> hits = new ArrayList<SearchResultHit>();
  /**
@@ -77,7 +77,7 @@ public class SearchGroupedHit   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchGroupedHit {\n");
-    
+
     sb.append("    groupKey: ").append(toIndentedString(groupKey)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
     sb.append("}");

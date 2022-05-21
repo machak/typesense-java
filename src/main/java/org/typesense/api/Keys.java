@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class Keys {
 
     public static final String RESOURCEPATH = "/keys";
-    private ApiCall apiCall;
+    private final ApiCall apiCall;
 
     public Keys(ApiCall apiCall) {
         this.apiCall = apiCall;

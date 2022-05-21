@@ -14,13 +14,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class DeleteDocumentsParameters   {
-  
-  @Schema(example = "num_employees:>100 && country: [USA, UK]", description = "")
+
+  @Schema(example = "num_employees:>100 && country: [USA, UK]")
   private String filterBy = null;
-  
+
   @Schema(description = "Batch size parameter controls the number of documents that should be deleted at a time. A larger value will speed up deletions, but will impact performance of other operations running on the server.")
  /**
-   * Batch size parameter controls the number of documents that should be deleted at a time. A larger value will speed up deletions, but will impact performance of other operations running on the server.  
+   * Batch size parameter controls the number of documents that should be deleted at a time. A larger value will speed up deletions, but will impact performance of other operations running on the server.
   **/
   private Integer batchSize = null;
  /**
@@ -64,7 +64,7 @@ public class DeleteDocumentsParameters   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDocumentsParameters {\n");
-    
+
     sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
     sb.append("    batchSize: ").append(toIndentedString(batchSize)).append("\n");
     sb.append("}");

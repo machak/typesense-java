@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MultiSearch {
 
-    private ApiCall apiCall;
+    private final ApiCall apiCall;
     public static final String RESOURCEPATH = "/multi_search";
 
     public MultiSearch(ApiCall apiCall) {

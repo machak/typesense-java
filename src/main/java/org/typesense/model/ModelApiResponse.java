@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class ModelApiResponse   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private String message = null;
  /**
    * Get message
@@ -40,7 +40,7 @@ public class ModelApiResponse   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelApiResponse {\n");
-    
+
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();

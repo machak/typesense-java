@@ -14,32 +14,32 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class Field   {
-  
-  @Schema(example = "company_name", required = true, description = "")
+
+  @Schema(example = "company_name", required = true)
   private String name = null;
-  
-  @Schema(example = "string", required = true, description = "")
+
+  @Schema(example = "string", required = true)
   private String type = null;
-  
-  @Schema(example = "true", description = "")
+
+  @Schema(example = "true")
   private Boolean optional = false;
-  
-  @Schema(example = "false", description = "")
+
+  @Schema(example = "false")
   private Boolean facet = false;
-  
-  @Schema(example = "true", description = "")
+
+  @Schema(example = "true")
   private Boolean index = true;
-  
-  @Schema(example = "el", description = "")
+
+  @Schema(example = "el")
   private String locale = null;
-  
-  @Schema(example = "true", description = "")
+
+  @Schema(example = "true")
   private Boolean sort = false;
-  
-  @Schema(example = "true", description = "")
+
+  @Schema(example = "true")
   private Boolean infix = false;
-  
-  @Schema(example = "true", description = "")
+
+  @Schema(example = "true")
   private Boolean drop = null;
  /**
    * Get name
@@ -208,7 +208,7 @@ public class Field   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Field {\n");
-    
+
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    optional: ").append(toIndentedString(optional)).append("\n");

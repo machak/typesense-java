@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class MultiSearchResult   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<SearchResult> results = new ArrayList<SearchResult>();
  /**
    * Get results
@@ -48,7 +48,7 @@ public class MultiSearchResult   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MultiSearchResult {\n");
-    
+
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();

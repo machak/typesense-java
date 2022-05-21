@@ -14,17 +14,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchOverrideRule   {
-  
+
   @Schema(required = true, description = "Indicates what search queries should be overridden")
  /**
-   * Indicates what search queries should be overridden  
+   * Indicates what search queries should be overridden
   **/
   private String query = null;
   public enum MatchEnum {
     EXACT("exact"),
     CONTAINS("contains");
 
-    private String value;
+    private final String value;
 
     MatchEnum(String value) {
       this.value = value;
@@ -47,10 +47,10 @@ public class SearchOverrideRule   {
       }
       return null;
     }
-  }  
+  }
   @Schema(required = true, description = "Indicates whether the match on the query term should be `exact` or `contains`. If we want to match all queries that contained the word `apple`, we will use the `contains` match instead. ")
  /**
-   * Indicates whether the match on the query term should be `exact` or `contains`. If we want to match all queries that contained the word `apple`, we will use the `contains` match instead.   
+   * Indicates whether the match on the query term should be `exact` or `contains`. If we want to match all queries that contained the word `apple`, we will use the `contains` match instead.
   **/
   private MatchEnum match = null;
  /**
@@ -72,7 +72,7 @@ public class SearchOverrideRule   {
   }
 
  /**
-   * Indicates whether the match on the query term should be &#x60;exact&#x60; or &#x60;contains&#x60;. If we want to match all queries that contained the word &#x60;apple&#x60;, we will use the &#x60;contains&#x60; match instead. 
+   * Indicates whether the match on the query term should be &#x60;exact&#x60; or &#x60;contains&#x60;. If we want to match all queries that contained the word &#x60;apple&#x60;, we will use the &#x60;contains&#x60; match instead.
    * @return match
   **/
   @JsonProperty("match")
@@ -97,7 +97,7 @@ public class SearchOverrideRule   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchOverrideRule {\n");
-    
+
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    match: ").append(toIndentedString(match)).append("\n");
     sb.append("}");

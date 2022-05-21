@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class SearchOverridesResponse   {
-  
-  @Schema(required = true, description = "")
+
+  @Schema(required = true)
   private List<SearchOverride> overrides = new ArrayList<SearchOverride>();
  /**
    * Get overrides
@@ -48,7 +48,7 @@ public class SearchOverridesResponse   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchOverridesResponse {\n");
-    
+
     sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
     sb.append("}");
     return sb.toString();
