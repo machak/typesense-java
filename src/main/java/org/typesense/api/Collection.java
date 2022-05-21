@@ -28,7 +28,7 @@ public class Collection {
         this.name = name;
         this.apiCall = apiCall;
         this.configuration = configuration;
-        this.endpoint = Collections.RESOURCE_PATH + "/" + this.name;
+        this.endpoint = Collections.RESOURCE_PATH + '/' + this.name;
         this.documents = new Documents(this.name, this.apiCall, this.configuration);
         this.individualDocuments = new HashMap<String, Document>();
         this.synonyms = new Synonyms(this.name, this.apiCall);

@@ -23,6 +23,6 @@ public class Synonym {
     }
 
     public String getEndpoint() {
-        return Collections.RESOURCE_PATH + "/" + this.collectionName + Synonyms.RESOURCEPATH + "/" + this.synonymId;
+        return Collections.RESOURCE_PATH + '/' + this.collectionName + Synonyms.RESOURCEPATH + '/' + this.synonymId;
     }
 }

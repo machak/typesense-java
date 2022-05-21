@@ -81,6 +81,6 @@ public class Documents {
     }
 
     public String getEndPoint(String target) {
-        return Collections.RESOURCE_PATH + "/" + this.collectionName + Documents.RESOURCE_PATH + "/" + target;
+        return Collections.RESOURCE_PATH + '/' + this.collectionName + Documents.RESOURCE_PATH + '/' + target;
     }
 }

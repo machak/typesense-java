@@ -25,6 +25,6 @@ public class Overrides {
     }
 
     public String getEndpoint(String operation) {
-        return Collections.RESOURCE_PATH + "/" + this.collectionName + Overrides.RESOURCEPATH + "/" + (operation == null ? "" : operation);
+        return Collections.RESOURCE_PATH + '/' + this.collectionName + Overrides.RESOURCEPATH + '/' + (operation == null ? "" : operation);
     }
 }

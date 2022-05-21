@@ -27,6 +27,6 @@ public class Synonyms {
     }
 
     public String getEndpoint(String operation) {
-        return Collections.RESOURCE_PATH + "/" + this.collectionName + Synonyms.RESOURCEPATH + "/" + (operation == null ? "" : operation);
+        return Collections.RESOURCE_PATH + '/' + this.collectionName + Synonyms.RESOURCEPATH + '/' + (operation == null ? "" : operation);
     }
 }

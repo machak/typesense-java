@@ -21,6 +21,6 @@ public class Alias {
     }
 
     public String getEndpoint() {
-        return Aliases.RESOURCE_PATH + "/" + this.name;
+        return Aliases.RESOURCE_PATH + '/' + this.name;
     }
 }

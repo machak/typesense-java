@@ -23,6 +23,6 @@ public class TypesenseOverride {
     }
 
     public String getEndpoint() {
-        return Collections.RESOURCE_PATH + "/" + this.collectionName + "/" + Overrides.RESOURCEPATH + "/" + this.overrideId;
+        return Collections.RESOURCE_PATH + '/' + this.collectionName + '/' + Overrides.RESOURCEPATH + '/' + this.overrideId;
     }
 }

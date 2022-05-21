@@ -21,6 +21,6 @@ public class Key {
     }
 
     private String getEndpoint() {
-        return Keys.RESOURCEPATH + "/" + this.id;
+        return Keys.RESOURCEPATH + '/' + this.id;
     }
 }

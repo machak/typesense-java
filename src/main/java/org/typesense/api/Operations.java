@@ -12,10 +12,10 @@ public class Operations {
     }
 
     public HashMap<String, String> perform(String operationName, HashMap<String, String> queryParameters) throws Exception {
-        return this.apiCall.post(RESOUCEPATH + "/" + operationName, queryParameters);
+        return this.apiCall.post(RESOUCEPATH + '/' + operationName, queryParameters);
     }
 
     public HashMap<String, String> perform(String operationName) throws Exception {
-        return this.apiCall.post(RESOUCEPATH + "/" + operationName);
+        return this.apiCall.post(RESOUCEPATH + '/' + operationName);
     }
 }
