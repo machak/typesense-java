@@ -2,8 +2,8 @@ package org.typesense.model;
 
 
 /**
-* OneOfsearchParametersMaxHits
-*/
+ * OneOfsearchParametersMaxHits
+ */
 public interface OneOfsearchParametersMaxHits {
 
 }

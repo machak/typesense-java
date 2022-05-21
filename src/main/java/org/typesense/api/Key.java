@@ -1,6 +1,5 @@
 package org.typesense.api;
 
-import org.typesense.api.exceptions.TypesenseError;
 import org.typesense.model.ApiKey;
 
 public class Key {
@@ -21,7 +20,7 @@ public class Key {
         return this.apiCall.delete(this.getEndpoint(), ApiKey.class);
     }
 
-    private String getEndpoint(){
+    private String getEndpoint() {
         return Keys.RESOURCEPATH + "/" + this.id;
     }
 }

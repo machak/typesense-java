@@ -1,129 +1,135 @@
 package org.typesense.model;
 
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 public class FacetCountsStats extends BaseModel {
 
-  @Schema()
-  private Integer max = null;
+    @Schema()
+    private Integer max = null;
 
-  @Schema()
-  private Integer min = null;
+    @Schema()
+    private Integer min = null;
 
-  @Schema()
-  private Integer sum = null;
+    @Schema()
+    private Integer sum = null;
 
-  @Schema()
-  private Integer totalValues = null;
+    @Schema()
+    private Integer totalValues = null;
 
-  @Schema()
-  private Float avg = null;
- /**
-   * Get max
-   * @return max
-  **/
-  @JsonProperty("max")
-  public Integer getMax() {
-    return max;
-  }
+    @Schema()
+    private Float avg = null;
 
-  public void setMax(Integer max) {
-    this.max = max;
-  }
+    /**
+     * Get max
+     *
+     * @return max
+     **/
+    @JsonProperty("max")
+    public Integer getMax() {
+        return max;
+    }
 
-  public FacetCountsStats max(Integer max) {
-    this.max = max;
-    return this;
-  }
+    public void setMax(Integer max) {
+        this.max = max;
+    }
 
- /**
-   * Get min
-   * @return min
-  **/
-  @JsonProperty("min")
-  public Integer getMin() {
-    return min;
-  }
+    public FacetCountsStats max(Integer max) {
+        this.max = max;
+        return this;
+    }
 
-  public void setMin(Integer min) {
-    this.min = min;
-  }
+    /**
+     * Get min
+     *
+     * @return min
+     **/
+    @JsonProperty("min")
+    public Integer getMin() {
+        return min;
+    }
 
-  public FacetCountsStats min(Integer min) {
-    this.min = min;
-    return this;
-  }
+    public void setMin(Integer min) {
+        this.min = min;
+    }
 
- /**
-   * Get sum
-   * @return sum
-  **/
-  @JsonProperty("sum")
-  public Integer getSum() {
-    return sum;
-  }
+    public FacetCountsStats min(Integer min) {
+        this.min = min;
+        return this;
+    }
 
-  public void setSum(Integer sum) {
-    this.sum = sum;
-  }
+    /**
+     * Get sum
+     *
+     * @return sum
+     **/
+    @JsonProperty("sum")
+    public Integer getSum() {
+        return sum;
+    }
 
-  public FacetCountsStats sum(Integer sum) {
-    this.sum = sum;
-    return this;
-  }
+    public void setSum(Integer sum) {
+        this.sum = sum;
+    }
 
- /**
-   * Get totalValues
-   * @return totalValues
-  **/
-  @JsonProperty("total_values")
-  public Integer getTotalValues() {
-    return totalValues;
-  }
+    public FacetCountsStats sum(Integer sum) {
+        this.sum = sum;
+        return this;
+    }
 
-  public void setTotalValues(Integer totalValues) {
-    this.totalValues = totalValues;
-  }
+    /**
+     * Get totalValues
+     *
+     * @return totalValues
+     **/
+    @JsonProperty("total_values")
+    public Integer getTotalValues() {
+        return totalValues;
+    }
 
-  public FacetCountsStats totalValues(Integer totalValues) {
-    this.totalValues = totalValues;
-    return this;
-  }
+    public void setTotalValues(Integer totalValues) {
+        this.totalValues = totalValues;
+    }
 
- /**
-   * Get avg
-   * @return avg
-  **/
-  @JsonProperty("avg")
-  public Float getAvg() {
-    return avg;
-  }
+    public FacetCountsStats totalValues(Integer totalValues) {
+        this.totalValues = totalValues;
+        return this;
+    }
 
-  public void setAvg(Float avg) {
-    this.avg = avg;
-  }
+    /**
+     * Get avg
+     *
+     * @return avg
+     **/
+    @JsonProperty("avg")
+    public Float getAvg() {
+        return avg;
+    }
 
-  public FacetCountsStats avg(Float avg) {
-    this.avg = avg;
-    return this;
-  }
+    public void setAvg(Float avg) {
+        this.avg = avg;
+    }
+
+    public FacetCountsStats avg(Float avg) {
+        this.avg = avg;
+        return this;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FacetCountsStats {\n");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FacetCountsStats {\n");
 
-    sb.append("    max: ").append(toIndentedString(max)).append("\n");
-    sb.append("    min: ").append(toIndentedString(min)).append("\n");
-    sb.append("    sum: ").append(toIndentedString(sum)).append("\n");
-    sb.append("    totalValues: ").append(toIndentedString(totalValues)).append("\n");
-    sb.append("    avg: ").append(toIndentedString(avg)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+        sb.append("    max: ").append(toIndentedString(max)).append("\n");
+        sb.append("    min: ").append(toIndentedString(min)).append("\n");
+        sb.append("    sum: ").append(toIndentedString(sum)).append("\n");
+        sb.append("    totalValues: ").append(toIndentedString(totalValues)).append("\n");
+        sb.append("    avg: ").append(toIndentedString(avg)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 }

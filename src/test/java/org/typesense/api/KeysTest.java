@@ -1,13 +1,13 @@
 package org.typesense.api;
 
-import junit.framework.TestCase;
-import org.typesense.api.exceptions.TypesenseError;
-import org.typesense.model.ApiKey;
-import org.typesense.model.ApiKeySchema;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.typesense.model.ApiKey;
+import org.typesense.model.ApiKeySchema;
+
+import junit.framework.TestCase;
 
 public class KeysTest extends TestCase {
 
@@ -68,9 +68,9 @@ public class KeysTest extends TestCase {
         System.out.println(this.client.keys(id).delete());
     }
 
-    public void testScopedKey(){
+    public void testScopedKey() {
         HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("filter_by", "company_id:124");
-        System.out.println(this.client.keys().generateScopedSearchKey(testKey,parameters));
+        System.out.println(this.client.keys().generateScopedSearchKey(testKey, parameters));
     }
 }

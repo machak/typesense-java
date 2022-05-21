@@ -1,7 +1,5 @@
 package org.typesense.api;
 
-import org.typesense.api.exceptions.TypesenseError;
-
 import java.util.HashMap;
 
 public class Operations {

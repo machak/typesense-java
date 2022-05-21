@@ -1,6 +1,5 @@
 package org.typesense.api;
 
-import org.typesense.api.exceptions.TypesenseError;
 import org.typesense.model.SearchOverride;
 import org.typesense.model.SearchOverrideSchema;
 import org.typesense.model.SearchOverridesResponse;
@@ -25,7 +24,7 @@ public class Overrides {
         return this.apiCall.get(this.getEndpoint(null), SearchOverridesResponse.class);
     }
 
-    public String getEndpoint(String operation){
-        return Collections.RESOURCE_PATH + "/" + this.collectionName + Overrides.RESOURCEPATH + "/" + (operation==null? "":operation);
+    public String getEndpoint(String operation) {
+        return Collections.RESOURCE_PATH + "/" + this.collectionName + Overrides.RESOURCEPATH + "/" + (operation == null ? "" : operation);
     }
 }

@@ -1,12 +1,8 @@
 package org.typesense.api;
 
-import junit.framework.TestCase;
-import org.typesense.api.exceptions.TypesenseError;
-import org.typesense.resources.Node;
-
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.HashMap;
+
+import junit.framework.TestCase;
 
 public class HealthAndOperationsTest extends TestCase {
 
@@ -30,8 +26,8 @@ public class HealthAndOperationsTest extends TestCase {
 
     public void testPerformSnapshot() throws Exception {
         HashMap<String, String> query = new HashMap<>();
-        query.put("snapshot_path","/tmp/typesense-data-snapshot");
-        System.out.println(client.operations.perform("snapshot",query));
+        query.put("snapshot_path", "/tmp/typesense-data-snapshot");
+        System.out.println(client.operations.perform("snapshot", query));
     }
 
     public void testPerformVote() throws Exception {

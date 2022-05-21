@@ -14,10 +14,9 @@ public class Node {
     public LocalDateTime lastAccessTimestamp;
 
     /**
-     *
      * @param protocol String describing the protocol
-     * @param host String describing the host
-     * @param port String describing the port
+     * @param host     String describing the host
+     * @param port     String describing the port
      */
 
     public Node(String protocol, String host, String port) {

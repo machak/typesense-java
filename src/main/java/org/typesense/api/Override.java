@@ -1,6 +1,5 @@
 package org.typesense.api;
 
-import org.typesense.api.exceptions.TypesenseError;
 import org.typesense.model.SearchOverride;
 
 public class Override {
@@ -23,7 +22,7 @@ public class Override {
         return this.apiCall.delete(this.getEndpoint(), SearchOverride.class);
     }
 
-    public String getEndpoint(){
+    public String getEndpoint() {
         return Collections.RESOURCE_PATH + "/" + this.collectionName + "/" + Overrides.RESOURCEPATH + "/" + this.overrideId;
     }
 }

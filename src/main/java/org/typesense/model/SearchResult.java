@@ -2,251 +2,261 @@ package org.typesense.model;
 
 import java.util.List;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 public class SearchResult extends BaseModel {
 
-  @Schema()
-  private List<FacetCounts> facetCounts = null;
+    @Schema()
+    private List<FacetCounts> facetCounts = null;
 
-  @Schema(description = "The number of documents found")
- /**
-   * The number of documents found
-  **/
-  private Integer found = null;
+    @Schema(description = "The number of documents found")
+    /**
+     * The number of documents found
+     **/
+    private Integer found = null;
 
-  @Schema(description = "The number of milliseconds the search took")
- /**
-   * The number of milliseconds the search took
-  **/
-  private Integer searchTimeMs = null;
+    @Schema(description = "The number of milliseconds the search took")
+    /**
+     * The number of milliseconds the search took
+     **/
+    private Integer searchTimeMs = null;
 
-  @Schema(description = "The total number of pages")
- /**
-   * The total number of pages
-  **/
-  private Integer outOf = null;
+    @Schema(description = "The total number of pages")
+    /**
+     * The total number of pages
+     **/
+    private Integer outOf = null;
 
-  @Schema(description = "Whether the search was cut off")
- /**
-   * Whether the search was cut off
-  **/
-  private Boolean searchCutoff = null;
+    @Schema(description = "Whether the search was cut off")
+    /**
+     * Whether the search was cut off
+     **/
+    private Boolean searchCutoff = null;
 
-  @Schema(description = "The search result page number")
- /**
-   * The search result page number
-  **/
-  private Integer page = null;
+    @Schema(description = "The search result page number")
+    /**
+     * The search result page number
+     **/
+    private Integer page = null;
 
-  @Schema()
-  private List<SearchGroupedHit> groupedHits = null;
+    @Schema()
+    private List<SearchGroupedHit> groupedHits = null;
 
-  @Schema(description = "The documents that matched the search query")
- /**
-   * The documents that matched the search query
-  **/
-  private List<SearchResultHit> hits = null;
+    @Schema(description = "The documents that matched the search query")
+    /**
+     * The documents that matched the search query
+     **/
+    private List<SearchResultHit> hits = null;
 
-  @Schema()
-  private SearchResultRequestParams requestParams = null;
- /**
-   * Get facetCounts
-   * @return facetCounts
-  **/
-  @JsonProperty("facet_counts")
-  public List<FacetCounts> getFacetCounts() {
-    return facetCounts;
-  }
+    @Schema()
+    private SearchResultRequestParams requestParams = null;
 
-  public void setFacetCounts(List<FacetCounts> facetCounts) {
-    this.facetCounts = facetCounts;
-  }
+    /**
+     * Get facetCounts
+     *
+     * @return facetCounts
+     **/
+    @JsonProperty("facet_counts")
+    public List<FacetCounts> getFacetCounts() {
+        return facetCounts;
+    }
 
-  public SearchResult facetCounts(List<FacetCounts> facetCounts) {
-    this.facetCounts = facetCounts;
-    return this;
-  }
+    public void setFacetCounts(List<FacetCounts> facetCounts) {
+        this.facetCounts = facetCounts;
+    }
 
-  public SearchResult addFacetCountsItem(FacetCounts facetCountsItem) {
-    this.facetCounts.add(facetCountsItem);
-    return this;
-  }
+    public SearchResult facetCounts(List<FacetCounts> facetCounts) {
+        this.facetCounts = facetCounts;
+        return this;
+    }
 
- /**
-   * The number of documents found
-   * @return found
-  **/
-  @JsonProperty("found")
-  public Integer getFound() {
-    return found;
-  }
+    public SearchResult addFacetCountsItem(FacetCounts facetCountsItem) {
+        this.facetCounts.add(facetCountsItem);
+        return this;
+    }
 
-  public void setFound(Integer found) {
-    this.found = found;
-  }
+    /**
+     * The number of documents found
+     *
+     * @return found
+     **/
+    @JsonProperty("found")
+    public Integer getFound() {
+        return found;
+    }
 
-  public SearchResult found(Integer found) {
-    this.found = found;
-    return this;
-  }
+    public void setFound(Integer found) {
+        this.found = found;
+    }
 
- /**
-   * The number of milliseconds the search took
-   * @return searchTimeMs
-  **/
-  @JsonProperty("search_time_ms")
-  public Integer getSearchTimeMs() {
-    return searchTimeMs;
-  }
+    public SearchResult found(Integer found) {
+        this.found = found;
+        return this;
+    }
 
-  public void setSearchTimeMs(Integer searchTimeMs) {
-    this.searchTimeMs = searchTimeMs;
-  }
+    /**
+     * The number of milliseconds the search took
+     *
+     * @return searchTimeMs
+     **/
+    @JsonProperty("search_time_ms")
+    public Integer getSearchTimeMs() {
+        return searchTimeMs;
+    }
 
-  public SearchResult searchTimeMs(Integer searchTimeMs) {
-    this.searchTimeMs = searchTimeMs;
-    return this;
-  }
+    public void setSearchTimeMs(Integer searchTimeMs) {
+        this.searchTimeMs = searchTimeMs;
+    }
 
- /**
-   * The total number of pages
-   * @return outOf
-  **/
-  @JsonProperty("out_of")
-  public Integer getOutOf() {
-    return outOf;
-  }
+    public SearchResult searchTimeMs(Integer searchTimeMs) {
+        this.searchTimeMs = searchTimeMs;
+        return this;
+    }
 
-  public void setOutOf(Integer outOf) {
-    this.outOf = outOf;
-  }
+    /**
+     * The total number of pages
+     *
+     * @return outOf
+     **/
+    @JsonProperty("out_of")
+    public Integer getOutOf() {
+        return outOf;
+    }
 
-  public SearchResult outOf(Integer outOf) {
-    this.outOf = outOf;
-    return this;
-  }
+    public void setOutOf(Integer outOf) {
+        this.outOf = outOf;
+    }
 
- /**
-   * Whether the search was cut off
-   * @return searchCutoff
-  **/
-  @JsonProperty("search_cutoff")
-  public Boolean isSearchCutoff() {
-    return searchCutoff;
-  }
+    public SearchResult outOf(Integer outOf) {
+        this.outOf = outOf;
+        return this;
+    }
 
-  public void setSearchCutoff(Boolean searchCutoff) {
-    this.searchCutoff = searchCutoff;
-  }
+    /**
+     * Whether the search was cut off
+     *
+     * @return searchCutoff
+     **/
+    @JsonProperty("search_cutoff")
+    public Boolean isSearchCutoff() {
+        return searchCutoff;
+    }
 
-  public SearchResult searchCutoff(Boolean searchCutoff) {
-    this.searchCutoff = searchCutoff;
-    return this;
-  }
+    public void setSearchCutoff(Boolean searchCutoff) {
+        this.searchCutoff = searchCutoff;
+    }
 
- /**
-   * The search result page number
-   * @return page
-  **/
-  @JsonProperty("page")
-  public Integer getPage() {
-    return page;
-  }
+    public SearchResult searchCutoff(Boolean searchCutoff) {
+        this.searchCutoff = searchCutoff;
+        return this;
+    }
 
-  public void setPage(Integer page) {
-    this.page = page;
-  }
+    /**
+     * The search result page number
+     *
+     * @return page
+     **/
+    @JsonProperty("page")
+    public Integer getPage() {
+        return page;
+    }
 
-  public SearchResult page(Integer page) {
-    this.page = page;
-    return this;
-  }
+    public void setPage(Integer page) {
+        this.page = page;
+    }
 
- /**
-   * Get groupedHits
-   * @return groupedHits
-  **/
-  @JsonProperty("grouped_hits")
-  public List<SearchGroupedHit> getGroupedHits() {
-    return groupedHits;
-  }
+    public SearchResult page(Integer page) {
+        this.page = page;
+        return this;
+    }
 
-  public void setGroupedHits(List<SearchGroupedHit> groupedHits) {
-    this.groupedHits = groupedHits;
-  }
+    /**
+     * Get groupedHits
+     *
+     * @return groupedHits
+     **/
+    @JsonProperty("grouped_hits")
+    public List<SearchGroupedHit> getGroupedHits() {
+        return groupedHits;
+    }
 
-  public SearchResult groupedHits(List<SearchGroupedHit> groupedHits) {
-    this.groupedHits = groupedHits;
-    return this;
-  }
+    public void setGroupedHits(List<SearchGroupedHit> groupedHits) {
+        this.groupedHits = groupedHits;
+    }
 
-  public SearchResult addGroupedHitsItem(SearchGroupedHit groupedHitsItem) {
-    this.groupedHits.add(groupedHitsItem);
-    return this;
-  }
+    public SearchResult groupedHits(List<SearchGroupedHit> groupedHits) {
+        this.groupedHits = groupedHits;
+        return this;
+    }
 
- /**
-   * The documents that matched the search query
-   * @return hits
-  **/
-  @JsonProperty("hits")
-  public List<SearchResultHit> getHits() {
-    return hits;
-  }
+    public SearchResult addGroupedHitsItem(SearchGroupedHit groupedHitsItem) {
+        this.groupedHits.add(groupedHitsItem);
+        return this;
+    }
 
-  public void setHits(List<SearchResultHit> hits) {
-    this.hits = hits;
-  }
+    /**
+     * The documents that matched the search query
+     *
+     * @return hits
+     **/
+    @JsonProperty("hits")
+    public List<SearchResultHit> getHits() {
+        return hits;
+    }
 
-  public SearchResult hits(List<SearchResultHit> hits) {
-    this.hits = hits;
-    return this;
-  }
+    public void setHits(List<SearchResultHit> hits) {
+        this.hits = hits;
+    }
 
-  public SearchResult addHitsItem(SearchResultHit hitsItem) {
-    this.hits.add(hitsItem);
-    return this;
-  }
+    public SearchResult hits(List<SearchResultHit> hits) {
+        this.hits = hits;
+        return this;
+    }
 
- /**
-   * Get requestParams
-   * @return requestParams
-  **/
-  @JsonProperty("request_params")
-  public SearchResultRequestParams getRequestParams() {
-    return requestParams;
-  }
+    public SearchResult addHitsItem(SearchResultHit hitsItem) {
+        this.hits.add(hitsItem);
+        return this;
+    }
 
-  public void setRequestParams(SearchResultRequestParams requestParams) {
-    this.requestParams = requestParams;
-  }
+    /**
+     * Get requestParams
+     *
+     * @return requestParams
+     **/
+    @JsonProperty("request_params")
+    public SearchResultRequestParams getRequestParams() {
+        return requestParams;
+    }
 
-  public SearchResult requestParams(SearchResultRequestParams requestParams) {
-    this.requestParams = requestParams;
-    return this;
-  }
+    public void setRequestParams(SearchResultRequestParams requestParams) {
+        this.requestParams = requestParams;
+    }
+
+    public SearchResult requestParams(SearchResultRequestParams requestParams) {
+        this.requestParams = requestParams;
+        return this;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SearchResult {\n");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SearchResult {\n");
 
-    sb.append("    facetCounts: ").append(toIndentedString(facetCounts)).append("\n");
-    sb.append("    found: ").append(toIndentedString(found)).append("\n");
-    sb.append("    searchTimeMs: ").append(toIndentedString(searchTimeMs)).append("\n");
-    sb.append("    outOf: ").append(toIndentedString(outOf)).append("\n");
-    sb.append("    searchCutoff: ").append(toIndentedString(searchCutoff)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    groupedHits: ").append(toIndentedString(groupedHits)).append("\n");
-    sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
-    sb.append("    requestParams: ").append(toIndentedString(requestParams)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+        sb.append("    facetCounts: ").append(toIndentedString(facetCounts)).append("\n");
+        sb.append("    found: ").append(toIndentedString(found)).append("\n");
+        sb.append("    searchTimeMs: ").append(toIndentedString(searchTimeMs)).append("\n");
+        sb.append("    outOf: ").append(toIndentedString(outOf)).append("\n");
+        sb.append("    searchCutoff: ").append(toIndentedString(searchCutoff)).append("\n");
+        sb.append("    page: ").append(toIndentedString(page)).append("\n");
+        sb.append("    groupedHits: ").append(toIndentedString(groupedHits)).append("\n");
+        sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
+        sb.append("    requestParams: ").append(toIndentedString(requestParams)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 
 }

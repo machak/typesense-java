@@ -1,8 +1,9 @@
 package org.typesense.api;
 
+import java.lang.Override;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.lang.Override;
 
 import jakarta.annotation.Priority;
 import jakarta.ws.rs.ext.ContextResolver;

@@ -1,14 +1,14 @@
 package org.typesense.api;
 
-import junit.framework.TestCase;
-import org.typesense.api.exceptions.TypesenseError;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.typesense.model.SearchOverrideExclude;
 import org.typesense.model.SearchOverrideInclude;
 import org.typesense.model.SearchOverrideRule;
 import org.typesense.model.SearchOverrideSchema;
 
-import java.util.ArrayList;
-import java.util.List;
+import junit.framework.TestCase;
 
 public class OverridesTest extends TestCase {
 
@@ -39,8 +39,8 @@ public class OverridesTest extends TestCase {
         searchOverrideExcludes.add(new SearchOverrideExclude().id("287"));
 
         searchOverrideSchema.rule(new SearchOverrideRule().query("apple").match(SearchOverrideRule.MatchEnum.EXACT))
-                .includes(searchOverrideIncludes)
-                .excludes(searchOverrideExcludes);
+                            .includes(searchOverrideIncludes)
+                            .excludes(searchOverrideExcludes);
 
         System.out.println(client.collections("books").overrides().upsert("apple", searchOverrideSchema));
     }

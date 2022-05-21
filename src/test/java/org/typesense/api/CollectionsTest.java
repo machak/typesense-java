@@ -1,13 +1,13 @@
 package org.typesense.api;
 
-import junit.framework.TestCase;
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
-import org.typesense.api.exceptions.TypesenseError;
 import org.typesense.model.CollectionResponse;
 import org.typesense.model.CollectionSchema;
 import org.typesense.model.Field;
 
-import java.util.ArrayList;
+import junit.framework.TestCase;
 
 
 public class CollectionsTest extends TestCase {
@@ -31,8 +31,9 @@ public class CollectionsTest extends TestCase {
     public void testRetrieveAllCollections() throws Exception {
         helper.createTestCollection();
         CollectionResponse[] collectionResponses = client.collections().retrieve();
-        for(CollectionResponse c:collectionResponses)
+        for (CollectionResponse c : collectionResponses) {
             System.out.println(c);
+        }
     }
 
     @Test

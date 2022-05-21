@@ -23,7 +23,7 @@ public class Client {
     public final Debug debug;
     public final MultiSearch multiSearch;
 
-    public Client(Configuration configuration){
+    public Client(Configuration configuration) {
         this.configuration = configuration;
         this.apiCall = new ApiCall(configuration);
         collections = new Collections(apiCall);
@@ -39,11 +39,11 @@ public class Client {
         this.multiSearch = new MultiSearch(this.apiCall);
     }
 
-    public Collection collections(String name){
+    public Collection collections(String name) {
         Collection retVal;
 
-        if(!this.individualCollections.containsKey(name)){
-            individualCollections.put(name,new Collection(name,this.apiCall,this.configuration));
+        if (!this.individualCollections.containsKey(name)) {
+            individualCollections.put(name, new Collection(name, this.apiCall, this.configuration));
         }
 
         retVal = individualCollections.get(name);
@@ -51,19 +51,19 @@ public class Client {
         return retVal;
     }
 
-    public Collections collections(){
+    public Collections collections() {
         return this.collections;
     }
 
-    public Aliases aliases(){
+    public Aliases aliases() {
         return this.aliases;
     }
 
-    public Alias aliases(String name){
+    public Alias aliases(String name) {
         Alias retVal;
 
-        if(!this.individualAliases.containsKey(name)){
-            this.individualAliases.put(name,new Alias(this.apiCall, name));
+        if (!this.individualAliases.containsKey(name)) {
+            this.individualAliases.put(name, new Alias(this.apiCall, name));
         }
 
         retVal = this.individualAliases.get(name);
@@ -71,14 +71,14 @@ public class Client {
         return retVal;
     }
 
-    public Keys keys(){
+    public Keys keys() {
         return this.keys;
     }
 
-    public Key keys(Long id){
+    public Key keys(Long id) {
         Key retVal;
 
-        if(!this.individualKeys.containsKey(id)){
+        if (!this.individualKeys.containsKey(id)) {
             this.individualKeys.put(id, new Key(id, this.apiCall));
         }
 

@@ -3,46 +3,48 @@ package org.typesense.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 public class ApiKeysResponse extends BaseModel {
 
-  @Schema(required = true)
-  private List<ApiKey> keys = new ArrayList<ApiKey>();
- /**
-   * Get keys
-   * @return keys
-  **/
-  @JsonProperty("keys")
-  public List<ApiKey> getKeys() {
-    return keys;
-  }
+    @Schema(required = true)
+    private List<ApiKey> keys = new ArrayList<ApiKey>();
 
-  public void setKeys(List<ApiKey> keys) {
-    this.keys = keys;
-  }
+    /**
+     * Get keys
+     *
+     * @return keys
+     **/
+    @JsonProperty("keys")
+    public List<ApiKey> getKeys() {
+        return keys;
+    }
 
-  public ApiKeysResponse keys(List<ApiKey> keys) {
-    this.keys = keys;
-    return this;
-  }
+    public void setKeys(List<ApiKey> keys) {
+        this.keys = keys;
+    }
 
-  public ApiKeysResponse addKeysItem(ApiKey keysItem) {
-    this.keys.add(keysItem);
-    return this;
-  }
+    public ApiKeysResponse keys(List<ApiKey> keys) {
+        this.keys = keys;
+        return this;
+    }
+
+    public ApiKeysResponse addKeysItem(ApiKey keysItem) {
+        this.keys.add(keysItem);
+        return this;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ApiKeysResponse {\n");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ApiKeysResponse {\n");
 
-    sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+        sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 }

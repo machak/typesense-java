@@ -1,8 +1,8 @@
 package org.typesense.api;
 
-import junit.framework.TestCase;
-import org.typesense.api.exceptions.TypesenseError;
 import org.typesense.model.SearchSynonymSchema;
+
+import junit.framework.TestCase;
 
 public class SynonymsTest extends TestCase {
 
@@ -30,7 +30,7 @@ public class SynonymsTest extends TestCase {
         synonym.addSynonymsItem("dictionary").addSynonymsItem("guide").addSynonymsItem("encyclopedia");
         synonym.root("books");
 
-        System.out.println(this.client.collections("books").synonyms().upsert("books-synonyms",synonym));
+        System.out.println(this.client.collections("books").synonyms().upsert("books-synonyms", synonym));
     }
 
     public void testRetrieve() throws Exception {

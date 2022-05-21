@@ -1,12 +1,12 @@
 package org.typesense.api;
 
-import junit.framework.TestCase;
-import org.typesense.resources.Node;
-
 import java.net.UnknownHostException;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import org.typesense.resources.Node;
+
+import junit.framework.TestCase;
 
 public class RetryTest extends TestCase {
 
@@ -15,8 +15,8 @@ public class RetryTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
         ArrayList<Node> nodes = new ArrayList<>();
-        nodes.add(new Node("http","unknownhost123","8108"));
-        Configuration configuration = new Configuration(nodes, Duration.ofSeconds(1),"xyz");
+        nodes.add(new Node("http", "unknownhost123", "8108"));
+        Configuration configuration = new Configuration(nodes, Duration.ofSeconds(1), "xyz");
         configuration.numRetries = 2;
         configuration.retryInterval = Duration.ofSeconds(2);
         this.client = new Client(configuration);
@@ -30,7 +30,7 @@ public class RetryTest extends TestCase {
             long timeTaken = System.currentTimeMillis() - start;
             assertTrue(e.getCause() instanceof UnknownHostException);
             assertTrue(timeTaken > 4000);
-            return ;
+            return;
         }
 
         throw new Exception("Retry did not throw exception.");

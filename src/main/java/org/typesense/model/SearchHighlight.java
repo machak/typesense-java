@@ -2,153 +2,159 @@ package org.typesense.model;
 
 import java.util.List;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 public class SearchHighlight extends BaseModel {
 
-  @Schema(example = "company_name")
-  private String field = null;
+    @Schema(example = "company_name")
+    private String field = null;
 
-  @Schema(example = "<mark>Stark</mark> Industries", description = "Present only for (non-array) string fields")
- /**
-   * Present only for (non-array) string fields
-  **/
-  private String snippet = null;
+    @Schema(example = "<mark>Stark</mark> Industries", description = "Present only for (non-array) string fields")
+    /**
+     * Present only for (non-array) string fields
+     **/
+    private String snippet = null;
 
-  @Schema(example = "[\"<mark>Stark</mark> Industries\",\"<mark>Stark</mark> Corp\"]", description = "Present only for (array) string[] fields")
- /**
-   * Present only for (array) string[] fields
-  **/
-  private List<String> snippets = null;
+    @Schema(example = "[\"<mark>Stark</mark> Industries\",\"<mark>Stark</mark> Corp\"]", description = "Present only for (array) string[] fields")
+    /**
+     * Present only for (array) string[] fields
+     **/
+    private List<String> snippets = null;
 
-  @Schema(example = "1", description = "The indices property will be present only for string[] fields and will contain the corresponding indices of the snippets in the search field")
- /**
-   * The indices property will be present only for string[] fields and will contain the corresponding indices of the snippets in the search field
-  **/
-  private List<Integer> indices = null;
+    @Schema(example = "1", description = "The indices property will be present only for string[] fields and will contain the corresponding indices of the snippets in the search field")
+    /**
+     * The indices property will be present only for string[] fields and will contain the corresponding indices of the snippets in the search field
+     **/
+    private List<Integer> indices = null;
 
-  @Schema()
-  private List<Object> matchedTokens = null;
- /**
-   * Get field
-   * @return field
-  **/
-  @JsonProperty("field")
-  public String getField() {
-    return field;
-  }
+    @Schema()
+    private List<Object> matchedTokens = null;
 
-  public void setField(String field) {
-    this.field = field;
-  }
+    /**
+     * Get field
+     *
+     * @return field
+     **/
+    @JsonProperty("field")
+    public String getField() {
+        return field;
+    }
 
-  public SearchHighlight field(String field) {
-    this.field = field;
-    return this;
-  }
+    public void setField(String field) {
+        this.field = field;
+    }
 
- /**
-   * Present only for (non-array) string fields
-   * @return snippet
-  **/
-  @JsonProperty("snippet")
-  public String getSnippet() {
-    return snippet;
-  }
+    public SearchHighlight field(String field) {
+        this.field = field;
+        return this;
+    }
 
-  public void setSnippet(String snippet) {
-    this.snippet = snippet;
-  }
+    /**
+     * Present only for (non-array) string fields
+     *
+     * @return snippet
+     **/
+    @JsonProperty("snippet")
+    public String getSnippet() {
+        return snippet;
+    }
 
-  public SearchHighlight snippet(String snippet) {
-    this.snippet = snippet;
-    return this;
-  }
+    public void setSnippet(String snippet) {
+        this.snippet = snippet;
+    }
 
- /**
-   * Present only for (array) string[] fields
-   * @return snippets
-  **/
-  @JsonProperty("snippets")
-  public List<String> getSnippets() {
-    return snippets;
-  }
+    public SearchHighlight snippet(String snippet) {
+        this.snippet = snippet;
+        return this;
+    }
 
-  public void setSnippets(List<String> snippets) {
-    this.snippets = snippets;
-  }
+    /**
+     * Present only for (array) string[] fields
+     *
+     * @return snippets
+     **/
+    @JsonProperty("snippets")
+    public List<String> getSnippets() {
+        return snippets;
+    }
 
-  public SearchHighlight snippets(List<String> snippets) {
-    this.snippets = snippets;
-    return this;
-  }
+    public void setSnippets(List<String> snippets) {
+        this.snippets = snippets;
+    }
 
-  public SearchHighlight addSnippetsItem(String snippetsItem) {
-    this.snippets.add(snippetsItem);
-    return this;
-  }
+    public SearchHighlight snippets(List<String> snippets) {
+        this.snippets = snippets;
+        return this;
+    }
 
- /**
-   * The indices property will be present only for string[] fields and will contain the corresponding indices of the snippets in the search field
-   * @return indices
-  **/
-  @JsonProperty("indices")
-  public List<Integer> getIndices() {
-    return indices;
-  }
+    public SearchHighlight addSnippetsItem(String snippetsItem) {
+        this.snippets.add(snippetsItem);
+        return this;
+    }
 
-  public void setIndices(List<Integer> indices) {
-    this.indices = indices;
-  }
+    /**
+     * The indices property will be present only for string[] fields and will contain the corresponding indices of the snippets in the search field
+     *
+     * @return indices
+     **/
+    @JsonProperty("indices")
+    public List<Integer> getIndices() {
+        return indices;
+    }
 
-  public SearchHighlight indices(List<Integer> indices) {
-    this.indices = indices;
-    return this;
-  }
+    public void setIndices(List<Integer> indices) {
+        this.indices = indices;
+    }
 
-  public SearchHighlight addIndicesItem(Integer indicesItem) {
-    this.indices.add(indicesItem);
-    return this;
-  }
+    public SearchHighlight indices(List<Integer> indices) {
+        this.indices = indices;
+        return this;
+    }
 
- /**
-   * Get matchedTokens
-   * @return matchedTokens
-  **/
-  @JsonProperty("matched_tokens")
-  public List<Object> getMatchedTokens() {
-    return matchedTokens;
-  }
+    public SearchHighlight addIndicesItem(Integer indicesItem) {
+        this.indices.add(indicesItem);
+        return this;
+    }
 
-  public void setMatchedTokens(List<Object> matchedTokens) {
-    this.matchedTokens = matchedTokens;
-  }
+    /**
+     * Get matchedTokens
+     *
+     * @return matchedTokens
+     **/
+    @JsonProperty("matched_tokens")
+    public List<Object> getMatchedTokens() {
+        return matchedTokens;
+    }
 
-  public SearchHighlight matchedTokens(List<Object> matchedTokens) {
-    this.matchedTokens = matchedTokens;
-    return this;
-  }
+    public void setMatchedTokens(List<Object> matchedTokens) {
+        this.matchedTokens = matchedTokens;
+    }
 
-  public SearchHighlight addMatchedTokensItem(Object matchedTokensItem) {
-    this.matchedTokens.add(matchedTokensItem);
-    return this;
-  }
+    public SearchHighlight matchedTokens(List<Object> matchedTokens) {
+        this.matchedTokens = matchedTokens;
+        return this;
+    }
+
+    public SearchHighlight addMatchedTokensItem(Object matchedTokensItem) {
+        this.matchedTokens.add(matchedTokensItem);
+        return this;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SearchHighlight {\n");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SearchHighlight {\n");
 
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    snippet: ").append(toIndentedString(snippet)).append("\n");
-    sb.append("    snippets: ").append(toIndentedString(snippets)).append("\n");
-    sb.append("    indices: ").append(toIndentedString(indices)).append("\n");
-    sb.append("    matchedTokens: ").append(toIndentedString(matchedTokens)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+        sb.append("    field: ").append(toIndentedString(field)).append("\n");
+        sb.append("    snippet: ").append(toIndentedString(snippet)).append("\n");
+        sb.append("    snippets: ").append(toIndentedString(snippets)).append("\n");
+        sb.append("    indices: ").append(toIndentedString(indices)).append("\n");
+        sb.append("    matchedTokens: ").append(toIndentedString(matchedTokens)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 }

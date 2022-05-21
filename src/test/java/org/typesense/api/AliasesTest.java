@@ -1,14 +1,10 @@
 package org.typesense.api;
 
-import junit.framework.TestCase;
-import org.typesense.api.exceptions.TypesenseError;
 import org.typesense.model.CollectionAlias;
 import org.typesense.model.CollectionAliasSchema;
 import org.typesense.model.CollectionAliasesResponse;
-import org.typesense.resources.Node;
 
-import java.time.Duration;
-import java.util.ArrayList;
+import junit.framework.TestCase;
 
 public class AliasesTest extends TestCase {
 

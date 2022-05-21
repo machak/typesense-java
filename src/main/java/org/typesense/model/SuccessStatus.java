@@ -1,41 +1,43 @@
 package org.typesense.model;
 
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 public class SuccessStatus extends BaseModel {
 
-  @Schema(required = true)
-  private Boolean success = null;
- /**
-   * Get success
-   * @return success
-  **/
-  @JsonProperty("success")
-  public Boolean isSuccess() {
-    return success;
-  }
+    @Schema(required = true)
+    private Boolean success = null;
 
-  public void setSuccess(Boolean success) {
-    this.success = success;
-  }
+    /**
+     * Get success
+     *
+     * @return success
+     **/
+    @JsonProperty("success")
+    public Boolean isSuccess() {
+        return success;
+    }
 
-  public SuccessStatus success(Boolean success) {
-    this.success = success;
-    return this;
-  }
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
+    public SuccessStatus success(Boolean success) {
+        this.success = success;
+        return this;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SuccessStatus {\n");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SuccessStatus {\n");
 
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+        sb.append("    success: ").append(toIndentedString(success)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 }

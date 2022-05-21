@@ -1,6 +1,5 @@
 package org.typesense.api;
 
-import org.typesense.api.exceptions.TypesenseError;
 import org.typesense.model.SearchSynonym;
 
 public class Synonym {
@@ -23,7 +22,7 @@ public class Synonym {
         return this.apiCall.delete(this.getEndpoint(), SearchSynonym.class);
     }
 
-    public String getEndpoint(){
+    public String getEndpoint() {
         return Collections.RESOURCE_PATH + "/" + this.collectionName + Synonyms.RESOURCEPATH + "/" + this.synonymId;
     }
 }

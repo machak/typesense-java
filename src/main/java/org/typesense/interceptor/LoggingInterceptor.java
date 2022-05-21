@@ -1,18 +1,20 @@
 package org.typesense.interceptor;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.stream.Collectors;
+
 import org.glassfish.jersey.client.spi.PostInvocationInterceptor;
 import org.glassfish.jersey.client.spi.PreInvocationInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import jakarta.ws.rs.client.ClientRequestContext;
 import jakarta.ws.rs.client.ClientResponseContext;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.stream.Collectors;
 
 public class LoggingInterceptor implements PreInvocationInterceptor, PostInvocationInterceptor {
 
@@ -21,7 +23,7 @@ public class LoggingInterceptor implements PreInvocationInterceptor, PostInvocat
 
     @Override
     public void beforeRequest(ClientRequestContext requestContext) {
-       if (logger.isTraceEnabled()) {
+        if (logger.isTraceEnabled()) {
             try {
                 String json = objectMapper.writeValueAsString(requestContext.getEntity());
                 logger.trace("REQUEST URI    : " + requestContext.getUri().toString());

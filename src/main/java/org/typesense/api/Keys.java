@@ -1,17 +1,18 @@
 package org.typesense.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.typesense.api.exceptions.TypesenseError;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.HashMap;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.typesense.model.ApiKey;
 import org.typesense.model.ApiKeySchema;
 import org.typesense.model.ApiKeysResponse;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-import java.util.HashMap;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Keys {
 
@@ -33,7 +34,7 @@ public class Keys {
         return this.apiCall.get(Keys.RESOURCEPATH, ApiKeysResponse.class);
     }
 
-    public String generateScopedSearchKey(String searchKey, HashMap<String, Object> parameters){
+    public String generateScopedSearchKey(String searchKey, HashMap<String, Object> parameters) {
         ObjectMapper mapper = new ObjectMapper();
         String params = "";
         try {
@@ -43,17 +44,17 @@ public class Keys {
         }
 
         byte[] hmac256 = null;
-        try{
+        try {
             Mac mac = Mac.getInstance("HmacSHA256");
             SecretKeySpec sks = new SecretKeySpec(searchKey.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
             mac.init(sks);
             hmac256 = mac.doFinal(params.getBytes(StandardCharsets.UTF_8));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         String digest = Base64.getEncoder().encodeToString(hmac256);
-        String keyPrefix = searchKey.substring(0,4);
+        String keyPrefix = searchKey.substring(0, 4);
         String rawScopedKey = digest + keyPrefix + params;
-        return  Base64.getEncoder().encodeToString(rawScopedKey.getBytes(StandardCharsets.UTF_8));
+        return Base64.getEncoder().encodeToString(rawScopedKey.getBytes(StandardCharsets.UTF_8));
     }
 }

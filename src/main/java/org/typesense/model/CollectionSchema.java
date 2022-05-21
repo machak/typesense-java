@@ -3,160 +3,166 @@ package org.typesense.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 public class CollectionSchema extends BaseModel {
 
-  @Schema(example = "companies", required = true, description = "Name of the collection")
- /**
-   * Name of the collection
-  **/
-  private String name = null;
+    @Schema(example = "companies", required = true, description = "Name of the collection")
+    /**
+     * Name of the collection
+     **/
+    private String name = null;
 
-  @Schema(example = "[{\"name\":\"company_name\",\"type\":\"string\",\"facet\":false},{\"name\":\"num_employees\",\"type\":\"int32\",\"facet\":false},{\"name\":\"country\",\"type\":\"string\",\"facet\":true}]", required = true, description = "A list of fields for querying, filtering and faceting")
- /**
-   * A list of fields for querying, filtering and faceting
-  **/
-  private List<Field> fields = new ArrayList<Field>();
+    @Schema(example = "[{\"name\":\"company_name\",\"type\":\"string\",\"facet\":false},{\"name\":\"num_employees\",\"type\":\"int32\",\"facet\":false},{\"name\":\"country\",\"type\":\"string\",\"facet\":true}]", required = true, description = "A list of fields for querying, filtering and faceting")
+    /**
+     * A list of fields for querying, filtering and faceting
+     **/
+    private List<Field> fields = new ArrayList<Field>();
 
-  @Schema(example = "num_employees", description = "The name of an int32 / float field that determines the order in which the search results are ranked when a sort_by clause is not provided during searching. This field must indicate some kind of popularity.")
- /**
-   * The name of an int32 / float field that determines the order in which the search results are ranked when a sort_by clause is not provided during searching. This field must indicate some kind of popularity.
-  **/
-  private String defaultSortingField = "";
+    @Schema(example = "num_employees", description = "The name of an int32 / float field that determines the order in which the search results are ranked when a sort_by clause is not provided during searching. This field must indicate some kind of popularity.")
+    /**
+     * The name of an int32 / float field that determines the order in which the search results are ranked when a sort_by clause is not provided during searching. This field must indicate some kind of popularity.
+     **/
+    private String defaultSortingField = "";
 
-  @Schema(description = "List of symbols or special characters to be used for  splitting the text into individual words in addition to space and new-line characters. ")
- /**
-   * List of symbols or special characters to be used for  splitting the text into individual words in addition to space and new-line characters.
-  **/
-  private List<String> tokenSeparators = null;
+    @Schema(description = "List of symbols or special characters to be used for  splitting the text into individual words in addition to space and new-line characters. ")
+    /**
+     * List of symbols or special characters to be used for  splitting the text into individual words in addition to space and new-line characters.
+     **/
+    private List<String> tokenSeparators = null;
 
-  @Schema(description = "List of symbols or special characters to be indexed. ")
- /**
-   * List of symbols or special characters to be indexed.
-  **/
-  private List<String> symbolsToIndex = null;
- /**
-   * Name of the collection
-   * @return name
-  **/
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
+    @Schema(description = "List of symbols or special characters to be indexed. ")
+    /**
+     * List of symbols or special characters to be indexed.
+     **/
+    private List<String> symbolsToIndex = null;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    /**
+     * Name of the collection
+     *
+     * @return name
+     **/
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
 
-  public CollectionSchema name(String name) {
-    this.name = name;
-    return this;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
- /**
-   * A list of fields for querying, filtering and faceting
-   * @return fields
-  **/
-  @JsonProperty("fields")
-  public List<Field> getFields() {
-    return fields;
-  }
+    public CollectionSchema name(String name) {
+        this.name = name;
+        return this;
+    }
 
-  public void setFields(List<Field> fields) {
-    this.fields = fields;
-  }
+    /**
+     * A list of fields for querying, filtering and faceting
+     *
+     * @return fields
+     **/
+    @JsonProperty("fields")
+    public List<Field> getFields() {
+        return fields;
+    }
 
-  public CollectionSchema fields(List<Field> fields) {
-    this.fields = fields;
-    return this;
-  }
+    public void setFields(List<Field> fields) {
+        this.fields = fields;
+    }
 
-  public CollectionSchema addFieldsItem(Field fieldsItem) {
-    this.fields.add(fieldsItem);
-    return this;
-  }
+    public CollectionSchema fields(List<Field> fields) {
+        this.fields = fields;
+        return this;
+    }
 
- /**
-   * The name of an int32 / float field that determines the order in which the search results are ranked when a sort_by clause is not provided during searching. This field must indicate some kind of popularity.
-   * @return defaultSortingField
-  **/
-  @JsonProperty("default_sorting_field")
-  public String getDefaultSortingField() {
-    return defaultSortingField;
-  }
+    public CollectionSchema addFieldsItem(Field fieldsItem) {
+        this.fields.add(fieldsItem);
+        return this;
+    }
 
-  public void setDefaultSortingField(String defaultSortingField) {
-    this.defaultSortingField = defaultSortingField;
-  }
+    /**
+     * The name of an int32 / float field that determines the order in which the search results are ranked when a sort_by clause is not provided during searching. This field must indicate some kind of popularity.
+     *
+     * @return defaultSortingField
+     **/
+    @JsonProperty("default_sorting_field")
+    public String getDefaultSortingField() {
+        return defaultSortingField;
+    }
 
-  public CollectionSchema defaultSortingField(String defaultSortingField) {
-    this.defaultSortingField = defaultSortingField;
-    return this;
-  }
+    public void setDefaultSortingField(String defaultSortingField) {
+        this.defaultSortingField = defaultSortingField;
+    }
 
- /**
-   * List of symbols or special characters to be used for  splitting the text into individual words in addition to space and new-line characters.
-   * @return tokenSeparators
-  **/
-  @JsonProperty("token_separators")
-  public List<String> getTokenSeparators() {
-    return tokenSeparators;
-  }
+    public CollectionSchema defaultSortingField(String defaultSortingField) {
+        this.defaultSortingField = defaultSortingField;
+        return this;
+    }
 
-  public void setTokenSeparators(List<String> tokenSeparators) {
-    this.tokenSeparators = tokenSeparators;
-  }
+    /**
+     * List of symbols or special characters to be used for  splitting the text into individual words in addition to space and new-line characters.
+     *
+     * @return tokenSeparators
+     **/
+    @JsonProperty("token_separators")
+    public List<String> getTokenSeparators() {
+        return tokenSeparators;
+    }
 
-  public CollectionSchema tokenSeparators(List<String> tokenSeparators) {
-    this.tokenSeparators = tokenSeparators;
-    return this;
-  }
+    public void setTokenSeparators(List<String> tokenSeparators) {
+        this.tokenSeparators = tokenSeparators;
+    }
 
-  public CollectionSchema addTokenSeparatorsItem(String tokenSeparatorsItem) {
-    this.tokenSeparators.add(tokenSeparatorsItem);
-    return this;
-  }
+    public CollectionSchema tokenSeparators(List<String> tokenSeparators) {
+        this.tokenSeparators = tokenSeparators;
+        return this;
+    }
 
- /**
-   * List of symbols or special characters to be indexed.
-   * @return symbolsToIndex
-  **/
-  @JsonProperty("symbols_to_index")
-  public List<String> getSymbolsToIndex() {
-    return symbolsToIndex;
-  }
+    public CollectionSchema addTokenSeparatorsItem(String tokenSeparatorsItem) {
+        this.tokenSeparators.add(tokenSeparatorsItem);
+        return this;
+    }
 
-  public void setSymbolsToIndex(List<String> symbolsToIndex) {
-    this.symbolsToIndex = symbolsToIndex;
-  }
+    /**
+     * List of symbols or special characters to be indexed.
+     *
+     * @return symbolsToIndex
+     **/
+    @JsonProperty("symbols_to_index")
+    public List<String> getSymbolsToIndex() {
+        return symbolsToIndex;
+    }
 
-  public CollectionSchema symbolsToIndex(List<String> symbolsToIndex) {
-    this.symbolsToIndex = symbolsToIndex;
-    return this;
-  }
+    public void setSymbolsToIndex(List<String> symbolsToIndex) {
+        this.symbolsToIndex = symbolsToIndex;
+    }
 
-  public CollectionSchema addSymbolsToIndexItem(String symbolsToIndexItem) {
-    this.symbolsToIndex.add(symbolsToIndexItem);
-    return this;
-  }
+    public CollectionSchema symbolsToIndex(List<String> symbolsToIndex) {
+        this.symbolsToIndex = symbolsToIndex;
+        return this;
+    }
+
+    public CollectionSchema addSymbolsToIndexItem(String symbolsToIndexItem) {
+        this.symbolsToIndex.add(symbolsToIndexItem);
+        return this;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CollectionSchema {\n");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CollectionSchema {\n");
 
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
-    sb.append("    defaultSortingField: ").append(toIndentedString(defaultSortingField)).append("\n");
-    sb.append("    tokenSeparators: ").append(toIndentedString(tokenSeparators)).append("\n");
-    sb.append("    symbolsToIndex: ").append(toIndentedString(symbolsToIndex)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+        sb.append("    defaultSortingField: ").append(toIndentedString(defaultSortingField)).append("\n");
+        sb.append("    tokenSeparators: ").append(toIndentedString(tokenSeparators)).append("\n");
+        sb.append("    symbolsToIndex: ").append(toIndentedString(symbolsToIndex)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 
 }

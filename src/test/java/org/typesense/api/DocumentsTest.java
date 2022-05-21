@@ -1,14 +1,17 @@
 package org.typesense.api;
 
-import junit.framework.TestCase;
-import org.typesense.api.exceptions.TypesenseError;
-import org.typesense.model.*;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import org.typesense.model.DeleteDocumentsParameters;
+import org.typesense.model.ExportDocumentsParameters;
+import org.typesense.model.ImportDocumentsParameters;
+import org.typesense.model.SearchParameters;
+
+import junit.framework.TestCase;
 
 public class DocumentsTest extends TestCase {
 
@@ -34,17 +37,17 @@ public class DocumentsTest extends TestCase {
 
     public void testCreateDocument() throws Exception {
 
-        String[] authors = {"shakspeare","william"};
+        String[] authors = {"shakspeare", "william"};
         HashMap<String, Object> hmap = new HashMap<>();
-        hmap.put("title","Romeo and juliet");
-        hmap.put("authors",authors);
-        hmap.put("image_url","fgfg");
-        hmap.put("publication_year",1666);
-        hmap.put("ratings_count",124);
-        hmap.put("average_rating",3.2);
-        hmap.put("publication_year_facet","dff");
-        hmap.put("authors_facet",authors);
-        hmap.put("id","1");
+        hmap.put("title", "Romeo and juliet");
+        hmap.put("authors", authors);
+        hmap.put("image_url", "fgfg");
+        hmap.put("publication_year", 1666);
+        hmap.put("ratings_count", 124);
+        hmap.put("average_rating", 3.2);
+        hmap.put("publication_year_facet", "dff");
+        hmap.put("authors_facet", authors);
+        hmap.put("id", "1");
 
         System.out.println(client.collections("books").documents().create(hmap));
     }
@@ -53,15 +56,15 @@ public class DocumentsTest extends TestCase {
 
         String[] authors = new String[]{"jk", "Rowling"};
         HashMap<String, Object> hmap = new HashMap<>();
-        hmap.put("title","harry potter");
-        hmap.put("authors",authors);
-        hmap.put("image_url","fgfg");
-        hmap.put("publication_year",2001);
-        hmap.put("ratings_count",231);
-        hmap.put("average_rating",5.6);
-        hmap.put("publication_year_facet","2001");
-        hmap.put("authors_facet",authors);
-        hmap.put("id","3");
+        hmap.put("title", "harry potter");
+        hmap.put("authors", authors);
+        hmap.put("image_url", "fgfg");
+        hmap.put("publication_year", 2001);
+        hmap.put("ratings_count", 231);
+        hmap.put("average_rating", 5.6);
+        hmap.put("publication_year_facet", "2001");
+        hmap.put("authors_facet", authors);
+        hmap.put("id", "3");
 
         System.out.println(client.collections("books").documents().upsert(hmap));
 
@@ -83,10 +86,10 @@ public class DocumentsTest extends TestCase {
     public void testUpdateDocument() throws Exception {
         helper.createTestDocument();
         String[] authors = new String[]{"Shakespeare", "william"};
-        HashMap<String , Object> document = new HashMap<>();
-        document.put("title","Romeo and juliet");
-        document.put("authors",authors);
-        document.put("id","1");
+        HashMap<String, Object> document = new HashMap<>();
+        document.put("title", "Romeo and juliet");
+        document.put("authors", authors);
+        document.put("id", "1");
         client.collections("books").documents("1").update(document);
         //System.out.println(client.collections("books").documents("1").update(document));
     }
@@ -94,9 +97,9 @@ public class DocumentsTest extends TestCase {
     public void testSearchDocuments() throws Exception {
         helper.createTestDocument();
         SearchParameters searchParameters = new SearchParameters()
-                                                .q("romeo")
-                                                .queryBy("title,authors")
-                                                .prefix("false,true");
+                .q("romeo")
+                .queryBy("title,authors")
+                .prefix("false,true");
         org.typesense.model.SearchResult searchResult = client.collections("books").documents().search(searchParameters);
 
         System.out.println(searchResult);
@@ -108,12 +111,12 @@ public class DocumentsTest extends TestCase {
         ImportDocumentsParameters queryParameters = new ImportDocumentsParameters();
         ArrayList<HashMap<String, Object>> documentList = new ArrayList<>();
 
-        document1.put("countryName","India");
-        document1.put("capital","Delhi");
-        document1.put("gdp",23);
-        document2.put("countryName","Us");
-        document2.put("capital","Washington");
-        document2.put("gdp",233);
+        document1.put("countryName", "India");
+        document1.put("capital", "Delhi");
+        document1.put("gdp", 23);
+        document2.put("countryName", "Us");
+        document2.put("capital", "Washington");
+        document2.put("gdp", 233);
 
         documentList.add(document1);
         documentList.add(document2);
@@ -153,15 +156,15 @@ public class DocumentsTest extends TestCase {
         ImportDocumentsParameters queryParameters = new ImportDocumentsParameters();
         queryParameters.dirtyValues(ImportDocumentsParameters.DirtyValuesEnum.COERCE_OR_REJECT);
         queryParameters.action("upsert");
-        String[] authors = {"shakspeare","william"};
+        String[] authors = {"shakspeare", "william"};
         HashMap<String, Object> hmap = new HashMap<>();
         hmap.put("title", 111);
-        hmap.put("authors",authors);
-        hmap.put("publication_year",1666);
-        hmap.put("ratings_count",124);
-        hmap.put("average_rating",3.2);
-        hmap.put("id","2");
+        hmap.put("authors", authors);
+        hmap.put("publication_year", 1666);
+        hmap.put("ratings_count", 124);
+        hmap.put("average_rating", 3.2);
+        hmap.put("id", "2");
 
-        System.out.println(this.client.collections("books").documents().create(hmap,queryParameters));
+        System.out.println(this.client.collections("books").documents().create(hmap, queryParameters));
     }
 }
