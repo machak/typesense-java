@@ -15,14 +15,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class MultiSearchCollectionParameters extends MultiSearchParameters  {
-  
+
   @Schema(required = true, description = "The collection to search in. ")
  /**
-   * The collection to search in.   
+   * The collection to search in.
   **/
   private String collection = null;
  /**
-   * The collection to search in. 
+   * The collection to search in.
    * @return collection
   **/
   @JsonProperty("collection")
@@ -50,14 +50,5 @@ public class MultiSearchCollectionParameters extends MultiSearchParameters  {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private static String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 }

@@ -1,25 +1,12 @@
 package org.typesense.model;
 
-import java.util.ArrayList;
 import java.util.List;
-import org.typesense.model.FacetCounts;
-import org.typesense.model.SearchGroupedHit;
-import org.typesense.model.SearchResultHit;
-import org.typesense.model.SearchResultRequestParams;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class SearchResult   {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class SearchResult extends BaseModel {
 
   @Schema()
   private List<FacetCounts> facetCounts = null;
@@ -261,14 +248,5 @@ public class SearchResult   {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private static String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 }

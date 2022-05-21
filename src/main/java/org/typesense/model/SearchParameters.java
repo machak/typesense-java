@@ -2,226 +2,218 @@ package org.typesense.model;
 
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class SearchParameters   {
-  
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class SearchParameters extends BaseModel {
+
   @Schema(required = true, description = "The query text to search for in the collection. Use * as the search string to return all documents. This is typically useful when used in conjunction with filter_by.")
  /**
-   * The query text to search for in the collection. Use * as the search string to return all documents. This is typically useful when used in conjunction with filter_by.  
+   * The query text to search for in the collection. Use * as the search string to return all documents. This is typically useful when used in conjunction with filter_by.
   **/
   private String q = null;
-  
+
   @Schema(required = true, description = "A list of `string` fields that should be queried against. Multiple fields are separated with a comma.")
  /**
-   * A list of `string` fields that should be queried against. Multiple fields are separated with a comma.  
+   * A list of `string` fields that should be queried against. Multiple fields are separated with a comma.
   **/
   private String queryBy = null;
-  
+
   @Schema(description = "The relative weight to give each `query_by` field when ranking results. This can be used to boost fields in priority, when looking for matches. Multiple fields are separated with a comma.")
  /**
-   * The relative weight to give each `query_by` field when ranking results. This can be used to boost fields in priority, when looking for matches. Multiple fields are separated with a comma.  
+   * The relative weight to give each `query_by` field when ranking results. This can be used to boost fields in priority, when looking for matches. Multiple fields are separated with a comma.
   **/
   private String queryByWeights = null;
-  
+
   @Schema(description = "Boolean field to indicate that the last word in the query should be treated as a prefix, and not as a whole word. This is used for building autocomplete and instant search interfaces. Defaults to true.")
  /**
-   * Boolean field to indicate that the last word in the query should be treated as a prefix, and not as a whole word. This is used for building autocomplete and instant search interfaces. Defaults to true.  
+   * Boolean field to indicate that the last word in the query should be treated as a prefix, and not as a whole word. This is used for building autocomplete and instant search interfaces. Defaults to true.
   **/
   private String prefix = null;
-  
+
   @Schema(example = "num_employees:>100 && country: [USA, UK]", description = "Filter conditions for refining youropen api validator search results. Separate multiple conditions with &&.")
  /**
-   * Filter conditions for refining youropen api validator search results. Separate multiple conditions with &&.  
+   * Filter conditions for refining youropen api validator search results. Separate multiple conditions with &&.
   **/
   private String filterBy = null;
-  
+
   @Schema(example = "num_employees:desc", description = "A list of numerical fields and their corresponding sort orders that will be used for ordering your results. Up to 3 sort fields can be specified. The text similarity score is exposed as a special `_text_match` field that you can use in the list of sorting fields. If no `sort_by` parameter is specified, results are sorted by `_text_match:desc,default_sorting_field:desc`")
  /**
-   * A list of numerical fields and their corresponding sort orders that will be used for ordering your results. Up to 3 sort fields can be specified. The text similarity score is exposed as a special `_text_match` field that you can use in the list of sorting fields. If no `sort_by` parameter is specified, results are sorted by `_text_match:desc,default_sorting_field:desc`  
+   * A list of numerical fields and their corresponding sort orders that will be used for ordering your results. Up to 3 sort fields can be specified. The text similarity score is exposed as a special `_text_match` field that you can use in the list of sorting fields. If no `sort_by` parameter is specified, results are sorted by `_text_match:desc,default_sorting_field:desc`
   **/
   private String sortBy = null;
-  
+
   @Schema(description = "A list of fields that will be used for faceting your results on. Separate multiple fields with a comma.")
  /**
-   * A list of fields that will be used for faceting your results on. Separate multiple fields with a comma.  
+   * A list of fields that will be used for faceting your results on. Separate multiple fields with a comma.
   **/
   private String facetBy = null;
-  
+
   @Schema(description = "Maximum number of facet values to be returned.")
  /**
-   * Maximum number of facet values to be returned.  
+   * Maximum number of facet values to be returned.
   **/
   private Integer maxFacetValues = null;
-  
+
   @Schema(description = "Facet values that are returned can now be filtered via this parameter. The matching facet text is also highlighted. For example, when faceting by `category`, you can set `facet_query=category:shoe` to return only facet values that contain the prefix \"shoe\".")
  /**
-   * Facet values that are returned can now be filtered via this parameter. The matching facet text is also highlighted. For example, when faceting by `category`, you can set `facet_query=category:shoe` to return only facet values that contain the prefix \"shoe\".  
+   * Facet values that are returned can now be filtered via this parameter. The matching facet text is also highlighted. For example, when faceting by `category`, you can set `facet_query=category:shoe` to return only facet values that contain the prefix \"shoe\".
   **/
   private String facetQuery = null;
-  
+
   @Schema(description = "The number of typographical errors (1 or 2) that would be tolerated. Default: 2 ")
  /**
-   * The number of typographical errors (1 or 2) that would be tolerated. Default: 2   
+   * The number of typographical errors (1 or 2) that would be tolerated. Default: 2
   **/
   private Integer numTypos = null;
-  
+
   @Schema(description = "Results from this specific page number would be fetched.")
  /**
-   * Results from this specific page number would be fetched.  
+   * Results from this specific page number would be fetched.
   **/
   private Integer page = null;
-  
+
   @Schema(description = "Number of results to fetch per page. Default: 10")
  /**
-   * Number of results to fetch per page. Default: 10  
+   * Number of results to fetch per page. Default: 10
   **/
   private Integer perPage = null;
-  
+
   @Schema(description = "You can aggregate search results into groups or buckets by specify one or more `group_by` fields. Separate multiple fields with a comma. To group on a particular field, it must be a faceted field.")
  /**
-   * You can aggregate search results into groups or buckets by specify one or more `group_by` fields. Separate multiple fields with a comma. To group on a particular field, it must be a faceted field.  
+   * You can aggregate search results into groups or buckets by specify one or more `group_by` fields. Separate multiple fields with a comma. To group on a particular field, it must be a faceted field.
   **/
   private String groupBy = null;
-  
+
   @Schema(description = "Maximum number of hits to be returned for every group. If the `group_limit` is set as `K` then only the top K hits in each group are returned in the response. Default: 3 ")
  /**
-   * Maximum number of hits to be returned for every group. If the `group_limit` is set as `K` then only the top K hits in each group are returned in the response. Default: 3   
+   * Maximum number of hits to be returned for every group. If the `group_limit` is set as `K` then only the top K hits in each group are returned in the response. Default: 3
   **/
   private Integer groupLimit = null;
-  
+
   @Schema(description = "List of fields from the document to include in the search result")
  /**
-   * List of fields from the document to include in the search result  
+   * List of fields from the document to include in the search result
   **/
   private String includeFields = null;
-  
+
   @Schema(description = "List of fields from the document to exclude in the search result")
  /**
-   * List of fields from the document to exclude in the search result  
+   * List of fields from the document to exclude in the search result
   **/
   private String excludeFields = null;
-  
+
   @Schema(description = "List of fields which should be highlighted fully without snippeting")
  /**
-   * List of fields which should be highlighted fully without snippeting  
+   * List of fields which should be highlighted fully without snippeting
   **/
   private String highlightFullFields = null;
-  
+
   @Schema(description = "The number of tokens that should surround the highlighted text on each side. Default: 4 ")
  /**
-   * The number of tokens that should surround the highlighted text on each side. Default: 4   
+   * The number of tokens that should surround the highlighted text on each side. Default: 4
   **/
   private Integer highlightAffixNumTokens = null;
-  
+
   @Schema(description = "The start tag used for the highlighted snippets. Default: `<mark>` ")
  /**
-   * The start tag used for the highlighted snippets. Default: `<mark>`   
+   * The start tag used for the highlighted snippets. Default: `<mark>`
   **/
   private String highlightStartTag = null;
-  
+
   @Schema(description = "The end tag used for the highlighted snippets. Default: `</mark>` ")
  /**
-   * The end tag used for the highlighted snippets. Default: `</mark>`   
+   * The end tag used for the highlighted snippets. Default: `</mark>`
   **/
   private String highlightEndTag = null;
-  
+
   @Schema(description = "Field values under this length will be fully highlighted, instead of showing a snippet of relevant portion. Default: 30 ")
  /**
-   * Field values under this length will be fully highlighted, instead of showing a snippet of relevant portion. Default: 30   
+   * Field values under this length will be fully highlighted, instead of showing a snippet of relevant portion. Default: 30
   **/
   private Integer snippetThreshold = null;
-  
+
   @Schema(description = "If the number of results found for a specific query is less than this number, Typesense will attempt to drop the tokens in the query until enough results are found. Tokens that have the least individual hits are dropped first. Set to 0 to disable. Default: 10 ")
  /**
-   * If the number of results found for a specific query is less than this number, Typesense will attempt to drop the tokens in the query until enough results are found. Tokens that have the least individual hits are dropped first. Set to 0 to disable. Default: 10   
+   * If the number of results found for a specific query is less than this number, Typesense will attempt to drop the tokens in the query until enough results are found. Tokens that have the least individual hits are dropped first. Set to 0 to disable. Default: 10
   **/
   private Integer dropTokensThreshold = null;
-  
+
   @Schema(description = "If the number of results found for a specific query is less than this number, Typesense will attempt to look for tokens with more typos until enough results are found. Default: 100 ")
  /**
-   * If the number of results found for a specific query is less than this number, Typesense will attempt to look for tokens with more typos until enough results are found. Default: 100   
+   * If the number of results found for a specific query is less than this number, Typesense will attempt to look for tokens with more typos until enough results are found. Default: 100
   **/
   private Integer typoTokensThreshold = null;
-  
+
   @Schema(description = "A list of records to unconditionally include in the search results at specific positions. An example use case would be to feature or promote certain items on the top of search results. A list of `record_id:hit_position`. Eg: to include a record with ID 123 at Position 1 and another record with ID 456 at Position 5, you'd specify `123:1,456:5`. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by `pinned_hits` and  finally `hidden_hits`. ")
  /**
-   * A list of records to unconditionally include in the search results at specific positions. An example use case would be to feature or promote certain items on the top of search results. A list of `record_id:hit_position`. Eg: to include a record with ID 123 at Position 1 and another record with ID 456 at Position 5, you'd specify `123:1,456:5`. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by `pinned_hits` and  finally `hidden_hits`.   
+   * A list of records to unconditionally include in the search results at specific positions. An example use case would be to feature or promote certain items on the top of search results. A list of `record_id:hit_position`. Eg: to include a record with ID 123 at Position 1 and another record with ID 456 at Position 5, you'd specify `123:1,456:5`. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by `pinned_hits` and  finally `hidden_hits`.
   **/
   private String pinnedHits = null;
-  
+
   @Schema(description = "A list of records to unconditionally hide from search results. A list of `record_id`s to hide. Eg: to hide records with IDs 123 and 456, you'd specify `123,456`. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by `pinned_hits` and finally `hidden_hits`. ")
  /**
-   * A list of records to unconditionally hide from search results. A list of `record_id`s to hide. Eg: to hide records with IDs 123 and 456, you'd specify `123,456`. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by `pinned_hits` and finally `hidden_hits`.   
+   * A list of records to unconditionally hide from search results. A list of `record_id`s to hide. Eg: to hide records with IDs 123 and 456, you'd specify `123,456`. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by `pinned_hits` and finally `hidden_hits`.
   **/
   private String hiddenHits = null;
-  
+
   @Schema(description = "A list of custom fields that must be highlighted even if you don't query  for them ")
  /**
-   * A list of custom fields that must be highlighted even if you don't query  for them   
+   * A list of custom fields that must be highlighted even if you don't query  for them
   **/
   private String highlightFields = null;
-  
+
   @Schema(description = "You can index content from any logographic language into Typesense if you are able to segment / split the text into space-separated words yourself  before indexing and querying. Set this parameter to true to do the same ")
  /**
-   * You can index content from any logographic language into Typesense if you are able to segment / split the text into space-separated words yourself  before indexing and querying. Set this parameter to true to do the same   
+   * You can index content from any logographic language into Typesense if you are able to segment / split the text into space-separated words yourself  before indexing and querying. Set this parameter to true to do the same
   **/
   private Boolean preSegmentedQuery = null;
-  
+
   @Schema(description = "If you have some overrides defined but want to disable all of them during query time, you can do that by setting this parameter to false ")
  /**
-   * If you have some overrides defined but want to disable all of them during query time, you can do that by setting this parameter to false   
+   * If you have some overrides defined but want to disable all of them during query time, you can do that by setting this parameter to false
   **/
   private Boolean enableOverrides = null;
-  
+
   @Schema(description = "Set this parameter to true to ensure that an exact match is ranked above the others ")
  /**
-   * Set this parameter to true to ensure that an exact match is ranked above the others   
+   * Set this parameter to true to ensure that an exact match is ranked above the others
   **/
   private Boolean prioritizeExactMatch = null;
-  
+
   @Schema(description = "Setting this to true will make Typesense consider all prefixes and typo  corrections of the words in the query without stopping early when enough results are found  (drop_tokens_threshold and typo_tokens_threshold configurations are ignored). ")
  /**
-   * Setting this to true will make Typesense consider all prefixes and typo  corrections of the words in the query without stopping early when enough results are found  (drop_tokens_threshold and typo_tokens_threshold configurations are ignored).   
+   * Setting this to true will make Typesense consider all prefixes and typo  corrections of the words in the query without stopping early when enough results are found  (drop_tokens_threshold and typo_tokens_threshold configurations are ignored).
   **/
   private Boolean exhaustiveSearch = null;
-  
+
   @Schema(description = "Typesense will attempt to return results early if the cutoff time has elapsed.  This is not a strict guarantee and facet computation is not bound by this parameter. ")
  /**
-   * Typesense will attempt to return results early if the cutoff time has elapsed.  This is not a strict guarantee and facet computation is not bound by this parameter.   
+   * Typesense will attempt to return results early if the cutoff time has elapsed.  This is not a strict guarantee and facet computation is not bound by this parameter.
   **/
   private Integer searchCutoffMs = null;
-  
+
   @Schema(description = "Enable server side caching of search query results. By default, caching is disabled. ")
  /**
-   * Enable server side caching of search query results. By default, caching is disabled.   
+   * Enable server side caching of search query results. By default, caching is disabled.
   **/
   private Boolean useCache = null;
-  
+
   @Schema(description = "The duration (in seconds) that determines how long the search query is cached.  This value can be set on a per-query basis. Default: 60. ")
  /**
-   * The duration (in seconds) that determines how long the search query is cached.  This value can be set on a per-query basis. Default: 60.   
+   * The duration (in seconds) that determines how long the search query is cached.  This value can be set on a per-query basis. Default: 60.
   **/
   private Integer cacheTtl = null;
-  
+
   @Schema(description = "Minimum word length for 1-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos. ")
  /**
-   * Minimum word length for 1-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos.   
+   * Minimum word length for 1-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos.
   **/
   private Integer minLen1typo = null;
-  
+
   @Schema(description = "Minimum word length for 2-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos. ")
  /**
-   * Minimum word length for 2-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos.   
+   * Minimum word length for 2-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos.
   **/
   private Integer minLen2typo = null;
  /**
@@ -387,7 +379,7 @@ public class SearchParameters   {
   }
 
  /**
-   * The number of typographical errors (1 or 2) that would be tolerated. Default: 2 
+   * The number of typographical errors (1 or 2) that would be tolerated. Default: 2
    * @return numTypos
   **/
   @JsonProperty("num_typos")
@@ -459,7 +451,7 @@ public class SearchParameters   {
   }
 
  /**
-   * Maximum number of hits to be returned for every group. If the &#x60;group_limit&#x60; is set as &#x60;K&#x60; then only the top K hits in each group are returned in the response. Default: 3 
+   * Maximum number of hits to be returned for every group. If the &#x60;group_limit&#x60; is set as &#x60;K&#x60; then only the top K hits in each group are returned in the response. Default: 3
    * @return groupLimit
   **/
   @JsonProperty("group_limit")
@@ -531,7 +523,7 @@ public class SearchParameters   {
   }
 
  /**
-   * The number of tokens that should surround the highlighted text on each side. Default: 4 
+   * The number of tokens that should surround the highlighted text on each side. Default: 4
    * @return highlightAffixNumTokens
   **/
   @JsonProperty("highlight_affix_num_tokens")
@@ -549,7 +541,7 @@ public class SearchParameters   {
   }
 
  /**
-   * The start tag used for the highlighted snippets. Default: &#x60;&lt;mark&gt;&#x60; 
+   * The start tag used for the highlighted snippets. Default: &#x60;&lt;mark&gt;&#x60;
    * @return highlightStartTag
   **/
   @JsonProperty("highlight_start_tag")
@@ -567,7 +559,7 @@ public class SearchParameters   {
   }
 
  /**
-   * The end tag used for the highlighted snippets. Default: &#x60;&lt;/mark&gt;&#x60; 
+   * The end tag used for the highlighted snippets. Default: &#x60;&lt;/mark&gt;&#x60;
    * @return highlightEndTag
   **/
   @JsonProperty("highlight_end_tag")
@@ -585,7 +577,7 @@ public class SearchParameters   {
   }
 
  /**
-   * Field values under this length will be fully highlighted, instead of showing a snippet of relevant portion. Default: 30 
+   * Field values under this length will be fully highlighted, instead of showing a snippet of relevant portion. Default: 30
    * @return snippetThreshold
   **/
   @JsonProperty("snippet_threshold")
@@ -603,7 +595,7 @@ public class SearchParameters   {
   }
 
  /**
-   * If the number of results found for a specific query is less than this number, Typesense will attempt to drop the tokens in the query until enough results are found. Tokens that have the least individual hits are dropped first. Set to 0 to disable. Default: 10 
+   * If the number of results found for a specific query is less than this number, Typesense will attempt to drop the tokens in the query until enough results are found. Tokens that have the least individual hits are dropped first. Set to 0 to disable. Default: 10
    * @return dropTokensThreshold
   **/
   @JsonProperty("drop_tokens_threshold")
@@ -621,7 +613,7 @@ public class SearchParameters   {
   }
 
  /**
-   * If the number of results found for a specific query is less than this number, Typesense will attempt to look for tokens with more typos until enough results are found. Default: 100 
+   * If the number of results found for a specific query is less than this number, Typesense will attempt to look for tokens with more typos until enough results are found. Default: 100
    * @return typoTokensThreshold
   **/
   @JsonProperty("typo_tokens_threshold")
@@ -639,7 +631,7 @@ public class SearchParameters   {
   }
 
  /**
-   * A list of records to unconditionally include in the search results at specific positions. An example use case would be to feature or promote certain items on the top of search results. A list of &#x60;record_id:hit_position&#x60;. Eg: to include a record with ID 123 at Position 1 and another record with ID 456 at Position 5, you&#x27;d specify &#x60;123:1,456:5&#x60;. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by &#x60;pinned_hits&#x60; and  finally &#x60;hidden_hits&#x60;. 
+   * A list of records to unconditionally include in the search results at specific positions. An example use case would be to feature or promote certain items on the top of search results. A list of &#x60;record_id:hit_position&#x60;. Eg: to include a record with ID 123 at Position 1 and another record with ID 456 at Position 5, you&#x27;d specify &#x60;123:1,456:5&#x60;. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by &#x60;pinned_hits&#x60; and  finally &#x60;hidden_hits&#x60;.
    * @return pinnedHits
   **/
   @JsonProperty("pinned_hits")
@@ -657,7 +649,7 @@ public class SearchParameters   {
   }
 
  /**
-   * A list of records to unconditionally hide from search results. A list of &#x60;record_id&#x60;s to hide. Eg: to hide records with IDs 123 and 456, you&#x27;d specify &#x60;123,456&#x60;. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by &#x60;pinned_hits&#x60; and finally &#x60;hidden_hits&#x60;. 
+   * A list of records to unconditionally hide from search results. A list of &#x60;record_id&#x60;s to hide. Eg: to hide records with IDs 123 and 456, you&#x27;d specify &#x60;123,456&#x60;. You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by &#x60;pinned_hits&#x60; and finally &#x60;hidden_hits&#x60;.
    * @return hiddenHits
   **/
   @JsonProperty("hidden_hits")
@@ -675,7 +667,7 @@ public class SearchParameters   {
   }
 
  /**
-   * A list of custom fields that must be highlighted even if you don&#x27;t query  for them 
+   * A list of custom fields that must be highlighted even if you don&#x27;t query  for them
    * @return highlightFields
   **/
   @JsonProperty("highlight_fields")
@@ -693,7 +685,7 @@ public class SearchParameters   {
   }
 
  /**
-   * You can index content from any logographic language into Typesense if you are able to segment / split the text into space-separated words yourself  before indexing and querying. Set this parameter to true to do the same 
+   * You can index content from any logographic language into Typesense if you are able to segment / split the text into space-separated words yourself  before indexing and querying. Set this parameter to true to do the same
    * @return preSegmentedQuery
   **/
   @JsonProperty("pre_segmented_query")
@@ -711,7 +703,7 @@ public class SearchParameters   {
   }
 
  /**
-   * If you have some overrides defined but want to disable all of them during query time, you can do that by setting this parameter to false 
+   * If you have some overrides defined but want to disable all of them during query time, you can do that by setting this parameter to false
    * @return enableOverrides
   **/
   @JsonProperty("enable_overrides")
@@ -729,7 +721,7 @@ public class SearchParameters   {
   }
 
  /**
-   * Set this parameter to true to ensure that an exact match is ranked above the others 
+   * Set this parameter to true to ensure that an exact match is ranked above the others
    * @return prioritizeExactMatch
   **/
   @JsonProperty("prioritize_exact_match")
@@ -747,7 +739,7 @@ public class SearchParameters   {
   }
 
  /**
-   * Setting this to true will make Typesense consider all prefixes and typo  corrections of the words in the query without stopping early when enough results are found  (drop_tokens_threshold and typo_tokens_threshold configurations are ignored). 
+   * Setting this to true will make Typesense consider all prefixes and typo  corrections of the words in the query without stopping early when enough results are found  (drop_tokens_threshold and typo_tokens_threshold configurations are ignored).
    * @return exhaustiveSearch
   **/
   @JsonProperty("exhaustive_search")
@@ -765,7 +757,7 @@ public class SearchParameters   {
   }
 
  /**
-   * Typesense will attempt to return results early if the cutoff time has elapsed.  This is not a strict guarantee and facet computation is not bound by this parameter. 
+   * Typesense will attempt to return results early if the cutoff time has elapsed.  This is not a strict guarantee and facet computation is not bound by this parameter.
    * @return searchCutoffMs
   **/
   @JsonProperty("search_cutoff_ms")
@@ -783,7 +775,7 @@ public class SearchParameters   {
   }
 
  /**
-   * Enable server side caching of search query results. By default, caching is disabled. 
+   * Enable server side caching of search query results. By default, caching is disabled.
    * @return useCache
   **/
   @JsonProperty("use_cache")
@@ -801,7 +793,7 @@ public class SearchParameters   {
   }
 
  /**
-   * The duration (in seconds) that determines how long the search query is cached.  This value can be set on a per-query basis. Default: 60. 
+   * The duration (in seconds) that determines how long the search query is cached.  This value can be set on a per-query basis. Default: 60.
    * @return cacheTtl
   **/
   @JsonProperty("cache_ttl")
@@ -819,7 +811,7 @@ public class SearchParameters   {
   }
 
  /**
-   * Minimum word length for 1-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos. 
+   * Minimum word length for 1-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos.
    * @return minLen1typo
   **/
   @JsonProperty("min_len_1typo")
@@ -837,7 +829,7 @@ public class SearchParameters   {
   }
 
  /**
-   * Minimum word length for 2-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos. 
+   * Minimum word length for 2-typo correction to be applied.  The value of num_typos is still treated as the maximum allowed typos.
    * @return minLen2typo
   **/
   @JsonProperty("min_len_2typo")
@@ -859,7 +851,7 @@ public class SearchParameters   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchParameters {\n");
-    
+
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    queryBy: ").append(toIndentedString(queryBy)).append("\n");
     sb.append("    queryByWeights: ").append(toIndentedString(queryByWeights)).append("\n");
@@ -899,14 +891,4 @@ public class SearchParameters   {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private static String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 }
