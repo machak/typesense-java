@@ -56,11 +56,10 @@ public class ScopedKeyParameters extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class ScopedKeyParameters {\n" +
+        return "class ScopedKeyParameters {\n" +
                 "    filterBy: " + toIndentedString(filterBy) + '\n' +
                 "    expiresAt: " + toIndentedString(expiresAt) + '\n' +
                 '}';
-        return sb;
     }
 
 

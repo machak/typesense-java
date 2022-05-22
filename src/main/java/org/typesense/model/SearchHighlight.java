@@ -146,14 +146,13 @@ public class SearchHighlight extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchHighlight {\n" +
+        return "class SearchHighlight {\n" +
                 "    field: " + toIndentedString(field) + '\n' +
                 "    snippet: " + toIndentedString(snippet) + '\n' +
                 "    snippets: " + toIndentedString(snippets) + '\n' +
                 "    indices: " + toIndentedString(indices) + '\n' +
                 "    matchedTokens: " + toIndentedString(matchedTokens) + '\n' +
                 '}';
-        return sb;
     }
 
 }

@@ -33,10 +33,9 @@ public class SnapshotParameters extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SnapshotParameters {\n" +
+        return "class SnapshotParameters {\n" +
                 "    snapshotPath: " + toIndentedString(snapshotPath) + '\n' +
                 '}';
-        return sb;
     }
 
 }

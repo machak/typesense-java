@@ -40,10 +40,9 @@ public class MultiSearchSearchesParameter extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class MultiSearchSearchesParameter {\n" +
+        return "class MultiSearchSearchesParameter {\n" +
                 "    searches: " + toIndentedString(searches) + '\n' +
                 '}';
-        return sb;
     }
 
 

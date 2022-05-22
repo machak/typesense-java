@@ -86,12 +86,11 @@ public class ExportDocumentsParameters extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class ExportDocumentsParameters {\n" +
+        return "class ExportDocumentsParameters {\n" +
                 "    filterBy: " + toIndentedString(filterBy) + '\n' +
                 "    includeFields: " + toIndentedString(includeFields) + '\n' +
                 "    excludeFields: " + toIndentedString(excludeFields) + '\n' +
                 '}';
-        return sb;
     }
 
 

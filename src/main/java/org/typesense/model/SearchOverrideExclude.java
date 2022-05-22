@@ -36,10 +36,9 @@ public class SearchOverrideExclude extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchOverrideExclude {\n" +
+        return "class SearchOverrideExclude {\n" +
                 "    id: " + toIndentedString(id) + '\n' +
                 '}';
-        return sb;
     }
 
 }

@@ -61,11 +61,10 @@ public class SearchOverrideInclude extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchOverrideInclude {\n" +
+        return "class SearchOverrideInclude {\n" +
                 "    id: " + toIndentedString(id) + '\n' +
                 "    position: " + toIndentedString(position) + '\n' +
                 '}';
-        return sb;
     }
 
 }

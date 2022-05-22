@@ -144,14 +144,13 @@ public class SearchOverrideSchema extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchOverrideSchema {\n" +
+        return "class SearchOverrideSchema {\n" +
                 "    rule: " + toIndentedString(rule) + '\n' +
                 "    includes: " + toIndentedString(includes) + '\n' +
                 "    excludes: " + toIndentedString(excludes) + '\n' +
                 "    filterBy: " + toIndentedString(filterBy) + '\n' +
                 "    removeMatchedTokens: " + toIndentedString(removeMatchedTokens) + '\n' +
                 '}';
-        return sb;
     }
 
 }

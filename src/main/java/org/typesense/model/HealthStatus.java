@@ -33,10 +33,9 @@ public class HealthStatus extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class HealthStatus {\n" +
+        return "class HealthStatus {\n" +
                 "    ok: " + toIndentedString(ok) + '\n' +
                 '}';
-        return sb;
     }
 
 }

@@ -50,13 +50,12 @@ public class ApiKey extends ApiKeySchema {
 
     @Override
     public String toString() {
-        final String sb = "class ApiKey {\n" +
+        return "class ApiKey {\n" +
                 "    " + toIndentedString(super.toString()) + '\n' +
                 "    id: " + toIndentedString(id) + '\n' +
                 "    value: " + toIndentedString(value) + '\n' +
                 "    valuePrefix: " + toIndentedString(valuePrefix) + '\n' +
                 '}';
-        return sb;
     }
 
 }

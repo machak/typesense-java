@@ -889,7 +889,7 @@ public class MultiSearchParameters extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class MultiSearchParameters {\n" +
+        return "class MultiSearchParameters {\n" +
                 "    q: " + toIndentedString(q) + '\n' +
                 "    queryBy: " + toIndentedString(queryBy) + '\n' +
                 "    queryByWeights: " + toIndentedString(queryByWeights) + '\n' +
@@ -926,7 +926,6 @@ public class MultiSearchParameters extends BaseModel {
                 "    minLen1typo: " + toIndentedString(minLen1typo) + '\n' +
                 "    minLen2typo: " + toIndentedString(minLen2typo) + '\n' +
                 '}';
-        return sb;
     }
 
 

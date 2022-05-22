@@ -39,10 +39,9 @@ public class MultiSearchResponse extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class MultiSearchResponse {\n" +
+        return "class MultiSearchResponse {\n" +
                 "    results: " + toIndentedString(results) + '\n' +
                 '}';
-        return sb;
     }
 
 }

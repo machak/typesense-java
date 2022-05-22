@@ -36,10 +36,9 @@ public class CollectionAliasSchema extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class CollectionAliasSchema {\n" +
+        return "class CollectionAliasSchema {\n" +
                 "    collectionName: " + toIndentedString(collectionName) + '\n' +
                 '}';
-        return sb;
     }
 
 }

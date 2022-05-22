@@ -22,11 +22,10 @@ public class SearchSynonym extends SearchSynonymSchema {
 
     @Override
     public String toString() {
-        final String sb = "class SearchSynonym {\n" +
+        return "class SearchSynonym {\n" +
                 "    " + toIndentedString(super.toString()) + '\n' +
                 "    id: " + toIndentedString(id) + '\n' +
                 '}';
-        return sb;
     }
 
 }

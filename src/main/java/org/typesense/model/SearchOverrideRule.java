@@ -97,11 +97,10 @@ public class SearchOverrideRule extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchOverrideRule {\n" +
+        return "class SearchOverrideRule {\n" +
                 "    query: " + toIndentedString(query) + '\n' +
                 "    match: " + toIndentedString(match) + '\n' +
                 '}';
-        return sb;
     }
 
 }

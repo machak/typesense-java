@@ -22,11 +22,10 @@ public class SearchOverride extends SearchOverrideSchema {
 
     @Override
     public String toString() {
-        final String sb = "class SearchOverride {\n" +
+        return "class SearchOverride {\n" +
                 "    " + toIndentedString(super.toString()) + '\n' +
                 "    id: " + toIndentedString(id) + '\n' +
                 '}';
-        return sb;
     }
 
 }

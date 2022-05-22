@@ -40,10 +40,9 @@ public class SearchOverridesResponse extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchOverridesResponse {\n" +
+        return "class SearchOverridesResponse {\n" +
                 "    overrides: " + toIndentedString(overrides) + '\n' +
                 '}';
-        return sb;
     }
 
 }

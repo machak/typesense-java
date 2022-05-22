@@ -68,11 +68,10 @@ public class SearchSynonymSchema extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchSynonymSchema {\n" +
+        return "class SearchSynonymSchema {\n" +
                 "    root: " + toIndentedString(root) + '\n' +
                 "    synonyms: " + toIndentedString(synonyms) + '\n' +
                 '}';
-        return sb;
     }
 
 

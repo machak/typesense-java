@@ -77,12 +77,11 @@ public class FacetCountsCounts extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class FacetCountsCounts {\n" +
+        return "class FacetCountsCounts {\n" +
                 "    count: " + toIndentedString(count) + '\n' +
                 "    highlighted: " + toIndentedString(highlighted) + '\n' +
                 "    value: " + toIndentedString(value) + '\n' +
                 '}';
-        return sb;
     }
 
 }

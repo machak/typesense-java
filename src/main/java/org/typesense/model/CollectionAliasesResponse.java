@@ -40,10 +40,9 @@ public class CollectionAliasesResponse extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class CollectionAliasesResponse {\n" +
+        return "class CollectionAliasesResponse {\n" +
                 "    aliases: " + toIndentedString(aliases) + '\n' +
                 '}';
-        return sb;
     }
 
 }

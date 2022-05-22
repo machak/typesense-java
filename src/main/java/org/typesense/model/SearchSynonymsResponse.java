@@ -40,10 +40,9 @@ public class SearchSynonymsResponse extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchSynonymsResponse {\n" +
+        return "class SearchSynonymsResponse {\n" +
                 "    synonyms: " + toIndentedString(synonyms) + '\n' +
                 '}';
-        return sb;
     }
 
 }

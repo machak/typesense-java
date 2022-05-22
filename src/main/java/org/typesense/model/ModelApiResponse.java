@@ -33,10 +33,9 @@ public class ModelApiResponse extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class ModelApiResponse {\n" +
+        return "class ModelApiResponse {\n" +
                 "    message: " + toIndentedString(message) + '\n' +
                 '}';
-        return sb;
     }
 
 }

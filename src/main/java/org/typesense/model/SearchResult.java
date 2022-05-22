@@ -243,7 +243,7 @@ public class SearchResult extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchResult {\n" +
+        return "class SearchResult {\n" +
                 "    facetCounts: " + toIndentedString(facetCounts) + '\n' +
                 "    found: " + toIndentedString(found) + '\n' +
                 "    searchTimeMs: " + toIndentedString(searchTimeMs) + '\n' +
@@ -254,7 +254,6 @@ public class SearchResult extends BaseModel {
                 "    hits: " + toIndentedString(hits) + '\n' +
                 "    requestParams: " + toIndentedString(requestParams) + '\n' +
                 '}';
-        return sb;
     }
 
 

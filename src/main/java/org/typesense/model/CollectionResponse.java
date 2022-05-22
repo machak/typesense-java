@@ -42,12 +42,11 @@ public class CollectionResponse extends CollectionSchema {
 
     @Override
     public String toString() {
-        final String sb = "class CollectionResponse {\n" +
+        return "class CollectionResponse {\n" +
                 "    " + toIndentedString(super.toString()) + '\n' +
                 "    numDocuments: " + toIndentedString(numDocuments) + '\n' +
                 "    createdAt: " + toIndentedString(createdAt) + '\n' +
                 '}';
-        return sb;
     }
 
 }

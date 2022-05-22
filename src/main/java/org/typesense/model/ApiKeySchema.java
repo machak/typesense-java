@@ -111,13 +111,12 @@ public class ApiKeySchema extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class ApiKeySchema {\n" +
+        return "class ApiKeySchema {\n" +
                 "    description: " + toIndentedString(description) + '\n' +
                 "    actions: " + toIndentedString(actions) + '\n' +
                 "    collections: " + toIndentedString(collections) + '\n' +
                 "    expiresAt: " + toIndentedString(expiresAt) + '\n' +
                 '}';
-        return sb;
     }
 
 }

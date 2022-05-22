@@ -43,10 +43,9 @@ public class CollectionUpdateSchema extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class CollectionUpdateSchema {\n" +
+        return "class CollectionUpdateSchema {\n" +
                 "    fields: " + toIndentedString(fields) + '\n' +
                 '}';
-        return sb;
     }
 
 

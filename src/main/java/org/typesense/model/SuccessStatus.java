@@ -33,10 +33,9 @@ public class SuccessStatus extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SuccessStatus {\n" +
+        return "class SuccessStatus {\n" +
                 "    success: " + toIndentedString(success) + '\n' +
                 '}';
-        return sb;
     }
 
 }

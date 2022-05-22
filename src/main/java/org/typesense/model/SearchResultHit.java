@@ -125,13 +125,12 @@ public class SearchResultHit extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchResultHit {\n" +
+        return "class SearchResultHit {\n" +
                 "    highlights: " + toIndentedString(highlights) + '\n' +
                 "    document: " + toIndentedString(document) + '\n' +
                 "    textMatch: " + toIndentedString(textMatch) + '\n' +
                 "    geoDistanceMeters: " + toIndentedString(geoDistanceMeters) + '\n' +
                 '}';
-        return sb;
     }
 
 }

@@ -153,14 +153,13 @@ public class CollectionSchema extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class CollectionSchema {\n" +
+        return "class CollectionSchema {\n" +
                 "    name: " + toIndentedString(name) + '\n' +
                 "    fields: " + toIndentedString(fields) + '\n' +
                 "    defaultSortingField: " + toIndentedString(defaultSortingField) + '\n' +
                 "    tokenSeparators: " + toIndentedString(tokenSeparators) + '\n' +
                 "    symbolsToIndex: " + toIndentedString(symbolsToIndex) + '\n' +
                 '}';
-        return sb;
     }
 
 

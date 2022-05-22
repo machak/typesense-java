@@ -58,11 +58,10 @@ public class DeleteDocumentsParameters extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class DeleteDocumentsParameters {\n" +
+        return "class DeleteDocumentsParameters {\n" +
                 "    filterBy: " + toIndentedString(filterBy) + '\n' +
                 "    batchSize: " + toIndentedString(batchSize) + '\n' +
                 '}';
-        return sb;
     }
 
 

@@ -40,10 +40,9 @@ public class ApiKeysResponse extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class ApiKeysResponse {\n" +
+        return "class ApiKeysResponse {\n" +
                 "    keys: " + toIndentedString(keys) + '\n' +
                 '}';
-        return sb;
     }
 
 }

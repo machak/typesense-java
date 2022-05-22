@@ -26,9 +26,9 @@ public class LoggingInterceptor implements PreInvocationInterceptor, PostInvocat
         if (logger.isTraceEnabled()) {
             try {
                 String json = Const.MAPPER.writeValueAsString(requestContext.getEntity());
-                logger.trace("REQUEST URI    : " + requestContext.getUri().toString());
-                logger.trace("REQUEST METHOD : " + requestContext.getMethod());
-                logger.trace("REQUEST ENTITY : " + json);
+                logger.trace("REQUEST URI    : {}", requestContext.getUri().toString());
+                logger.trace("REQUEST METHOD : {}", requestContext.getMethod());
+                logger.trace("REQUEST ENTITY : {}", json);
             } catch (JsonProcessingException ex) {
                 throw new RuntimeException(ex);
             }

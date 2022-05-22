@@ -77,12 +77,11 @@ public class SearchResultRequestParams extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchResultRequestParams {\n" +
+        return "class SearchResultRequestParams {\n" +
                 "    collectionName: " + toIndentedString(collectionName) + '\n' +
                 "    q: " + toIndentedString(q) + '\n' +
                 "    perPage: " + toIndentedString(perPage) + '\n' +
                 '}';
-        return sb;
     }
 
 }

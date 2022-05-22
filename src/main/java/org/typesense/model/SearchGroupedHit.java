@@ -70,11 +70,10 @@ public class SearchGroupedHit extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchGroupedHit {\n" +
+        return "class SearchGroupedHit {\n" +
                 "    groupKey: " + toIndentedString(groupKey) + '\n' +
                 "    hits: " + toIndentedString(hits) + '\n' +
                 '}';
-        return sb;
     }
 
 }

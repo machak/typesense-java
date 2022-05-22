@@ -34,11 +34,10 @@ public class MultiSearchCollectionParameters extends MultiSearchParameters {
 
     @Override
     public String toString() {
-        final String sb = "class MultiSearchCollectionParameters {\n" +
+        return "class MultiSearchCollectionParameters {\n" +
                 "    " + toIndentedString(super.toString()) + '\n' +
                 "    collection: " + toIndentedString(collection) + '\n' +
                 '}';
-        return sb;
     }
 
 

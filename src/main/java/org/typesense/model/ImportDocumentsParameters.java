@@ -115,12 +115,11 @@ public class ImportDocumentsParameters extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class ImportDocumentsParameters {\n" +
+        return "class ImportDocumentsParameters {\n" +
                 "    action: " + toIndentedString(action) + '\n' +
                 "    batchSize: " + toIndentedString(batchSize) + '\n' +
                 "    dirtyValues: " + toIndentedString(dirtyValues) + '\n' +
                 '}';
-        return sb;
     }
 
 }

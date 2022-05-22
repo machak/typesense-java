@@ -33,10 +33,9 @@ public class ErrorResponse extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class ErrorResponse {\n" +
+        return "class ErrorResponse {\n" +
                 "    message: " + toIndentedString(message) + '\n' +
                 '}';
-        return sb;
     }
 
 }

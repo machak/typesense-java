@@ -886,7 +886,7 @@ public class SearchParameters extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class SearchParameters {\n" +
+        return "class SearchParameters {\n" +
                 "    q: " + toIndentedString(q) + '\n' +
                 "    queryBy: " + toIndentedString(queryBy) + '\n' +
                 "    queryByWeights: " + toIndentedString(queryByWeights) + '\n' +
@@ -923,7 +923,6 @@ public class SearchParameters extends BaseModel {
                 "    minLen1typo: " + toIndentedString(minLen1typo) + '\n' +
                 "    minLen2typo: " + toIndentedString(minLen2typo) + '\n' +
                 '}';
-        return sb;
     }
 
 }

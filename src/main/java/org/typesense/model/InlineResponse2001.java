@@ -33,10 +33,9 @@ public class InlineResponse2001 extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class InlineResponse2001 {\n" +
+        return "class InlineResponse2001 {\n" +
                 "    version: " + toIndentedString(version) + '\n' +
                 '}';
-        return sb;
     }
 
 

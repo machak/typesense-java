@@ -33,10 +33,9 @@ public class InlineResponse200 extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class InlineResponse200 {\n" +
+        return "class InlineResponse200 {\n" +
                 "    numDeleted: " + toIndentedString(numDeleted) + '\n' +
                 '}';
-        return sb;
     }
 
 }

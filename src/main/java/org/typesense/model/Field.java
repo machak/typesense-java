@@ -209,7 +209,7 @@ public class Field extends BaseModel {
     @Override
     public String toString() {
 
-        final String sb = "class Field {\n" +
+        return "class Field {\n" +
                 "    name: " + toIndentedString(name) + '\n' +
                 "    type: " + toIndentedString(type) + '\n' +
                 "    optional: " + toIndentedString(optional) + '\n' +
@@ -220,7 +220,6 @@ public class Field extends BaseModel {
                 "    infix: " + toIndentedString(infix) + '\n' +
                 "    drop: " + toIndentedString(drop) + '\n' +
                 '}';
-        return sb;
     }
 
 
