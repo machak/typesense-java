@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 
 public class KeysTest extends TestCase {
 
-    private Client client;
+    private TypesenseClient client;
     private Helper helper;
     private String testKey;
     private Long id;

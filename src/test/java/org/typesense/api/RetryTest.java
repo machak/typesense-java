@@ -10,7 +10,7 @@ import junit.framework.TestCase;
 
 public class RetryTest extends TestCase {
 
-    private Client client;
+    private TypesenseClient client;
 
     public void setUp() throws Exception {
         super.setUp();

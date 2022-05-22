@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 public class HealthAndOperationsTest extends TestCase {
 
-    private Client client;
+    private TypesenseClient client;
     private Helper helper;
 
     public void setUp() throws Exception {

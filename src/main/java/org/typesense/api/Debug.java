@@ -4,10 +4,10 @@ import java.util.Map;
 
 public class Debug {
 
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
     public static final String RESOURCEPATH = "/debug";
 
-    public Debug(final Call apiCall) {
+    public Debug(final TypesenseCall apiCall) {
         this.apiCall = apiCall;
     }
 

@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 public class Metrics {
 
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
     public static final String RESOURCEPATH = "/metrics.json";
 
-    public Metrics(final Call apiCall) {
+    public Metrics(final TypesenseCall apiCall) {
         this.apiCall = apiCall;
     }
 

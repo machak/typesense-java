@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 public class Operations {
 
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
     public static final String RESOUCEPATH = "/operations";
 
-    public Operations(final Call apiCall) {
+    public Operations(final TypesenseCall apiCall) {
         this.apiCall = apiCall;
     }
 

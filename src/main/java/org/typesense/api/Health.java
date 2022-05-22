@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 public class Health {
 
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
     public static final String RESOURCEPATH = "/health";
 
-    public Health(final Call apiCall) {
+    public Health(final TypesenseCall apiCall) {
         this.apiCall = apiCall;
     }
 

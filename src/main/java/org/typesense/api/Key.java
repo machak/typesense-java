@@ -5,9 +5,9 @@ import org.typesense.model.ApiKey;
 public class Key {
 
     private final Long id;
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
 
-    public Key(Long id, final Call apiCall) {
+    public Key(Long id, final TypesenseCall apiCall) {
         this.id = id;
         this.apiCall = apiCall;
     }

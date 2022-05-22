@@ -12,7 +12,7 @@ import junit.framework.TestCase;
 
 public class CollectionsTest extends TestCase {
 
-    public Client client;
+    public TypesenseClient client;
     private Helper helper;
 
     public void setUp() throws Exception {

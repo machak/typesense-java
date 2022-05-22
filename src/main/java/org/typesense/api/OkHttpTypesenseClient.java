@@ -3,7 +3,7 @@ package org.typesense.api;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JerseyClient implements TypesenseClient {
+public class OkHttpTypesenseClient implements TypesenseClient {
     private final Configuration configuration;
 
     private final TypesenseCall apiCall;
@@ -23,7 +23,7 @@ public class JerseyClient implements TypesenseClient {
     private final Debug debug;
     private final MultiSearch multiSearch;
 
-    public JerseyClient(final Configuration configuration) {
+    public OkHttpTypesenseClient(final Configuration configuration) {
         this.configuration = configuration;
         this.apiCall = new JerseyCall(configuration);
         collections = new Collections(apiCall);
@@ -41,16 +41,11 @@ public class JerseyClient implements TypesenseClient {
 
 
     @Override
-    public Collection collections(String name) {
-        Collection retVal;
-
+    public Collection collections(final String name) {
         if (!this.individualCollections.containsKey(name)) {
             individualCollections.put(name, new Collection(name, this.apiCall, this.configuration));
         }
-
-        retVal = individualCollections.get(name);
-
-        return retVal;
+        return individualCollections.get(name);
     }
 
     @Override
@@ -64,33 +59,25 @@ public class JerseyClient implements TypesenseClient {
     }
 
     @Override
-    public Alias aliases(String name) {
-        Alias retVal;
+    public Alias aliases(final String name) {
 
         if (!this.individualAliases.containsKey(name)) {
             this.individualAliases.put(name, new Alias(this.apiCall, name));
         }
-
-        retVal = this.individualAliases.get(name);
-
-        return retVal;
+        return this.individualAliases.get(name);
     }
 
     @Override
     public Keys keys() {
-        return this.keys;
+        return keys;
     }
 
     @Override
-    public Key keys(Long id) {
-        Key retVal;
-
+    public Key keys(final Long id) {
         if (!this.individualKeys.containsKey(id)) {
             this.individualKeys.put(id, new Key(id, this.apiCall));
         }
-
-        retVal = this.individualKeys.get(id);
-        return retVal;
+        return this.individualKeys.get(id);
     }
 
     @Override

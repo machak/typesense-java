@@ -14,12 +14,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Documents {
 
     private final String collectionName;
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
     private final Configuration configuration;
 
     public static final String RESOURCE_PATH = "/documents";
 
-    Documents(String collectionName, final Call apiCall, Configuration configuration) {
+    Documents(String collectionName, final TypesenseCall apiCall, Configuration configuration) {
         this.collectionName = collectionName;
         this.apiCall = apiCall;
         this.configuration = configuration;

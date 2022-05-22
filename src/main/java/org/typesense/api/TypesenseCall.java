@@ -1,14 +1,14 @@
 package org.typesense.api;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 import org.typesense.resources.Node;
-import org.typesense.resources.RequestHandler;
 
 import jakarta.ws.rs.core.Response;
 
-public interface Call {
+public interface TypesenseCall {
     boolean isDueForHealthCheck(Node node);
 
     void setNodeHealthStatus(Node node, boolean status);
@@ -29,9 +29,9 @@ public interface Call {
 
     <T, R, Q> T post(String endpoint, R body, Q queryParameters, Class<T> resourceClass) throws Exception;
 
-    abstract <T> T post(String endpoint, HashMap<String, String> queryParameters) throws Exception;
+    abstract <T> T post(String endpoint, Map<String, String> queryParameters) throws Exception;
 
-    abstract <T> T post(String endpoint, HashMap<String, List<HashMap<String, String>>> body, HashMap<String, String> queryParameters, Class<T> resourceClass) throws Exception;
+    abstract <T> T post(String endpoint, Map<String, List<Map<String, String>>> body, Map<String, String> queryParameters, Class<T> resourceClass) throws Exception;
 
     abstract <T> T post(String endpoint) throws Exception;
 
@@ -41,7 +41,5 @@ public interface Call {
 
     <T> T delete(String endpoint) throws Exception;
 
-    <T> T makeRequest(String endpoint, RequestHandler requestHandler, Class<T> resourceClass) throws Exception;
 
-    <T> T handleResponse(Response response, Class<T> resourceClass);
 }

@@ -7,10 +7,10 @@ import org.typesense.model.SearchSynonymsResponse;
 public class Synonyms {
 
     private final String collectionName;
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
     public final static String RESOURCEPATH = "/synonyms";
 
-    public Synonyms(String collectionName, final Call apiCall) {
+    public Synonyms(String collectionName, final TypesenseCall apiCall) {
         this.collectionName = collectionName;
         this.apiCall = apiCall;
     }

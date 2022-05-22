@@ -43,19 +43,20 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 
-public class ApiCall implements Call{
+public class JerseyCall extends BaseCall {
 
     private final Configuration configuration;
 
+    private final ObjectMapper mapper = new ObjectMapper();
     private static int nodeIndex = 0;
 
     private static final String API_KEY_HEADER = "X-TYPESENSE-API-KEY";
-    private static final Logger log = LoggerFactory.getLogger(ApiCall.class);
+    private static final Logger log = LoggerFactory.getLogger(JerseyCall.class);
     private final Client client;
     private final String apiKey;
     private final Duration retryInterval;
 
-    public ApiCall(Configuration configuration) {
+    public JerseyCall(Configuration configuration) {
         this.configuration = configuration;
         List<Node> nodes = configuration.nodes;
         this.apiKey = configuration.apiKey;
@@ -112,31 +113,7 @@ public class ApiCall implements Call{
         node.lastAccessTimestamp = LocalDateTime.now();
     }
 
-    private TypesenseError getException(Response response) {
-        ErrorResponse errorResponse = response.readEntity(ErrorResponse.class);
-        String message = errorResponse.getMessage();
-        int status_code = response.getStatus();
 
-        if (status_code == 400) {
-            return new RequestMalformed(message, status_code);
-        } else if (status_code == 401) {
-            return new RequestUnauthorized(message, status_code);
-        } else if (status_code == 403) {
-            return new RequestForbidden(message, status_code);
-        } else if (status_code == 404) {
-            return new ObjectNotFound(message, status_code);
-        } else if (status_code == 409) {
-            return new ObjectAlreadyExists(message, status_code);
-        } else if (status_code == 422) {
-            return new ObjectUnprocessable(message, status_code);
-        } else if (status_code == 500) {
-            return new ServerError(message, status_code);
-        } else if (status_code == 503) {
-            return new ServiceUnavailable(message, status_code);
-        } else {
-            return new HttpError(message, status_code);
-        }
-    }
 
     @Override
     public <T, Q> T get(String endpoint, Q queryParameters, Class<T> resourceClass) throws Exception {
@@ -223,7 +200,7 @@ public class ApiCall implements Call{
 
 
     @Override
-    public  <T, R, Q> T post(String endpoint, R body, Q queryParameters, Class<T> resourceClass) throws Exception {
+    public <T, R, Q> T post(String endpoint, R body, Q queryParameters, Class<T> resourceClass) throws Exception {
 
         RequestHandler r = (String REST_URI) -> populateQueryParameters2(this.client.target(REST_URI), queryParameters)
                 .request(MediaType.APPLICATION_JSON)
@@ -234,7 +211,7 @@ public class ApiCall implements Call{
     }
 
     @Override
-    public  <T> T post(String endpoint, HashMap<String, String> queryParameters) throws Exception {
+    public <T> T post(String endpoint, Map<String, String> queryParameters) throws Exception {
 
         RequestHandler r = (String REST_URI) -> populateQueryParameters(this.client.target(REST_URI), queryParameters)
                 .request(MediaType.APPLICATION_JSON)
@@ -245,7 +222,7 @@ public class ApiCall implements Call{
     }
 
     @Override
-    public <T> T post(String endpoint, HashMap<String, List<HashMap<String, String>>> body, HashMap<String, String> queryParameters, Class<T> resourceClass) throws Exception {
+    public <T> T post(String endpoint, Map<String, List<Map<String, String>>> body, Map<String, String> queryParameters, Class<T> resourceClass) throws Exception {
 
         RequestHandler r = (String REST_URI) -> populateQueryParameters(this.client.target(REST_URI), queryParameters)
                 .request(MediaType.APPLICATION_JSON)
@@ -306,7 +283,6 @@ public class ApiCall implements Call{
      * @return http response
      */
 
-    @Override
     public <T> T makeRequest(String endpoint, RequestHandler requestHandler, Class<T> resourceClass) throws Exception {
         int num_tries = 0;
         Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
@@ -369,7 +345,7 @@ public class ApiCall implements Call{
      * @return WebTarget with the query parameters added
      */
 
-    private WebTarget populateQueryParameters(WebTarget client, HashMap<String, String> queryParameters) {
+    private WebTarget populateQueryParameters(WebTarget client, Map<String, String> queryParameters) {
         if (queryParameters != null) {
             for (Map.Entry<String, String> entry : queryParameters.entrySet()) {
                 client = client.queryParam(entry.getKey(), entry.getValue());
@@ -385,12 +361,7 @@ public class ApiCall implements Call{
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 StringBuilder value = new StringBuilder();
                 if (entry.getValue() instanceof ArrayList) {
-                    for (int i = 0; i < ((ArrayList<?>) entry.getValue()).size(); i++) {
-                        value.append(((ArrayList<?>) entry.getValue()).get(i));
-                        if (i != ((ArrayList<?>) entry.getValue()).size() - 1) {
-                            value.append(',');
-                        }
-                    }
+                    extractParameters(entry, value);
                     client = client.queryParam(entry.getKey(), value);
                 } else {
                     client = client.queryParam(entry.getKey(), entry.getValue());
@@ -408,16 +379,16 @@ public class ApiCall implements Call{
      * @return HashMap containing the response
      */
 
-    @Override
+    @SuppressWarnings("unchecked")
     public <T> T handleResponse(Response response, Class<T> resourceClass) {
         if (resourceClass == null) {
-            ObjectMapper mapper = new ObjectMapper();
+
             String json = response.readEntity(String.class);
             try {
                 Map<String, Object> map = mapper.readValue(json, HashMap.class);
                 return (T) map;
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Error handling response: ", e);
             }
         } else {
             ObjectMapperResolver resolver = new ObjectMapperResolver();
@@ -425,12 +396,11 @@ public class ApiCall implements Call{
             String json = response.readEntity(String.class);
             try {
                 if (resourceClass == String.class) {
-                    //noinspection unchecked
                     return (T) json;
                 }
                 return mapper.readValue(json, resourceClass);
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Error handling response: ", e);
             }
         }
         return null;

@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 public class SynonymsTest extends TestCase {
 
-    private Client client;
+    private TypesenseClient client;
     private Helper helper;
 
 

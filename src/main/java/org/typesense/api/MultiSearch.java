@@ -7,10 +7,10 @@ import org.typesense.model.MultiSearchResponse;
 
 public class MultiSearch {
 
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
     public static final String RESOURCEPATH = "/multi_search";
 
-    public MultiSearch(final Call apiCall) {
+    public MultiSearch(final TypesenseCall apiCall) {
         this.apiCall = apiCall;
     }
 

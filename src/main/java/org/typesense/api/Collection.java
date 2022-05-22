@@ -9,7 +9,7 @@ public class Collection {
 
     private final Configuration configuration;
 
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
 
     private final String name;
 
@@ -24,7 +24,7 @@ public class Collection {
 
     private final String endpoint;
 
-    Collection(String name, final Call apiCall, Configuration configuration) {
+    Collection(String name, final TypesenseCall apiCall, Configuration configuration) {
         this.name = name;
         this.apiCall = apiCall;
         this.configuration = configuration;

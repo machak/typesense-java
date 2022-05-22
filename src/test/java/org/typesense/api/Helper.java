@@ -21,7 +21,7 @@ import org.typesense.model.SearchSynonymSchema;
 import org.typesense.resources.Node;
 
 public class Helper {
-    private final Client client;
+    private final TypesenseClient client;
 
     Helper() {
         ArrayList<Node> nodes = new ArrayList<>();
@@ -55,7 +55,7 @@ public class Helper {
         client.collections("books").documents().create(hmap);
     }
 
-    public Client getClient() {
+    public TypesenseClient getClient() {
         return this.client;
     }
 

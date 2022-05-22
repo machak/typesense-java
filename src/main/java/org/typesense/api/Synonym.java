@@ -6,9 +6,9 @@ public class Synonym {
 
     private final String collectionName;
     private final String synonymId;
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
 
-    public Synonym(String collectionName, String synonymId, final Call apiCall) {
+    public Synonym(String collectionName, String synonymId, final TypesenseCall apiCall) {
         this.collectionName = collectionName;
         this.synonymId = synonymId;
         this.apiCall = apiCall;

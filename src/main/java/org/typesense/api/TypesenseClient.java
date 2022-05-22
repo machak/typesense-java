@@ -2,7 +2,7 @@ package org.typesense.api;
 
 import java.util.Map;
 
-public interface Client {
+public interface TypesenseClient {
 
     Collection collections(String name);
 
@@ -18,7 +18,7 @@ public interface Client {
 
     Configuration getConfiguration();
 
-    Call getApiCall();
+    TypesenseCall getApiCall();
 
     Collections getCollections();
 

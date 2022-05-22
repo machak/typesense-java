@@ -6,9 +6,9 @@ public class TypesenseOverride {
 
     private final String collectionName;
     private final String overrideId;
-    private final Call apiCall;
+    private final TypesenseCall apiCall;
 
-    public TypesenseOverride(String collectionName, String overrideId, final Call apiCall) {
+    public TypesenseOverride(String collectionName, String overrideId, final TypesenseCall apiCall) {
         this.collectionName = collectionName;
         this.overrideId = overrideId;
         this.apiCall = apiCall;
