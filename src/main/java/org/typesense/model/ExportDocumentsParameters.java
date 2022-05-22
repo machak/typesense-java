@@ -85,14 +85,13 @@ public class ExportDocumentsParameters extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ExportDocumentsParameters {\n");
 
-        sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
-        sb.append("    includeFields: ").append(toIndentedString(includeFields)).append("\n");
-        sb.append("    excludeFields: ").append(toIndentedString(excludeFields)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class ExportDocumentsParameters {\n" +
+                "    filterBy: " + toIndentedString(filterBy) + '\n' +
+                "    includeFields: " + toIndentedString(includeFields) + '\n' +
+                "    excludeFields: " + toIndentedString(excludeFields) + '\n' +
+                '}';
+        return sb;
     }
 
 

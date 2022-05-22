@@ -76,14 +76,13 @@ public class FacetCountsCounts extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class FacetCountsCounts {\n");
 
-        sb.append("    count: ").append(toIndentedString(count)).append("\n");
-        sb.append("    highlighted: ").append(toIndentedString(highlighted)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class FacetCountsCounts {\n" +
+                "    count: " + toIndentedString(count) + '\n' +
+                "    highlighted: " + toIndentedString(highlighted) + '\n' +
+                "    value: " + toIndentedString(value) + '\n' +
+                '}';
+        return sb;
     }
 
 }

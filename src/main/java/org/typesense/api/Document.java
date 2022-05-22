@@ -21,6 +21,7 @@ public class Document {
         return this.apiCall.delete(this.endpoint);
     }
 
+    @SuppressWarnings("unchecked")
     public Map<String, Object> update(Map<String, Object> document) throws Exception {
         return this.apiCall.patch(this.endpoint, document, HashMap.class);
     }

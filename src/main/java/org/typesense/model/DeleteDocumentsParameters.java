@@ -57,13 +57,12 @@ public class DeleteDocumentsParameters extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteDocumentsParameters {\n");
 
-        sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
-        sb.append("    batchSize: ").append(toIndentedString(batchSize)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class DeleteDocumentsParameters {\n" +
+                "    filterBy: " + toIndentedString(filterBy) + '\n' +
+                "    batchSize: " + toIndentedString(batchSize) + '\n' +
+                '}';
+        return sb;
     }
 
 

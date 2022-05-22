@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.typesense.model.CollectionSchema;
 import org.typesense.model.Field;
 
@@ -11,8 +13,10 @@ import junit.framework.TestCase;
 
 public class MultiSearchTest extends TestCase {
 
+    private static final Logger log = LoggerFactory.getLogger(MultiSearchTest.class);
     private TypesenseClient client;
     private Helper helper;
+
 
     public void setUp() throws Exception {
         super.setUp();
@@ -63,14 +67,14 @@ public class MultiSearchTest extends TestCase {
         /*ObjectMapper objectMapper = new ObjectMapper();
         try {
             String json = objectMapper.writeValueAsString(maplist);
-            System.out.println(json);
+            log.debug(json);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }*/
         HashMap<String, String> common_params = new HashMap<>();
         common_params.put("query_by", "title");
 
-        System.out.println(this.client.getMultiSearch().perform(map, common_params));
+        log.debug(String.valueOf(this.client.getMultiSearch().perform(map, common_params)));
     }
 
 }

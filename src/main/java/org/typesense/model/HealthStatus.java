@@ -32,12 +32,11 @@ public class HealthStatus extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class HealthStatus {\n");
 
-        sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class HealthStatus {\n" +
+                "    ok: " + toIndentedString(ok) + '\n' +
+                '}';
+        return sb;
     }
 
 }

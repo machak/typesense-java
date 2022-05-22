@@ -69,13 +69,12 @@ public class SearchGroupedHit extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchGroupedHit {\n");
 
-        sb.append("    groupKey: ").append(toIndentedString(groupKey)).append("\n");
-        sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchGroupedHit {\n" +
+                "    groupKey: " + toIndentedString(groupKey) + '\n' +
+                "    hits: " + toIndentedString(hits) + '\n' +
+                '}';
+        return sb;
     }
 
 }

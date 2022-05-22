@@ -1,6 +1,7 @@
 package org.typesense.api;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.typesense.model.CollectionResponse;
 import org.typesense.model.CollectionUpdateSchema;
@@ -14,13 +15,13 @@ public class Collection {
     private final String name;
 
     private final Documents documents;
-    private final HashMap<String, Document> individualDocuments;
+    private final Map<String, Document> individualDocuments;
 
     private final Synonyms synonyms;
-    private final HashMap<String, Synonym> individualSynonyms;
+    private final Map<String, Synonym> individualSynonyms;
 
     private final Overrides overrides;
-    private final HashMap<String, TypesenseOverride> individualOverrides;
+    private final Map<String, TypesenseOverride> individualOverrides;
 
     private final String endpoint;
 
@@ -30,11 +31,11 @@ public class Collection {
         this.configuration = configuration;
         this.endpoint = Collections.RESOURCE_PATH + '/' + this.name;
         this.documents = new Documents(this.name, this.apiCall, this.configuration);
-        this.individualDocuments = new HashMap<String, Document>();
+        this.individualDocuments = new HashMap<>();
         this.synonyms = new Synonyms(this.name, this.apiCall);
-        this.individualSynonyms = new HashMap<String, Synonym>();
+        this.individualSynonyms = new HashMap<>();
         this.overrides = new Overrides(this.name, this.apiCall);
-        this.individualOverrides = new HashMap<String, TypesenseOverride>();
+        this.individualOverrides = new HashMap<>();
     }
 
     public CollectionResponse retrieve() throws Exception {

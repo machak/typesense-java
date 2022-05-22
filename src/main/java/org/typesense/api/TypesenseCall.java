@@ -1,12 +1,9 @@
 package org.typesense.api;
 
-import java.util.Map;
 import java.util.List;
 import java.util.Map;
 
 import org.typesense.resources.Node;
-
-import jakarta.ws.rs.core.Response;
 
 public interface TypesenseCall {
     boolean isDueForHealthCheck(Node node);

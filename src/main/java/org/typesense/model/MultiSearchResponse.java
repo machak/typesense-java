@@ -38,12 +38,11 @@ public class MultiSearchResponse extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class MultiSearchResponse {\n");
 
-        sb.append("    results: ").append(toIndentedString(results)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class MultiSearchResponse {\n" +
+                "    results: " + toIndentedString(results) + '\n' +
+                '}';
+        return sb;
     }
 
 }

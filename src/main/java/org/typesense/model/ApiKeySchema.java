@@ -110,15 +110,14 @@ public class ApiKeySchema extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ApiKeySchema {\n");
 
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
-        sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
-        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class ApiKeySchema {\n" +
+                "    description: " + toIndentedString(description) + '\n' +
+                "    actions: " + toIndentedString(actions) + '\n' +
+                "    collections: " + toIndentedString(collections) + '\n' +
+                "    expiresAt: " + toIndentedString(expiresAt) + '\n' +
+                '}';
+        return sb;
     }
 
 }

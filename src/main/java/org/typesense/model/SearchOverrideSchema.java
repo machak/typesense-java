@@ -143,16 +143,15 @@ public class SearchOverrideSchema extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchOverrideSchema {\n");
 
-        sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
-        sb.append("    includes: ").append(toIndentedString(includes)).append("\n");
-        sb.append("    excludes: ").append(toIndentedString(excludes)).append("\n");
-        sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
-        sb.append("    removeMatchedTokens: ").append(toIndentedString(removeMatchedTokens)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchOverrideSchema {\n" +
+                "    rule: " + toIndentedString(rule) + '\n' +
+                "    includes: " + toIndentedString(includes) + '\n' +
+                "    excludes: " + toIndentedString(excludes) + '\n' +
+                "    filterBy: " + toIndentedString(filterBy) + '\n' +
+                "    removeMatchedTokens: " + toIndentedString(removeMatchedTokens) + '\n' +
+                '}';
+        return sb;
     }
 
 }

@@ -11,6 +11,6 @@ public class TypesenseError extends Exception {
 
     @Override
     public String toString() {
-        return this.getClass().getName() + ":" + "\n" + "Request failed with status code: " + this.status + ".Server said: " + this.message;
+        return this.getClass().getName() + ':' + '\n' + "Request failed with status code: " + this.status + ".Server said: " + this.message;
     }
 }

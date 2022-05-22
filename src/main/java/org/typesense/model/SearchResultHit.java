@@ -124,15 +124,14 @@ public class SearchResultHit extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchResultHit {\n");
 
-        sb.append("    highlights: ").append(toIndentedString(highlights)).append("\n");
-        sb.append("    document: ").append(toIndentedString(document)).append("\n");
-        sb.append("    textMatch: ").append(toIndentedString(textMatch)).append("\n");
-        sb.append("    geoDistanceMeters: ").append(toIndentedString(geoDistanceMeters)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchResultHit {\n" +
+                "    highlights: " + toIndentedString(highlights) + '\n' +
+                "    document: " + toIndentedString(document) + '\n' +
+                "    textMatch: " + toIndentedString(textMatch) + '\n' +
+                "    geoDistanceMeters: " + toIndentedString(geoDistanceMeters) + '\n' +
+                '}';
+        return sb;
     }
 
 }

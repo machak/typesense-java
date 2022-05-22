@@ -42,13 +42,12 @@ public class CollectionResponse extends CollectionSchema {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CollectionResponse {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    numDocuments: ").append(toIndentedString(numDocuments)).append("\n");
-        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class CollectionResponse {\n" +
+                "    " + toIndentedString(super.toString()) + '\n' +
+                "    numDocuments: " + toIndentedString(numDocuments) + '\n' +
+                "    createdAt: " + toIndentedString(createdAt) + '\n' +
+                '}';
+        return sb;
     }
 
 }

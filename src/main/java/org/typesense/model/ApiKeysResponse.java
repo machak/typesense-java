@@ -39,12 +39,11 @@ public class ApiKeysResponse extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ApiKeysResponse {\n");
 
-        sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class ApiKeysResponse {\n" +
+                "    keys: " + toIndentedString(keys) + '\n' +
+                '}';
+        return sb;
     }
 
 }

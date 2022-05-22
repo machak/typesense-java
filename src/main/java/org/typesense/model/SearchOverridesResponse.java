@@ -39,12 +39,11 @@ public class SearchOverridesResponse extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchOverridesResponse {\n");
 
-        sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchOverridesResponse {\n" +
+                "    overrides: " + toIndentedString(overrides) + '\n' +
+                '}';
+        return sb;
     }
 
 }

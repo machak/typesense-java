@@ -1,11 +1,14 @@
 package org.typesense.api;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.typesense.model.SearchSynonymSchema;
 
 import junit.framework.TestCase;
 
 public class SynonymsTest extends TestCase {
 
+    private static final Logger log = LoggerFactory.getLogger(SynonymsTest.class);
     private TypesenseClient client;
     private Helper helper;
 
@@ -30,18 +33,18 @@ public class SynonymsTest extends TestCase {
         synonym.addSynonymsItem("dictionary").addSynonymsItem("guide").addSynonymsItem("encyclopedia");
         synonym.root("books");
 
-        System.out.println(this.client.collections("books").synonyms().upsert("books-synonyms", synonym));
+        log.debug(String.valueOf(this.client.collections("books").synonyms().upsert("books-synonyms", synonym)));
     }
 
     public void testRetrieve() throws Exception {
-        System.out.println(this.client.collections("books").synonyms("coat-synonyms").retrieve());
+        log.debug(String.valueOf(this.client.collections("books").synonyms("coat-synonyms").retrieve()));
     }
 
     public void testRetrieveAll() throws Exception {
-        System.out.println(this.client.collections("books").synonyms().retrieve());
+        log.debug(String.valueOf(this.client.collections("books").synonyms().retrieve()));
     }
 
     public void testDelete() throws Exception {
-        System.out.println(this.client.collections("books").synonyms("coat-synonyms").delete());
+        log.debug(String.valueOf(this.client.collections("books").synonyms("coat-synonyms").delete()));
     }
 }

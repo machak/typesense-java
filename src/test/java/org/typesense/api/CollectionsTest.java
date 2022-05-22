@@ -3,6 +3,8 @@ package org.typesense.api;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.typesense.model.CollectionResponse;
 import org.typesense.model.CollectionSchema;
 import org.typesense.model.Field;
@@ -12,6 +14,7 @@ import junit.framework.TestCase;
 
 public class CollectionsTest extends TestCase {
 
+    private static final Logger log = LoggerFactory.getLogger(CollectionsTest.class);
     public TypesenseClient client;
     private Helper helper;
 
@@ -32,20 +35,20 @@ public class CollectionsTest extends TestCase {
         helper.createTestCollection();
         CollectionResponse[] collectionResponses = client.collections().retrieve();
         for (CollectionResponse c : collectionResponses) {
-            System.out.println(c);
+            log.debug(String.valueOf(c));
         }
     }
 
     @Test
     public void testRetrieveSingleCollection() throws Exception {
         helper.createTestCollection();
-        System.out.println(client.collections("books").retrieve());
+        log.debug(String.valueOf(client.collections("books").retrieve()));
     }
 
     @Test
     public void testDeleteCollection() throws Exception {
         helper.createTestCollection();
-        System.out.println(client.collections("books").delete());
+        log.debug(String.valueOf(client.collections("books").delete()));
     }
 
     @Test
@@ -60,6 +63,6 @@ public class CollectionsTest extends TestCase {
         collectionSchema.name("Countries").fields(fields);
 
         CollectionResponse cr = client.collections().create(collectionSchema);
-        System.out.println(cr);
+        log.debug(String.valueOf(cr));
     }
 }

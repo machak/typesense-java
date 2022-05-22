@@ -114,14 +114,13 @@ public class ImportDocumentsParameters extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ImportDocumentsParameters {\n");
 
-        sb.append("    action: ").append(toIndentedString(action)).append("\n");
-        sb.append("    batchSize: ").append(toIndentedString(batchSize)).append("\n");
-        sb.append("    dirtyValues: ").append(toIndentedString(dirtyValues)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class ImportDocumentsParameters {\n" +
+                "    action: " + toIndentedString(action) + '\n' +
+                "    batchSize: " + toIndentedString(batchSize) + '\n' +
+                "    dirtyValues: " + toIndentedString(dirtyValues) + '\n' +
+                '}';
+        return sb;
     }
 
 }

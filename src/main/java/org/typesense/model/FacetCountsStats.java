@@ -120,16 +120,15 @@ public class FacetCountsStats extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class FacetCountsStats {\n");
 
-        sb.append("    max: ").append(toIndentedString(max)).append("\n");
-        sb.append("    min: ").append(toIndentedString(min)).append("\n");
-        sb.append("    sum: ").append(toIndentedString(sum)).append("\n");
-        sb.append("    totalValues: ").append(toIndentedString(totalValues)).append("\n");
-        sb.append("    avg: ").append(toIndentedString(avg)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class FacetCountsStats {\n" +
+                "    max: " + toIndentedString(max) + '\n' +
+                "    min: " + toIndentedString(min) + '\n' +
+                "    sum: " + toIndentedString(sum) + '\n' +
+                "    totalValues: " + toIndentedString(totalValues) + '\n' +
+                "    avg: " + toIndentedString(avg) + '\n' +
+                '}';
+        return sb;
     }
 
 }

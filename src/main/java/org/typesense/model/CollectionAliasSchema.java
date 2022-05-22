@@ -35,12 +35,11 @@ public class CollectionAliasSchema extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CollectionAliasSchema {\n");
 
-        sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class CollectionAliasSchema {\n" +
+                "    collectionName: " + toIndentedString(collectionName) + '\n' +
+                '}';
+        return sb;
     }
 
 }

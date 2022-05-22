@@ -1,8 +1,12 @@
 package org.typesense.api;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.typesense.Const;
 import org.typesense.model.DeleteDocumentsParameters;
 import org.typesense.model.ExportDocumentsParameters;
 import org.typesense.model.ImportDocumentsParameters;
@@ -13,19 +17,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Documents {
 
+    private static final Logger log = LoggerFactory.getLogger(Documents.class);
     private final String collectionName;
     private final TypesenseCall apiCall;
-    private final Configuration configuration;
-
     public static final String RESOURCE_PATH = "/documents";
 
-    Documents(String collectionName, final TypesenseCall apiCall, Configuration configuration) {
+    public Documents(String collectionName, final TypesenseCall apiCall, Configuration configuration) {
         this.collectionName = collectionName;
         this.apiCall = apiCall;
-        this.configuration = configuration;
     }
 
-    public HashMap<String, Object> create(HashMap<String, Object> document) throws Exception {
+    public Map<String, Object> create(Map<String, Object> document) throws Exception {
         return this.apiCall.post(getEndPoint("/"), document);
     }
 
@@ -37,7 +39,8 @@ public class Documents {
         return this.apiCall.post(getEndPoint("/"), document, queryParameters, String.class);
     }
 
-    public HashMap<String, Object> upsert(HashMap<String, Object> document) throws Exception {
+    @SuppressWarnings("unchecked")
+    public Map<String, Object> upsert(HashMap<String, Object> document) throws Exception {
         ImportDocumentsParameters queryParameters = new ImportDocumentsParameters();
         queryParameters.action("upsert");
 
@@ -48,7 +51,7 @@ public class Documents {
         return this.apiCall.get(getEndPoint("search"), searchParameters, org.typesense.model.SearchResult.class);
     }
 
-    public HashMap<String, Object> delete(DeleteDocumentsParameters queryParameters) throws Exception {
+    public Map<String, Object> delete(DeleteDocumentsParameters queryParameters) throws Exception {
         return this.apiCall.delete(getEndPoint("/"), queryParameters);
     }
 
@@ -64,16 +67,15 @@ public class Documents {
         return this.apiCall.post(this.getEndPoint("import"), document, queryParameters, String.class);
     }
 
-    public String import_(ArrayList<HashMap<String, Object>> documents, ImportDocumentsParameters queryParameters) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
+    public String import_(List<Map<String, Object>> documents, ImportDocumentsParameters queryParameters) throws Exception {
+
         String json = "";
-        for (int i = 0; i < documents.size(); i++) {
-            HashMap<String, Object> document = documents.get(i);
+        for (Map<String, Object> document : documents) {
             try {
                 //Convert Map to JSON
-                json = json.concat(mapper.writeValueAsString(document) + "\n");
+                json = json.concat(Const.MAPPER.writeValueAsString(document) + '\n');
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Error importing:", e);
             }
         }
         json = json.trim();

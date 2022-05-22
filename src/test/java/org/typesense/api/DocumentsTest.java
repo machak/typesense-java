@@ -4,8 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.typesense.model.DeleteDocumentsParameters;
 import org.typesense.model.ExportDocumentsParameters;
 import org.typesense.model.ImportDocumentsParameters;
@@ -15,6 +19,7 @@ import junit.framework.TestCase;
 
 public class DocumentsTest extends TestCase {
 
+    private static final Logger log = LoggerFactory.getLogger(DocumentsTest.class);
     public TypesenseClient client;
     private Helper helper;
 
@@ -32,13 +37,13 @@ public class DocumentsTest extends TestCase {
 
     public void testRetrieveDocument() throws Exception {
         helper.createTestDocument();
-        System.out.println(client.collections("books").documents("1").retrieve());
+        log.debug(String.valueOf(client.collections("books").documents("1").retrieve()));
     }
 
     public void testCreateDocument() throws Exception {
 
         String[] authors = {"shakspeare", "william"};
-        HashMap<String, Object> hmap = new HashMap<>();
+        Map<String, Object> hmap = new HashMap<>();
         hmap.put("title", "Romeo and juliet");
         hmap.put("authors", authors);
         hmap.put("image_url", "fgfg");
@@ -49,7 +54,7 @@ public class DocumentsTest extends TestCase {
         hmap.put("authors_facet", authors);
         hmap.put("id", "1");
 
-        System.out.println(client.collections("books").documents().create(hmap));
+        log.debug(String.valueOf(client.collections("books").documents().create(hmap)));
     }
 
     public void testUpsertDocument() throws Exception {
@@ -66,13 +71,13 @@ public class DocumentsTest extends TestCase {
         hmap.put("authors_facet", authors);
         hmap.put("id", "3");
 
-        System.out.println(client.collections("books").documents().upsert(hmap));
+        log.debug(String.valueOf(client.collections("books").documents().upsert(hmap)));
 
     }
 
     public void testDeleteDocument() throws Exception {
         helper.createTestDocument();
-        System.out.println(client.collections("books").documents("1").delete());
+        log.debug(String.valueOf(client.collections("books").documents("1").delete()));
     }
 
     public void testDeleteDocumentByQuery() throws Exception {
@@ -80,7 +85,7 @@ public class DocumentsTest extends TestCase {
         DeleteDocumentsParameters deleteDocumentsParameters = new DeleteDocumentsParameters();
         deleteDocumentsParameters.filterBy("publication_year:=[1666]");
         deleteDocumentsParameters.batchSize(10);
-        System.out.println(client.collections("books").documents().delete(deleteDocumentsParameters));
+        log.debug(String.valueOf(client.collections("books").documents().delete(deleteDocumentsParameters)));
     }
 
     public void testUpdateDocument() throws Exception {
@@ -91,7 +96,7 @@ public class DocumentsTest extends TestCase {
         document.put("authors", authors);
         document.put("id", "1");
         client.collections("books").documents("1").update(document);
-        //System.out.println(client.collections("books").documents("1").update(document));
+        //log.debug(client.collections("books").documents("1").update(document));
     }
 
     public void testSearchDocuments() throws Exception {
@@ -102,14 +107,14 @@ public class DocumentsTest extends TestCase {
                 .prefix("false,true");
         org.typesense.model.SearchResult searchResult = client.collections("books").documents().search(searchParameters);
 
-        System.out.println(searchResult);
+        log.debug(String.valueOf(searchResult));
     }
 
     public void testImport() throws Exception {
-        HashMap<String, Object> document1 = new HashMap<>();
-        HashMap<String, Object> document2 = new HashMap<>();
+        Map<String, Object> document1 = new HashMap<>();
+        Map<String, Object> document2 = new HashMap<>();
         ImportDocumentsParameters queryParameters = new ImportDocumentsParameters();
-        ArrayList<HashMap<String, Object>> documentList = new ArrayList<>();
+        List<Map<String, Object>> documentList = new ArrayList<>();
 
         document1.put("countryName", "India");
         document1.put("capital", "Delhi");
@@ -122,7 +127,7 @@ public class DocumentsTest extends TestCase {
         documentList.add(document2);
 
         queryParameters.action("create");
-        System.out.println(this.client.collections("books").documents().import_(documentList, queryParameters));
+        log.debug(this.client.collections("books").documents().import_(documentList, queryParameters));
     }
 
     public void testImportAsString() throws Exception {
@@ -130,14 +135,14 @@ public class DocumentsTest extends TestCase {
         queryParameters.action("create");
         String documentList = "{\"countryName\": \"India\", \"capital\": \"Washington\", \"gdp\": 5215}\n" +
                 "{\"countryName\": \"Iran\", \"capital\": \"London\", \"gdp\": 5215}";
-        System.out.println(this.client.collections("books").documents().import_(documentList, queryParameters));
+        log.debug(this.client.collections("books").documents().import_(documentList, queryParameters));
     }
 
     public void testExportDocuments() throws Exception {
         helper.createTestDocument();
         ExportDocumentsParameters exportDocumentsParameters = new ExportDocumentsParameters();
         exportDocumentsParameters.setExcludeFields("id,publication_year,authors");
-        System.out.println(client.collections("books").documents().export(exportDocumentsParameters));
+        log.debug(client.collections("books").documents().export(exportDocumentsParameters));
     }
 
     public void testImportFromFile() throws FileNotFoundException, Exception {
@@ -165,6 +170,6 @@ public class DocumentsTest extends TestCase {
         hmap.put("average_rating", 3.2);
         hmap.put("id", "2");
 
-        System.out.println(this.client.collections("books").documents().create(hmap, queryParameters));
+        log.debug(this.client.collections("books").documents().create(hmap, queryParameters));
     }
 }

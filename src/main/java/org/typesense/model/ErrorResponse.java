@@ -32,12 +32,11 @@ public class ErrorResponse extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ErrorResponse {\n");
 
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class ErrorResponse {\n" +
+                "    message: " + toIndentedString(message) + '\n' +
+                '}';
+        return sb;
     }
 
 }

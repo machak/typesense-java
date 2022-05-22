@@ -18,17 +18,10 @@ import org.glassfish.jersey.jackson.internal.jackson.jaxrs.json.JacksonJaxbJsonP
 import org.glassfish.jersey.jackson.internal.jackson.jaxrs.json.JacksonJsonProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.typesense.api.exceptions.HttpError;
-import org.typesense.api.exceptions.ObjectAlreadyExists;
-import org.typesense.api.exceptions.ObjectNotFound;
-import org.typesense.api.exceptions.ObjectUnprocessable;
-import org.typesense.api.exceptions.RequestForbidden;
-import org.typesense.api.exceptions.RequestMalformed;
-import org.typesense.api.exceptions.RequestUnauthorized;
+import org.typesense.Const;
 import org.typesense.api.exceptions.ServerError;
 import org.typesense.api.exceptions.ServiceUnavailable;
 import org.typesense.api.exceptions.TypesenseError;
-import org.typesense.model.ErrorResponse;
 import org.typesense.resources.Node;
 import org.typesense.resources.RequestHandler;
 
@@ -47,7 +40,7 @@ public class JerseyCall extends BaseCall {
 
     private final Configuration configuration;
 
-    private final ObjectMapper mapper = new ObjectMapper();
+
     private static int nodeIndex = 0;
 
     private static final String API_KEY_HEADER = "X-TYPESENSE-API-KEY";
@@ -356,8 +349,7 @@ public class JerseyCall extends BaseCall {
 
     private <T> WebTarget populateQueryParameters2(WebTarget client, T queryParameters) {
         if (queryParameters != null) {
-            ObjectMapper objectMapper = new ObjectMapper();
-            Map<String, Object> map = objectMapper.convertValue(queryParameters, Map.class);
+            Map<String, Object> map = Const.MAPPER.convertValue(queryParameters, Map.class);
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 StringBuilder value = new StringBuilder();
                 if (entry.getValue() instanceof ArrayList) {
@@ -385,20 +377,19 @@ public class JerseyCall extends BaseCall {
 
             String json = response.readEntity(String.class);
             try {
-                Map<String, Object> map = mapper.readValue(json, HashMap.class);
+                Map<String, Object> map = Const.MAPPER.readValue(json, HashMap.class);
                 return (T) map;
             } catch (Exception e) {
                 log.error("Error handling response: ", e);
             }
         } else {
-            ObjectMapperResolver resolver = new ObjectMapperResolver();
-            ObjectMapper mapper = resolver.getContext(String.class);
+
             String json = response.readEntity(String.class);
             try {
                 if (resourceClass == String.class) {
                     return (T) json;
                 }
-                return mapper.readValue(json, resourceClass);
+                return Const.MAPPER.readValue(json, resourceClass);
             } catch (Exception e) {
                 log.error("Error handling response: ", e);
             }

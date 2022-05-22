@@ -1,6 +1,7 @@
 package org.typesense.api;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Metrics {
 
@@ -11,7 +12,7 @@ public class Metrics {
         this.apiCall = apiCall;
     }
 
-    public HashMap<String, String> retrieve() throws Exception {
+    public Map<String, String> retrieve() throws Exception {
         return this.apiCall.get(RESOURCEPATH);
     }
 }

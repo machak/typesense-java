@@ -60,13 +60,12 @@ public class SearchOverrideInclude extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchOverrideInclude {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    position: ").append(toIndentedString(position)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchOverrideInclude {\n" +
+                "    id: " + toIndentedString(id) + '\n' +
+                "    position: " + toIndentedString(position) + '\n' +
+                '}';
+        return sb;
     }
 
 }

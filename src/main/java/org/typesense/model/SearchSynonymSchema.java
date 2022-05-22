@@ -67,13 +67,12 @@ public class SearchSynonymSchema extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchSynonymSchema {\n");
 
-        sb.append("    root: ").append(toIndentedString(root)).append("\n");
-        sb.append("    synonyms: ").append(toIndentedString(synonyms)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchSynonymSchema {\n" +
+                "    root: " + toIndentedString(root) + '\n' +
+                "    synonyms: " + toIndentedString(synonyms) + '\n' +
+                '}';
+        return sb;
     }
 
 

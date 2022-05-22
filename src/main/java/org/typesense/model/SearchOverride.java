@@ -22,12 +22,11 @@ public class SearchOverride extends SearchOverrideSchema {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchOverride {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchOverride {\n" +
+                "    " + toIndentedString(super.toString()) + '\n' +
+                "    id: " + toIndentedString(id) + '\n' +
+                '}';
+        return sb;
     }
 
 }

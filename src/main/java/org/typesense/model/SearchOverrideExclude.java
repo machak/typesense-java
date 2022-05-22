@@ -35,12 +35,11 @@ public class SearchOverrideExclude extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchOverrideExclude {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchOverrideExclude {\n" +
+                "    id: " + toIndentedString(id) + '\n' +
+                '}';
+        return sb;
     }
 
 }

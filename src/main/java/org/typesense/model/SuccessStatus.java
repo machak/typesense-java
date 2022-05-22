@@ -32,12 +32,11 @@ public class SuccessStatus extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SuccessStatus {\n");
 
-        sb.append("    success: ").append(toIndentedString(success)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SuccessStatus {\n" +
+                "    success: " + toIndentedString(success) + '\n' +
+                '}';
+        return sb;
     }
 
 }

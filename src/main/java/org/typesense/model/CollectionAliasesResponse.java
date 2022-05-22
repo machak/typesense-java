@@ -39,12 +39,11 @@ public class CollectionAliasesResponse extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CollectionAliasesResponse {\n");
 
-        sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class CollectionAliasesResponse {\n" +
+                "    aliases: " + toIndentedString(aliases) + '\n' +
+                '}';
+        return sb;
     }
 
 }

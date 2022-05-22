@@ -39,12 +39,11 @@ public class MultiSearchSearchesParameter extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class MultiSearchSearchesParameter {\n");
 
-        sb.append("    searches: ").append(toIndentedString(searches)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class MultiSearchSearchesParameter {\n" +
+                "    searches: " + toIndentedString(searches) + '\n' +
+                '}';
+        return sb;
     }
 
 

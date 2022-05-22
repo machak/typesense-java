@@ -208,20 +208,19 @@ public class Field extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Field {\n");
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
-        sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
-        sb.append("    index: ").append(toIndentedString(index)).append("\n");
-        sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
-        sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
-        sb.append("    infix: ").append(toIndentedString(infix)).append("\n");
-        sb.append("    drop: ").append(toIndentedString(drop)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class Field {\n" +
+                "    name: " + toIndentedString(name) + '\n' +
+                "    type: " + toIndentedString(type) + '\n' +
+                "    optional: " + toIndentedString(optional) + '\n' +
+                "    facet: " + toIndentedString(facet) + '\n' +
+                "    index: " + toIndentedString(index) + '\n' +
+                "    locale: " + toIndentedString(locale) + '\n' +
+                "    sort: " + toIndentedString(sort) + '\n' +
+                "    infix: " + toIndentedString(infix) + '\n' +
+                "    drop: " + toIndentedString(drop) + '\n' +
+                '}';
+        return sb;
     }
 
 

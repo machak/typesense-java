@@ -55,13 +55,12 @@ public class ScopedKeyParameters extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ScopedKeyParameters {\n");
 
-        sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
-        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class ScopedKeyParameters {\n" +
+                "    filterBy: " + toIndentedString(filterBy) + '\n' +
+                "    expiresAt: " + toIndentedString(expiresAt) + '\n' +
+                '}';
+        return sb;
     }
 
 

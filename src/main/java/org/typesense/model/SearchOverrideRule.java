@@ -96,13 +96,12 @@ public class SearchOverrideRule extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchOverrideRule {\n");
 
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    match: ").append(toIndentedString(match)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchOverrideRule {\n" +
+                "    query: " + toIndentedString(query) + '\n' +
+                "    match: " + toIndentedString(match) + '\n' +
+                '}';
+        return sb;
     }
 
 }

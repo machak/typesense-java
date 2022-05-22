@@ -39,12 +39,11 @@ public class SearchSynonymsResponse extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchSynonymsResponse {\n");
 
-        sb.append("    synonyms: ").append(toIndentedString(synonyms)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchSynonymsResponse {\n" +
+                "    synonyms: " + toIndentedString(synonyms) + '\n' +
+                '}';
+        return sb;
     }
 
 }

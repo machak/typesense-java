@@ -76,14 +76,13 @@ public class SearchResultRequestParams extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchResultRequestParams {\n");
 
-        sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
-        sb.append("    q: ").append(toIndentedString(q)).append("\n");
-        sb.append("    perPage: ").append(toIndentedString(perPage)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchResultRequestParams {\n" +
+                "    collectionName: " + toIndentedString(collectionName) + '\n' +
+                "    q: " + toIndentedString(q) + '\n' +
+                "    perPage: " + toIndentedString(perPage) + '\n' +
+                '}';
+        return sb;
     }
 
 }

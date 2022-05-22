@@ -242,20 +242,19 @@ public class SearchResult extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchResult {\n");
 
-        sb.append("    facetCounts: ").append(toIndentedString(facetCounts)).append("\n");
-        sb.append("    found: ").append(toIndentedString(found)).append("\n");
-        sb.append("    searchTimeMs: ").append(toIndentedString(searchTimeMs)).append("\n");
-        sb.append("    outOf: ").append(toIndentedString(outOf)).append("\n");
-        sb.append("    searchCutoff: ").append(toIndentedString(searchCutoff)).append("\n");
-        sb.append("    page: ").append(toIndentedString(page)).append("\n");
-        sb.append("    groupedHits: ").append(toIndentedString(groupedHits)).append("\n");
-        sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
-        sb.append("    requestParams: ").append(toIndentedString(requestParams)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchResult {\n" +
+                "    facetCounts: " + toIndentedString(facetCounts) + '\n' +
+                "    found: " + toIndentedString(found) + '\n' +
+                "    searchTimeMs: " + toIndentedString(searchTimeMs) + '\n' +
+                "    outOf: " + toIndentedString(outOf) + '\n' +
+                "    searchCutoff: " + toIndentedString(searchCutoff) + '\n' +
+                "    page: " + toIndentedString(page) + '\n' +
+                "    groupedHits: " + toIndentedString(groupedHits) + '\n' +
+                "    hits: " + toIndentedString(hits) + '\n' +
+                "    requestParams: " + toIndentedString(requestParams) + '\n' +
+                '}';
+        return sb;
     }
 
 

@@ -145,16 +145,15 @@ public class SearchHighlight extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchHighlight {\n");
 
-        sb.append("    field: ").append(toIndentedString(field)).append("\n");
-        sb.append("    snippet: ").append(toIndentedString(snippet)).append("\n");
-        sb.append("    snippets: ").append(toIndentedString(snippets)).append("\n");
-        sb.append("    indices: ").append(toIndentedString(indices)).append("\n");
-        sb.append("    matchedTokens: ").append(toIndentedString(matchedTokens)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchHighlight {\n" +
+                "    field: " + toIndentedString(field) + '\n' +
+                "    snippet: " + toIndentedString(snippet) + '\n' +
+                "    snippets: " + toIndentedString(snippets) + '\n' +
+                "    indices: " + toIndentedString(indices) + '\n' +
+                "    matchedTokens: " + toIndentedString(matchedTokens) + '\n' +
+                '}';
+        return sb;
     }
 
 }

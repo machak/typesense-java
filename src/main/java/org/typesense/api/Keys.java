@@ -3,10 +3,14 @@ package org.typesense.api;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.typesense.Const;
 import org.typesense.model.ApiKey;
 import org.typesense.model.ApiKeySchema;
 import org.typesense.model.ApiKeysResponse;
@@ -16,9 +20,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Keys {
 
+    private static final Logger log = LoggerFactory.getLogger(Keys.class);
     public static final String RESOURCEPATH = "/keys";
     private final TypesenseCall apiCall;
-
     public Keys(final TypesenseCall apiCall) {
         this.apiCall = apiCall;
     }
@@ -34,13 +38,13 @@ public class Keys {
         return this.apiCall.get(Keys.RESOURCEPATH, ApiKeysResponse.class);
     }
 
-    public String generateScopedSearchKey(String searchKey, HashMap<String, Object> parameters) {
-        ObjectMapper mapper = new ObjectMapper();
+    public String generateScopedSearchKey(String searchKey, Map<String, Object> parameters) {
+
         String params = "";
         try {
-            params = mapper.writeValueAsString(parameters);
+            params = Const.MAPPER.writeValueAsString(parameters);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            log.error("Error processing json:", e);
         }
 
         byte[] hmac256 = null;
@@ -50,7 +54,7 @@ public class Keys {
             mac.init(sks);
             hmac256 = mac.doFinal(params.getBytes(StandardCharsets.UTF_8));
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error signing key", e);
         }
         String digest = Base64.getEncoder().encodeToString(hmac256);
         String keyPrefix = searchKey.substring(0, 4);

@@ -52,13 +52,12 @@ public class CollectionAlias extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CollectionAlias {\n");
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class CollectionAlias {\n" +
+                "    name: " + toIndentedString(name) + '\n' +
+                "    collectionName: " + toIndentedString(collectionName) + '\n' +
+                '}';
+        return sb;
     }
 
 }

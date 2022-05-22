@@ -42,12 +42,11 @@ public class CollectionUpdateSchema extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CollectionUpdateSchema {\n");
 
-        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class CollectionUpdateSchema {\n" +
+                "    fields: " + toIndentedString(fields) + '\n' +
+                '}';
+        return sb;
     }
 
 

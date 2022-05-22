@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.typesense.Const;
 import org.typesense.interceptor.RetryInterceptor;
 import org.typesense.resources.Node;
 
@@ -30,7 +31,7 @@ public class OkHttpCall extends BaseCall {
 
     public static final byte[] EMPTY_BYTES = {};
     private final Configuration configuration;
-    private final ObjectMapper mapper = new ObjectMapper();
+
 
     private static int nodeIndex = 0;
 
@@ -42,7 +43,6 @@ public class OkHttpCall extends BaseCall {
     public OkHttpCall(Configuration configuration) {
         this.configuration = configuration;
         this.apiKey = configuration.apiKey;
-        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         client = new OkHttpClient.Builder()
                 .connectTimeout(configuration.connectionTimeout.getSeconds(), TimeUnit.SECONDS)
                 // TODO add read timeout
@@ -210,7 +210,7 @@ public class OkHttpCall extends BaseCall {
         final Call call = client.newCall(request);
         try (Response response = call.execute()) {
             final String result = response.body() != null ? response.body().string() : null;
-            return mapper.readValue(result, resourceClass);
+            return Const.MAPPER.readValue(result, resourceClass);
 
         } catch (Exception e) {
             log.error("Error processing request", e);
@@ -232,8 +232,8 @@ public class OkHttpCall extends BaseCall {
 
     private <T> HttpUrl.Builder populateQueryParameters2(HttpUrl.Builder builder, T queryParameters) {
         if (queryParameters != null) {
-            ObjectMapper objectMapper = new ObjectMapper();
-            Map<String, Object> map = objectMapper.convertValue(queryParameters, Map.class);
+
+            Map<String, Object> map = Const.MAPPER.convertValue(queryParameters, Map.class);
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 StringBuilder value = new StringBuilder();
                 if (entry.getValue() instanceof ArrayList) {
@@ -249,7 +249,7 @@ public class OkHttpCall extends BaseCall {
 
     @NotNull
     private <R> RequestBody createRequestBody(final R body) throws JsonProcessingException {
-        final String json = mapper.writeValueAsString(body);
+        final String json = Const.MAPPER.writeValueAsString(body);
         return RequestBody.create(json, MediaType.parse("application/json"));
     }
 

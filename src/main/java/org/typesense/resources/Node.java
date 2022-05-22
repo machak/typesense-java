@@ -37,7 +37,7 @@ public class Node {
             throw new RuntimeException("Port cannot be null");
         }
 
-        this.baseUrl = protocol + "://" + host + ":" + port;
+        this.baseUrl = protocol + "://" + host + ':' + port;
     }
 
 }

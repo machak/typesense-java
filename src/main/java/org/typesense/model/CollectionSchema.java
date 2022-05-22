@@ -152,16 +152,15 @@ public class CollectionSchema extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CollectionSchema {\n");
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
-        sb.append("    defaultSortingField: ").append(toIndentedString(defaultSortingField)).append("\n");
-        sb.append("    tokenSeparators: ").append(toIndentedString(tokenSeparators)).append("\n");
-        sb.append("    symbolsToIndex: ").append(toIndentedString(symbolsToIndex)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class CollectionSchema {\n" +
+                "    name: " + toIndentedString(name) + '\n' +
+                "    fields: " + toIndentedString(fields) + '\n' +
+                "    defaultSortingField: " + toIndentedString(defaultSortingField) + '\n' +
+                "    tokenSeparators: " + toIndentedString(tokenSeparators) + '\n' +
+                "    symbolsToIndex: " + toIndentedString(symbolsToIndex) + '\n' +
+                '}';
+        return sb;
     }
 
 

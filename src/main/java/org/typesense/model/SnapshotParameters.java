@@ -32,12 +32,11 @@ public class SnapshotParameters extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SnapshotParameters {\n");
 
-        sb.append("    snapshotPath: ").append(toIndentedString(snapshotPath)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SnapshotParameters {\n" +
+                "    snapshotPath: " + toIndentedString(snapshotPath) + '\n' +
+                '}';
+        return sb;
     }
 
 }

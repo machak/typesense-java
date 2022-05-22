@@ -885,46 +885,45 @@ public class SearchParameters extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SearchParameters {\n");
 
-        sb.append("    q: ").append(toIndentedString(q)).append("\n");
-        sb.append("    queryBy: ").append(toIndentedString(queryBy)).append("\n");
-        sb.append("    queryByWeights: ").append(toIndentedString(queryByWeights)).append("\n");
-        sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
-        sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
-        sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
-        sb.append("    facetBy: ").append(toIndentedString(facetBy)).append("\n");
-        sb.append("    maxFacetValues: ").append(toIndentedString(maxFacetValues)).append("\n");
-        sb.append("    facetQuery: ").append(toIndentedString(facetQuery)).append("\n");
-        sb.append("    numTypos: ").append(toIndentedString(numTypos)).append("\n");
-        sb.append("    page: ").append(toIndentedString(page)).append("\n");
-        sb.append("    perPage: ").append(toIndentedString(perPage)).append("\n");
-        sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
-        sb.append("    groupLimit: ").append(toIndentedString(groupLimit)).append("\n");
-        sb.append("    includeFields: ").append(toIndentedString(includeFields)).append("\n");
-        sb.append("    excludeFields: ").append(toIndentedString(excludeFields)).append("\n");
-        sb.append("    highlightFullFields: ").append(toIndentedString(highlightFullFields)).append("\n");
-        sb.append("    highlightAffixNumTokens: ").append(toIndentedString(highlightAffixNumTokens)).append("\n");
-        sb.append("    highlightStartTag: ").append(toIndentedString(highlightStartTag)).append("\n");
-        sb.append("    highlightEndTag: ").append(toIndentedString(highlightEndTag)).append("\n");
-        sb.append("    snippetThreshold: ").append(toIndentedString(snippetThreshold)).append("\n");
-        sb.append("    dropTokensThreshold: ").append(toIndentedString(dropTokensThreshold)).append("\n");
-        sb.append("    typoTokensThreshold: ").append(toIndentedString(typoTokensThreshold)).append("\n");
-        sb.append("    pinnedHits: ").append(toIndentedString(pinnedHits)).append("\n");
-        sb.append("    hiddenHits: ").append(toIndentedString(hiddenHits)).append("\n");
-        sb.append("    highlightFields: ").append(toIndentedString(highlightFields)).append("\n");
-        sb.append("    preSegmentedQuery: ").append(toIndentedString(preSegmentedQuery)).append("\n");
-        sb.append("    enableOverrides: ").append(toIndentedString(enableOverrides)).append("\n");
-        sb.append("    prioritizeExactMatch: ").append(toIndentedString(prioritizeExactMatch)).append("\n");
-        sb.append("    exhaustiveSearch: ").append(toIndentedString(exhaustiveSearch)).append("\n");
-        sb.append("    searchCutoffMs: ").append(toIndentedString(searchCutoffMs)).append("\n");
-        sb.append("    useCache: ").append(toIndentedString(useCache)).append("\n");
-        sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
-        sb.append("    minLen1typo: ").append(toIndentedString(minLen1typo)).append("\n");
-        sb.append("    minLen2typo: ").append(toIndentedString(minLen2typo)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class SearchParameters {\n" +
+                "    q: " + toIndentedString(q) + '\n' +
+                "    queryBy: " + toIndentedString(queryBy) + '\n' +
+                "    queryByWeights: " + toIndentedString(queryByWeights) + '\n' +
+                "    prefix: " + toIndentedString(prefix) + '\n' +
+                "    filterBy: " + toIndentedString(filterBy) + '\n' +
+                "    sortBy: " + toIndentedString(sortBy) + '\n' +
+                "    facetBy: " + toIndentedString(facetBy) + '\n' +
+                "    maxFacetValues: " + toIndentedString(maxFacetValues) + '\n' +
+                "    facetQuery: " + toIndentedString(facetQuery) + '\n' +
+                "    numTypos: " + toIndentedString(numTypos) + '\n' +
+                "    page: " + toIndentedString(page) + '\n' +
+                "    perPage: " + toIndentedString(perPage) + '\n' +
+                "    groupBy: " + toIndentedString(groupBy) + '\n' +
+                "    groupLimit: " + toIndentedString(groupLimit) + '\n' +
+                "    includeFields: " + toIndentedString(includeFields) + '\n' +
+                "    excludeFields: " + toIndentedString(excludeFields) + '\n' +
+                "    highlightFullFields: " + toIndentedString(highlightFullFields) + '\n' +
+                "    highlightAffixNumTokens: " + toIndentedString(highlightAffixNumTokens) + '\n' +
+                "    highlightStartTag: " + toIndentedString(highlightStartTag) + '\n' +
+                "    highlightEndTag: " + toIndentedString(highlightEndTag) + '\n' +
+                "    snippetThreshold: " + toIndentedString(snippetThreshold) + '\n' +
+                "    dropTokensThreshold: " + toIndentedString(dropTokensThreshold) + '\n' +
+                "    typoTokensThreshold: " + toIndentedString(typoTokensThreshold) + '\n' +
+                "    pinnedHits: " + toIndentedString(pinnedHits) + '\n' +
+                "    hiddenHits: " + toIndentedString(hiddenHits) + '\n' +
+                "    highlightFields: " + toIndentedString(highlightFields) + '\n' +
+                "    preSegmentedQuery: " + toIndentedString(preSegmentedQuery) + '\n' +
+                "    enableOverrides: " + toIndentedString(enableOverrides) + '\n' +
+                "    prioritizeExactMatch: " + toIndentedString(prioritizeExactMatch) + '\n' +
+                "    exhaustiveSearch: " + toIndentedString(exhaustiveSearch) + '\n' +
+                "    searchCutoffMs: " + toIndentedString(searchCutoffMs) + '\n' +
+                "    useCache: " + toIndentedString(useCache) + '\n' +
+                "    cacheTtl: " + toIndentedString(cacheTtl) + '\n' +
+                "    minLen1typo: " + toIndentedString(minLen1typo) + '\n' +
+                "    minLen2typo: " + toIndentedString(minLen2typo) + '\n' +
+                '}';
+        return sb;
     }
 
 }

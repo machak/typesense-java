@@ -32,12 +32,11 @@ public class InlineResponse2001 extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2001 {\n");
 
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class InlineResponse2001 {\n" +
+                "    version: " + toIndentedString(version) + '\n' +
+                '}';
+        return sb;
     }
 
 

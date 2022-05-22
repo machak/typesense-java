@@ -32,12 +32,11 @@ public class ModelApiResponse extends BaseModel {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ModelApiResponse {\n");
 
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class ModelApiResponse {\n" +
+                "    message: " + toIndentedString(message) + '\n' +
+                '}';
+        return sb;
     }
 
 }

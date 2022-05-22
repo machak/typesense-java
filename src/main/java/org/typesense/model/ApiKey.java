@@ -50,14 +50,13 @@ public class ApiKey extends ApiKeySchema {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ApiKey {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("    valuePrefix: ").append(toIndentedString(valuePrefix)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        final String sb = "class ApiKey {\n" +
+                "    " + toIndentedString(super.toString()) + '\n' +
+                "    id: " + toIndentedString(id) + '\n' +
+                "    value: " + toIndentedString(value) + '\n' +
+                "    valuePrefix: " + toIndentedString(valuePrefix) + '\n' +
+                '}';
+        return sb;
     }
 
 }

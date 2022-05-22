@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.typesense.model.ApiKey;
 import org.typesense.model.ApiKeySchema;
 
@@ -11,6 +13,7 @@ import junit.framework.TestCase;
 
 public class KeysTest extends TestCase {
 
+    private static final Logger log = LoggerFactory.getLogger(KeysTest.class);
     private TypesenseClient client;
     private Helper helper;
     private String testKey;
@@ -40,7 +43,7 @@ public class KeysTest extends TestCase {
 
         apiKeySchema.description("Admin Key").actions(actionValues).collections(collectionValues);
 
-        System.out.println(client.keys().create(apiKeySchema));
+        log.debug(String.valueOf(client.keys().create(apiKeySchema)));
     }
 
     public void testCreateSearchOnly() throws Exception {
@@ -53,24 +56,24 @@ public class KeysTest extends TestCase {
 
         apiKeySchema.description("Search only Key").actions(actionValues).collections(collectionValues);
 
-        System.out.println(this.client.keys().create(apiKeySchema));
+        log.debug(String.valueOf(this.client.keys().create(apiKeySchema)));
     }
 
     public void testRetrieve() throws Exception {
-        System.out.println(this.client.keys(id).retrieve());
+        log.debug(String.valueOf(this.client.keys(id).retrieve()));
     }
 
     public void testRetrieveAll() throws Exception {
-        System.out.println(client.keys().retrieve());
+        log.debug(String.valueOf(client.keys().retrieve()));
     }
 
     public void testDelete() throws Exception {
-        System.out.println(this.client.keys(id).delete());
+        log.debug(String.valueOf(this.client.keys(id).delete()));
     }
 
     public void testScopedKey() {
         HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("filter_by", "company_id:124");
-        System.out.println(this.client.keys().generateScopedSearchKey(testKey, parameters));
+        log.debug(this.client.keys().generateScopedSearchKey(testKey, parameters));
     }
 }

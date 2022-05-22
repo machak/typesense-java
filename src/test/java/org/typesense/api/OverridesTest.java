@@ -3,6 +3,8 @@ package org.typesense.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.typesense.model.SearchOverrideExclude;
 import org.typesense.model.SearchOverrideInclude;
 import org.typesense.model.SearchOverrideRule;
@@ -12,6 +14,7 @@ import junit.framework.TestCase;
 
 public class OverridesTest extends TestCase {
 
+    private static final Logger log = LoggerFactory.getLogger(OverridesTest.class);
     private TypesenseClient client;
     private Helper helper;
 
@@ -42,18 +45,18 @@ public class OverridesTest extends TestCase {
                             .includes(searchOverrideIncludes)
                             .excludes(searchOverrideExcludes);
 
-        System.out.println(client.collections("books").overrides().upsert("apple", searchOverrideSchema));
+        log.debug(String.valueOf(client.collections("books").overrides().upsert("apple", searchOverrideSchema)));
     }
 
     public void testRetrieveAll() throws Exception {
-        System.out.println(this.client.collections("books").overrides().retrieve());
+        log.debug(String.valueOf(this.client.collections("books").overrides().retrieve()));
     }
 
     public void testRetrieve() throws Exception {
-        System.out.println(this.client.collections("books").overrides("customize-apple").retrieve());
+        log.debug(String.valueOf(this.client.collections("books").overrides("customize-apple").retrieve()));
     }
 
     public void testDelete() throws Exception {
-        System.out.println(this.client.collections("books").overrides("customize-apple").delete());
+        log.debug(String.valueOf(this.client.collections("books").overrides("customize-apple").delete()));
     }
 }
