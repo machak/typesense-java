@@ -2,7 +2,6 @@ package org.typesense.api;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.crypto.Mac;
@@ -16,7 +15,6 @@ import org.typesense.model.ApiKeySchema;
 import org.typesense.model.ApiKeysResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Keys {
 

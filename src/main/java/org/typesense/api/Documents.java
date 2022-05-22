@@ -13,8 +13,6 @@ import org.typesense.model.ImportDocumentsParameters;
 import org.typesense.model.SearchParameters;
 import org.typesense.model.SearchResult;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public class Documents {
 
     private static final Logger log = LoggerFactory.getLogger(Documents.class);

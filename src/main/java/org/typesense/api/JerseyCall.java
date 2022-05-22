@@ -347,6 +347,7 @@ public class JerseyCall extends BaseCall {
         return client;
     }
 
+    @SuppressWarnings("unchecked")
     private <T> WebTarget populateQueryParameters2(WebTarget client, T queryParameters) {
         if (queryParameters != null) {
             Map<String, Object> map = Const.MAPPER.convertValue(queryParameters, Map.class);

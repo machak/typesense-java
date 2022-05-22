@@ -8,8 +8,6 @@ import org.typesense.model.CollectionUpdateSchema;
 
 public class Collection {
 
-    private final Configuration configuration;
-
     private final TypesenseCall apiCall;
 
     private final String name;
@@ -28,9 +26,8 @@ public class Collection {
     Collection(String name, final TypesenseCall apiCall, Configuration configuration) {
         this.name = name;
         this.apiCall = apiCall;
-        this.configuration = configuration;
         this.endpoint = Collections.RESOURCE_PATH + '/' + this.name;
-        this.documents = new Documents(this.name, this.apiCall, this.configuration);
+        this.documents = new Documents(this.name, this.apiCall, configuration);
         this.individualDocuments = new HashMap<>();
         this.synonyms = new Synonyms(this.name, this.apiCall);
         this.individualSynonyms = new HashMap<>();

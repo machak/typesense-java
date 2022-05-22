@@ -14,9 +14,7 @@ import org.typesense.Const;
 import org.typesense.interceptor.RetryInterceptor;
 import org.typesense.resources.Node;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import okhttp3.Call;
 import okhttp3.HttpUrl;
@@ -230,6 +228,7 @@ public class OkHttpCall extends BaseCall {
         return builder;
     }
 
+    @SuppressWarnings("unchecked")
     private <T> HttpUrl.Builder populateQueryParameters2(HttpUrl.Builder builder, T queryParameters) {
         if (queryParameters != null) {
 
