@@ -29,7 +29,7 @@ public class Helper {
 
         Configuration configuration = new Configuration(nodes, Duration.ofSeconds(3), "xyz");
 
-        this.client = new JerseyClient(configuration);
+        this.client = new OkHttpTypesenseClient(configuration);
     }
 
     public void createTestCollection() throws Exception {

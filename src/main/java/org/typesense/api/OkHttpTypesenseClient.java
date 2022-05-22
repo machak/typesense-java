@@ -25,7 +25,7 @@ public class OkHttpTypesenseClient implements TypesenseClient {
 
     public OkHttpTypesenseClient(final Configuration configuration) {
         this.configuration = configuration;
-        this.apiCall = new JerseyCall(configuration);
+        this.apiCall = new OkHttpCall(configuration);
         collections = new Collections(apiCall);
         this.individualCollections = new HashMap<>();
         this.aliases = new Aliases(this.apiCall);

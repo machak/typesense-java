@@ -19,7 +19,7 @@ public class RetryTest extends TestCase {
         Configuration configuration = new Configuration(nodes, Duration.ofSeconds(1), "xyz");
         configuration.numRetries = 2;
         configuration.retryInterval = Duration.ofSeconds(2);
-        this.client = new JerseyClient(configuration);
+        this.client = new OkHttpTypesenseClient(configuration);
     }
 
     public void testRetry() throws Exception {
